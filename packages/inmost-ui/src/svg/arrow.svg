@@ -1,0 +1,13 @@
+<svg  x="0px" y="0px" viewBox="0 0 64 64">
+	<style type="text/css">
+		.st0 {
+				fill:none;
+				stroke:#BB0808;
+				stroke-width:3;
+				stroke-miterlimit:10;
+		}
+	</style>
+	<line class="st0" x1="0" y1="32.8" x2="64" y2="32.8"/>
+	<path class="st0" d="M64,32.8c-12.5,0-23.2,7.3-28.3,17.8"/>
+	<path class="st0" d="M64,32.8c-12.5,0-23.2-7.3-28.3-17.8"/>
+</svg>

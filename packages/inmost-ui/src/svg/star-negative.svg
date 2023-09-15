@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+	<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+		viewBox="0 0 64 64" style="enable-background:new 0 0 64 64;" xml:space="preserve">
+	<style type="text/css">
+		.st0{fill:#BB0808;}
+	</style>
+	<g>
+		<path class="st0" d="M0,32c0,17.7,14.3,32,32,32C32,46.3,17.7,32,0,32z"/>
+		<path class="st0" d="M32,0C14.3,0,0,14.3,0,32C17.7,32,32,17.7,32,0z"/>
+		<path class="st0" d="M32,64c17.7,0,32-14.3,32-32C46.3,32,32,46.3,32,64z"/>
+		<path class="st0" d="M64,32C64,14.3,49.7,0,32,0C32,17.7,46.3,32,64,32z"/>
+	</g>
+</svg>

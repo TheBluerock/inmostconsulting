@@ -1,0 +1,26 @@
+{
+  "name": "root",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "dotenv": "^16.3.1",
+    "gatsby": "^5.12.3",
+    "gatsby-plugin-alias-imports": "^1.0.5",
+    "gatsby-plugin-image": "^3.12.0",
+    "gatsby-plugin-sharp": "^5.12.0",
+    "gatsby-source-contentful": "^8.12.0",
+    "gatsby-source-filesystem": "^5.12.0",
+    "inmost-blog": "*",
+    "inmost-helpers": "^1.0.0",
+    "inmost-ui": "*",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "scripts": {
+    "develop": "gatsby develop",
+    "clean": "gatsby clean"
+  }
+}

@@ -1,0 +1,32 @@
+@font-face{
+  font-family:'Ogg Slant';
+  src:url('/fonts/OggSlant-Regular.woff2') format("woff2");
+  font-style: normal
+}
+
+@font-face{
+  font-family:'Ogg Roman';
+  src:url('/fonts/OggRoman-Regular.woff2') format("woff2");
+  font-weight:400;
+  font-style:normal
+}
+
+@font-face {
+    font-family: 'Neue Haas Grotesque';
+    src: url('/fonts/NeueHaasDisplay-Medium.woff2') format('woff2');
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Neue Haas Grotesque';
+    src: url('/fonts/NeueHaasDisplay-Roman.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+}
+
+
+
+
+
+  

@@ -1,0 +1,13 @@
+{
+  "name": "inmost-pwa",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "workspaces": ["root", "packages/**"],
+  "scripts": {
+    "dev": "npm run clean -w root && npm run develop -w root",
+    "clean": "npm run clean -w root"
+  },
+  "author": "",
+  "license": "ISC"
+}
