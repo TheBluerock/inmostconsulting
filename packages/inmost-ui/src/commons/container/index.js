@@ -1,23 +1,35 @@
-import React from 'react';
-import styled from '@emotion/styled';
+import React from "react";
+import styled from "@emotion/styled";
 
 // OuterWrapper styles
 const OuterWrapper = styled.div`
-  width: 100%;
-  max-width: calc(100% - 128px); /* Subtract 64px from both sides */
-  margin: 0 auto; /* Center the container horizontally */
+  display: flex;
+  flex: 1;
+  max-width: calc(100% - 128px);
+  margin: 0 auto;
+
+  @media ${({ theme }) => theme.device.large} {
+    max-width: calc(100% - 48px);
+  }
+  @media ${({ theme }) => theme.device.small} {
+    max-width: calc(100% - 16px);
+  }
 `;
 
 // InnerWrapper styles
 const InnerWrapper = styled.div`
   width: 100%;
+  display: flex;
+  flex-direction: ${({ column }) => (column ? "column" : "row")};
 `;
 
 // Container component
-const Container = ({ children }) => {
+const Container = ({ children, reverse, column }) => {
   return (
     <OuterWrapper>
-      <InnerWrapper>{children}</InnerWrapper>
+      <InnerWrapper reverse={reverse} column={column}>
+        {children}
+      </InnerWrapper>
     </OuterWrapper>
   );
 };

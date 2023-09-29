@@ -1,9 +1,0 @@
-#######################################################
-# Inmost Website Config
-#######################################################
-
-interface WebsiteConfig implements node {
-  id: ID!
-  url: String!
-  name: String!
-}

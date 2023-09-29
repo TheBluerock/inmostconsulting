@@ -3,11 +3,18 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "workspaces": ["root", "packages/**"],
+  "workspaces": [
+    "root",
+    "packages/**"
+  ],
   "scripts": {
     "dev": "npm run clean -w root && npm run develop -w root",
-    "clean": "npm run clean -w root"
+    "clean": "npm run clean -w root",
+    "pretty": "npx prettier . --write"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "prettier": "3.0.3"
+  }
 }

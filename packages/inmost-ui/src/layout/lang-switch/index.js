@@ -18,9 +18,9 @@
 // `;
 
 // const LangSwitch = () => {
-  
+
 //   const { selectedLocale, toggleLocale } = useAppContext(); // Access context values
-  
+
 //   const controls = useAnimation();
 
 //   useEffect(() => {

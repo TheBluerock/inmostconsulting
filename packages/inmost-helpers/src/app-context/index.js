@@ -1,49 +1,50 @@
-import React, { createContext, useState, useContext, useEffect } from 'react';
+import React, { createContext, useState, useContext, useEffect } from "react";
 
 // Step 1: Create a context and provider
 const AppContext = createContext();
 
 const AppContextProvider = ({ children }) => {
+  
   // Step 2: Define the state and functions
   const [isMenuOpen, setMenuOpen] = useState(false);
-  const [selectedLocale, setSelectedLocale] = useState('it'); // Default locale is 'it'
-  const [isDevice, setIsDevice ] = useState(null);
+  const [selectedLocale, setSelectedLocale] = useState("it");
+  const [isDevice, setIsDevice] = useState(null);
 
   const toggleMenu = () => {
     setMenuOpen(!isMenuOpen);
   };
 
   const toggleLocale = () => {
-    const nextLocale = selectedLocale === 'it' ? 'en' : 'it';
+    const nextLocale = selectedLocale === "it" ? "en" : "it";
     setSelectedLocale(nextLocale);
   };
 
   const setDeviceBasedOnWidth = () => {
-    if (typeof window !== 'undefined') {
+    if (typeof window !== "undefined") {
       const screenWidth = window.innerWidth;
       if (screenWidth >= 1024) {
         // Desktop
-        setIsDevice('desktop');
+        setIsDevice("desktop");
       } else if (screenWidth >= 768) {
         // Tablet
-        setIsDevice('tablet');
+        setIsDevice("tablet");
       } else {
         // Mobile
-        setIsDevice('mobile');
+        setIsDevice("mobile");
       }
     }
   };
-  
+
   useEffect(() => {
     setDeviceBasedOnWidth();
 
     // Listen for window resize and update isDevice
-    if (typeof window !== 'undefined') {
-      window.addEventListener('resize', setDeviceBasedOnWidth);
+    if (typeof window !== "undefined") {
+      window.addEventListener("resize", setDeviceBasedOnWidth);
 
       // Clean up the event listener when the component unmounts
       return () => {
-        window.removeEventListener('resize', setDeviceBasedOnWidth);
+        window.removeEventListener("resize", setDeviceBasedOnWidth);
       };
     }
   }, []);
@@ -54,15 +55,12 @@ const AppContextProvider = ({ children }) => {
     toggleMenu,
     selectedLocale,
     toggleLocale,
-    isDevice
+    isDevice,
   };
-
 
   return (
     // Step 4: Provide the context value to children
-    <AppContext.Provider value={contextValue}>
-      {children}
-    </AppContext.Provider>
+    <AppContext.Provider value={contextValue}>{children}</AppContext.Provider>
   );
 };
 

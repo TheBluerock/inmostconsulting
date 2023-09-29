@@ -1,5 +1,5 @@
-import React from 'react';
-import { Global, css, useTheme } from '@emotion/react';
+import React from "react";
+import { Global, css, useTheme } from "@emotion/react";
 
 const GlobalStyles = () => {
   const theme = useTheme();
@@ -20,11 +20,12 @@ const GlobalStyles = () => {
           border: 0;
         }
 
-        html, body {
+        html,
+        body {
           width: 100%;
           min-height: 100vh;
           background-color: ${theme.colors.background};
-          font-family: 'Neue Haas Grotesque', sans-serif;
+          font-family: "Neue Haas Grotesque", sans-serif;
           -webkit-tap-highlight-color: transparent;
           overflow-x: hidden;
         }
@@ -32,7 +33,6 @@ const GlobalStyles = () => {
         body.no-scroll {
           overflow: hidden;
         }
-
       `}
     />
   );

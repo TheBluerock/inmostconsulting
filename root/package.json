@@ -6,6 +6,7 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
+    "@contentful/rich-text-types": "^16.3.0",
     "dotenv": "^16.3.1",
     "gatsby": "^5.12.3",
     "gatsby-plugin-alias-imports": "^1.0.5",

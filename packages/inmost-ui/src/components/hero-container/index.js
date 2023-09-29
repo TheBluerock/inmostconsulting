@@ -1,5 +1,5 @@
-import React from 'react';
-import styled from '@emotion/styled';
+import React from "react";
+import styled from "@emotion/styled";
 
 // Define the styled grid container
 const GridContainer = styled.span`
@@ -13,11 +13,7 @@ const GridContainer = styled.span`
 
 // Your React component
 const HeroContainer = ({ children }) => {
-  return (
-    <GridContainer>
-      { children }
-    </GridContainer>
-  );
-}
+  return <GridContainer>{children}</GridContainer>;
+};
 
 export default HeroContainer;
