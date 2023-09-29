@@ -19,12 +19,12 @@ const StyledLink = styled(TLink)`
 }`;
 
 const StyledA = styled.a`
-    color: ${({ theme }) => theme.colors.primary} !important;
-    font-size: ${({ theme }) => theme.typography.h4.desktop}px;
-    font-family: "Ogg Slant", serif;
-    letter-spacing: -0.02em;
-    text-decoration: none;
-`
+  color: ${({ theme }) => theme.colors.primary} !important;
+  font-size: ${({ theme }) => theme.typography.h4.desktop}px;
+  font-family: "Ogg Slant", serif;
+  letter-spacing: -0.02em;
+  text-decoration: none;
+`;
 
 const IconWrapper = styled.div`
   position: relative;
@@ -50,11 +50,13 @@ const QuickLink = ({ to, text }) => {
       <IconWrapper>
         <Asterisk />
       </IconWrapper>
-      { 
-        isInternalLink(to)
-        ? <StyledLink to={to}>{ text }</StyledLink>
-        : <StyledA href={to} target="_blank" rel="noopener noreferrer">{ text }</StyledA>
-      }
+      {isInternalLink(to) ? (
+        <StyledLink to={to}>{text}</StyledLink>
+      ) : (
+        <StyledA href={to} target="_blank" rel="noopener noreferrer">
+          {text}
+        </StyledA>
+      )}
     </LinkWrapper>
   );
 };

@@ -2,9 +2,9 @@ import device from "./device";
 
 // Define named constants for font sizes and ratios
 const FONT_SIZE_BASE = {
-  mobile: 18 * 100 / 480,
-  tablet: 21 * 100 / 768,
-  desktop: 22 * 100 / 1280,
+  mobile: (18 * 100) / 480,
+  tablet: (21 * 100) / 768,
+  desktop: (22 * 100) / 1280,
 };
 
 const RATIO = {
@@ -21,7 +21,7 @@ const calculateTypographySizes = (baseSizes, ratio, pow) => {
       typographySizes[screenSize] = baseSizes[screenSize];
     } else {
       typographySizes[screenSize] =
-        (baseSizes[screenSize] * Math.pow(ratio[screenSize], pow)) + 'vw'; // Add 'vw' unit
+        baseSizes[screenSize] * Math.pow(ratio[screenSize], pow) + "vw"; // Add 'vw' unit
     }
   }
   return typographySizes;

@@ -14,7 +14,7 @@ const HomePage = () => {
     colors: {
       primary: 'rgba(187, 8, 8, 1)',
       lightPrimary: 'rgba(187, 8, 8, .3)',
-      background: '#e9ede1'
+      background: '#e9ede1',
     },
   };
 

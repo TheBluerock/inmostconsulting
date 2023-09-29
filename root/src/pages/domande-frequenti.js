@@ -1,10 +1,7 @@
-import React from 'react'
+import React from 'react';
 
 const FaqPage = () => {
-    return(
-        <>
-        </>
-    )
-}
+  return <></>;
+};
 
 export default FaqPage;

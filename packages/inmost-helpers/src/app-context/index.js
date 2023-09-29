@@ -4,7 +4,6 @@ import React, { createContext, useState, useContext, useEffect } from "react";
 const AppContext = createContext();
 
 const AppContextProvider = ({ children }) => {
-  
   // Step 2: Define the state and functions
   const [isMenuOpen, setMenuOpen] = useState(false);
   const [selectedLocale, setSelectedLocale] = useState("it");
