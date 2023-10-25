@@ -42,10 +42,6 @@ const Navigation = () => {
 
   const { links, cta } = data.site.siteMetadata;
 
-  React.useEffect(() => {
-    console.log(data);
-  }, []);
-
   return (
     <OuterWrapper>
       {isDevice === "desktop" ? (
@@ -69,7 +65,7 @@ const DesktopNavigation = ({ links }) => {
   );
 };
 
-const MobileNavigation = ({ cta }) => {
+const MobileNavigation = () => {
   return (
     <>
       <Logo />

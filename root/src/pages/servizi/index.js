@@ -6,8 +6,9 @@ const ServiziPage = () => {
   const ArticlesPageTheme = {
     ...theme,
     colors: {
-      primary: '#34488E',
-      background: '#e9ede1',
+      primary: '#ffbbbc',
+      lightPrimary: 'rgba(255, 187, 188, .3)',
+      background: '#013b2f',
     },
   };
 

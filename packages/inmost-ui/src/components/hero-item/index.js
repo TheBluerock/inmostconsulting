@@ -2,6 +2,7 @@ import React from "react";
 import Text from "@commons/text";
 import styled from "@emotion/styled";
 import { css } from "@emotion/react";
+import { useTheme } from "@emotion/react";
 
 // Define the styled component for HeroText
 const HeroTextWrapper = styled.span`
@@ -24,9 +25,16 @@ const textStyles = css`
 `;
 
 const HeroItem = ({ text, gridColumn, gridRow, align }) => {
+  const theme = useTheme();
+
   return (
     <HeroTextWrapper gridColumn={gridColumn} gridRow={gridRow} align={align}>
-      <Text size={96} fonttype={"serif"} css={textStyles}>
+      <Text
+        fontSize={theme.typography.h1}
+        fontFamily={"serif"}
+        css={textStyles}
+        textTransform={"uppercase"}
+      >
         {text}
       </Text>
     </HeroTextWrapper>

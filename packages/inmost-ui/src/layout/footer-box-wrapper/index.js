@@ -12,25 +12,29 @@ const FooterBoxWrapper = () => {
       <InnerWrapper>
         <FooterBox
           title={"Servizi"}
-          description={"Lorem Ipsum dolor sit amet"}
+          description={"Come ti posso aiutare"}
           icon={<AsteriskIcon />}
+          link={"/servizi/"}
         />
         <FooterBox
           title={"Articoli"}
-          description={"Lorem Ipsum dolor sit amet"}
+          description={"Approfondimenti e Saggezza"}
           icon={<LayersIcon />}
+          link={"/risorse/articoli/"}
         />
       </InnerWrapper>
       <InnerWrapper>
         <FooterBox
           title={"Talks"}
-          description={"Lorem Ipsum dolor sit amet"}
+          description={"Il mio Podcast"}
           icon={<StereoIcon />}
+          link={"/risorse/podcast/inmost-talks/"}
         />
         <FooterBox
-          title={"Learn"}
-          description={"Lorem Ipsum dolor sit amet"}
+          title={"Corsi"}
+          description={"Il mio corso di preparazione"}
           icon={<AtomIcon />}
+          link={"/"}
         />
       </InnerWrapper>
     </OuterWrapper>

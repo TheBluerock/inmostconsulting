@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import styled from "@emotion/styled";
 import Container from "@commons/container";
-import SunLogo from "@components/rising-sun";
+import SunLogo from "@components/sun-logo";
 import Spacer from "@components/spacer";
 import BigParagraph from "@components/big-paragraph";
 
@@ -21,34 +21,36 @@ const FooterMailchimp = () => {
 
   return (
     <Wrapper>
-      <Spacer space={8} />
+      <Spacer space={4} />
       <Container>
         <SunLogo />
       </Container>
-      <Spacer space={6} />
+      <Spacer space={4} />
       <Container>
         <BigParagraph aside={"newsletter"}>
-          <span className="aside">Newsletter</span> Ci impegniamo a inviarti
-          solo informazioni significative. Se desideri rimanere aggiornato, puoi
-          iscriverti alla nostra newsletter mensile.
+          <span className="aside">Newsletter</span> Inviamo solo informazioni
+          significative e se desideri rimanere aggiornato, senza ricevere
+          inutili comunicazioni, puoi lasciare qui la tua mail.
         </BigParagraph>
       </Container>
-      <Spacer space={6} />
+      <Spacer space={4} />
       <Container column>
         <StyledInput
+          name={"email"}
           type="email"
           value={email}
           onChange={handleEmailChange}
           onBlur={() => setIsValidEmail(isValidEmail && email !== "")}
           isValid={isValidEmail}
           placeholder="qui la tua email 🥰"
+          autocomplete={true}
         />
         <Spacer space={2} />
         <ErrorText visible={email != "" && !isValidEmail}>
           Inserisci un indirizzo valido 🙏{" "}
         </ErrorText>
       </Container>
-      <Spacer space={8} />
+      <Spacer space={4} />
     </Wrapper>
   );
 };

@@ -6,8 +6,8 @@ const ContattiPage = () => {
   const ContactsPageTheme = {
     ...theme,
     colors: {
-      primary: '#426427',
-      background: '#e9ede1',
+      primary: 'rgba(227, 227, 255, .75)',
+      background: '#242222',
     },
   };
 

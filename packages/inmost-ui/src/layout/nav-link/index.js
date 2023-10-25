@@ -2,9 +2,7 @@ import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import TransitionLink from "gatsby-plugin-transition-link";
 import styled from "@emotion/styled";
-import { css, keyframes } from "@emotion/react";
 import { gsap } from "gsap";
-import { useTheme } from "@emotion/react";
 import { useLocation } from "@reach/router";
 import Asterisk from "@layout/animated-asterisk";
 
@@ -13,19 +11,11 @@ NavLink.propTypes = {
   text: PropTypes.string.isRequired,
 };
 
-const styles = css`
+const StyledLink = styled(TransitionLink)`
   text-decoration: none;
-  font-size: 34px;
+  font-size: ${({ theme }) => theme.typography.h5.desktop};
   text-transform: uppercase;
-`;
-
-const rotate = keyframes`
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
+  color: ${({ theme }) => theme.colors.primary};
 `;
 
 const AsteriskWrapper = styled.span`
@@ -53,7 +43,6 @@ const OuterWrapper = styled.div`
 `;
 
 function NavLink({ url, text, asterisk }) {
-  const theme = useTheme();
   const [isActive, setIsActive] = useState(false);
   const { pathname } = useLocation();
 
@@ -63,7 +52,7 @@ function NavLink({ url, text, asterisk }) {
 
   const exitAnimation = (node) => {
     const tl = gsap.timeline();
-    tl.to(node, { opacity: 0, duration: 1 });
+    tl.to(node, { opacity: 0, duration: 0.8 });
     return tl;
   };
 
@@ -81,7 +70,7 @@ function NavLink({ url, text, asterisk }) {
         </AsteriskWrapper>
       )}
 
-      <TransitionLink
+      <StyledLink
         to={url}
         exit={{
           trigger: ({ node }) => exitAnimation(node),
@@ -91,12 +80,10 @@ function NavLink({ url, text, asterisk }) {
           trigger: ({ node }) => entryAnimation(node),
           length: 1,
         }}
-        css={styles}
-        style={{ color: theme.colors.primary }}
         aria-label={`Go to ${text}`}
       >
         {text}
-      </TransitionLink>
+      </StyledLink>
     </OuterWrapper>
   );
 }

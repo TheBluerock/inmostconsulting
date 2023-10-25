@@ -5,7 +5,7 @@ import styled from "@emotion/styled";
 const OuterWrapper = styled.div`
   display: flex;
   flex: 1;
-  max-width: calc(100% - 128px);
+  max-width: ${({ width }) => (width ? width : "100%")};
   margin: 0 auto;
 
   @media ${({ theme }) => theme.device.large} {
@@ -24,9 +24,9 @@ const InnerWrapper = styled.div`
 `;
 
 // Container component
-const Container = ({ children, reverse, column }) => {
+const Container = ({ children, reverse, column, width }) => {
   return (
-    <OuterWrapper>
+    <OuterWrapper width={width}>
       <InnerWrapper reverse={reverse} column={column}>
         {children}
       </InnerWrapper>

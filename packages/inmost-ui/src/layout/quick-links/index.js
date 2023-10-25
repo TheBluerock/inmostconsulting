@@ -8,7 +8,9 @@ const QuickLinks = ({ links }) => {
       <RowWrapper>
         {links &&
           links.map((link, index) => (
-            <QuickLink key={index} to={link.link} text={link.text} />
+            <LinkWrapper key={index}>
+              <QuickLink to={link.link} text={link.text} />
+            </LinkWrapper>
           ))}
       </RowWrapper>
     </OuterWrapper>
@@ -18,10 +20,9 @@ const QuickLinks = ({ links }) => {
 export default QuickLinks;
 
 const OuterWrapper = styled.nav`
-  padding: 8px 0;
   border-bottom: 1px solid ${({ theme }) => theme.colors.primary} !important;
   @media ${({ theme }) => theme.device.small} {
-    padding: 8px 16px;
+    padding: 0 24px;
   }
 `;
 
@@ -29,8 +30,14 @@ const RowWrapper = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-around;
-  margin: 0 24px;
   @media ${({ theme }) => theme.device.small} {
     flex-direction: column;
   }
+`;
+
+const LinkWrapper = styled.div`
+  display: flex;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
 `;

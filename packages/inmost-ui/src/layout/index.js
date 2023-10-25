@@ -10,22 +10,18 @@ import MenuOverlay from "@layout/menu";
 import Footer from "@layout/footer";
 
 const Layout = ({ children, theme }) => {
-  React.useEffect(() => {
-    console.log(theme);
-  }, []);
-
   return (
-    <ThemeProvider theme={theme}>
-      <AppContextProvider>
+    <AppContextProvider>
+      <ThemeProvider theme={theme}>
         <GlobalStyles style={fontsCss} />
-        <Spacer space={12} />
+        <Spacer space={7} />
         <MenuButton />
         <MenuOverlay />
         <Header />
         <main>{children}</main>
         <Footer />
-      </AppContextProvider>
-    </ThemeProvider>
+      </ThemeProvider>
+    </AppContextProvider>
   );
 };
 

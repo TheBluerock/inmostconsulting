@@ -4,7 +4,9 @@ import Navigation from "@layout/navigation";
 import { useAppContext } from "@helpers/app-context";
 
 const HeaderWrapper = styled.header`
-  background: ${({ theme }) => theme.colors.background || "white"};
+  background: ${({ theme, isScrolled }) =>
+    isScrolled ? theme.colors.background : "transparent"};
+  transition: background 0.3s linear;
   position: fixed;
   top: 0;
   left: 0;
@@ -34,8 +36,10 @@ const Container = styled.div`
 `;
 
 const Header = () => {
+  const { isScrolled } = useAppContext();
+
   return (
-    <HeaderWrapper>
+    <HeaderWrapper isScrolled={isScrolled}>
       <ContentWrapper>
         <Container>
           <Navigation />

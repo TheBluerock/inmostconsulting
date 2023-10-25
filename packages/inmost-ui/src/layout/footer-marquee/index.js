@@ -2,13 +2,27 @@ import React, { useState, useEffect } from "react";
 import Marquee from "react-fast-marquee";
 import styled from "@emotion/styled";
 
+function getDayOfYear() {
+  const today = new Date();
+  const startOfYear = new Date(today.getFullYear(), 0, 0);
+  const millisecondsInADay = 24 * 60 * 60 * 1000;
+  const timeDiff = today - startOfYear;
+  return Math.floor(timeDiff / millisecondsInADay);
+}
+
 const FooterMarquee = () => {
+  const [link, setLink] = useState("");
+
+  useEffect(() => {
+    const dayOfTheYear = getDayOfYear();
+    setLink(`https://lezioni.acim.org/it/chapters/lesson-${dayOfTheYear}`);
+  }, []);
+
   return (
     <Wrapper>
       <Marquee autoFill={true}>
-        <MarqueeText>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec maximus
-          libero mauris, quis auctor odio consequat sed. [T14:4 6,7];
+        <MarqueeText href={link} target="_blank" rel="noopener noreferrer">
+          Ciò che pensi di essere è una credenza da disfare.
         </MarqueeText>
       </Marquee>
     </Wrapper>
@@ -17,13 +31,21 @@ const FooterMarquee = () => {
 
 export default FooterMarquee;
 
-const MarqueeText = styled.span`
+const MarqueeText = styled.a`
   color: ${({ theme }) => theme.colors.primary};
-  font-size: 32px;
+  font-size: ${({ theme }) => theme.typography.h4.desktop};
   font-family: ${({ theme }) => theme.fonts.serif};
   text-transform: uppercase;
-  margin: 24px 0;
+  text-decoration: none;
+  margin: 24px 12px;
+  @media ${({ theme }) => theme.device.large} {
+    font-size: ${({ theme }) => theme.typography.h4.tablet};
+  }
+  @media ${({ theme }) => theme.device.small} {
+    font-size: ${({ theme }) => theme.typography.h3.mobile};
+  }
 `;
+
 const Wrapper = styled.div`
   border-top: 1px solid ${({ theme }) => theme.colors.primary};
 `;

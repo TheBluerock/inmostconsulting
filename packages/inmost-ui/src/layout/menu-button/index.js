@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styled from "@emotion/styled";
 import InnerButton from "./animated-button";
 import { useAppContext } from "@helpers/app-context";
@@ -25,7 +25,18 @@ const MenuButtonStc = styled.div`
 
 const MenuButton = () => {
   const [isHovered, setIsHovered] = useState(false);
-  const { toggleMenu, isDevice } = useAppContext(); // Use the context
+  const { toggleMenu, isDevice, isMenuOpen } = useAppContext(); // Use the context
+
+  useEffect(() => {
+    const bodyClassList = document.body.classList;
+    console.log(isMenuOpen);
+    if (isMenuOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => (document.body.style.overflow = "");
+  }, [isMenuOpen]);
 
   const handleMouseEnter = () => {
     setIsHovered(true);

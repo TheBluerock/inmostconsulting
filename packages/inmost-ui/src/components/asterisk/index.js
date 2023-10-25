@@ -8,12 +8,16 @@ const OuterWrapper = styled.span`
   width: ${({ size }) => size}px;
 `;
 
+const AsteriskStd = styled(AsteriskSvg)`
+  stroke: ${({ stroke, theme }) => (stroke ? stroke : theme.colors.primary)};
+`;
+
 const Asterisk = ({ size, stroke }) => {
   const theme = useTheme();
 
   return (
     <OuterWrapper size={size}>
-      <AsteriskSvg style={{ stroke: stroke || theme.colors.primary }} />
+      <AsteriskStd stroke={stroke} />
     </OuterWrapper>
   );
 };

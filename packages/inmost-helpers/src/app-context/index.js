@@ -8,6 +8,8 @@ const AppContextProvider = ({ children }) => {
   const [isMenuOpen, setMenuOpen] = useState(false);
   const [selectedLocale, setSelectedLocale] = useState("it");
   const [isDevice, setIsDevice] = useState(null);
+  const [footerQuote, setFooterQuote] = useState("");
+  const [isScrolled, setIsScrolled] = useState(false);
 
   const toggleMenu = () => {
     setMenuOpen(!isMenuOpen);
@@ -34,9 +36,29 @@ const AppContextProvider = ({ children }) => {
     }
   };
 
-  useEffect(() => {
-    setDeviceBasedOnWidth();
+  function handleScrolled() {
+    // Check if the 'window' object exists and is not 'undefined'
+    if (typeof window !== "undefined") {
+      // Add an event listener for the 'scroll' event
+      window.addEventListener("scroll", function () {
+        // Get the current scroll position
+        var scrollY = window.scrollY;
 
+        // Check if the scroll position is greater than 54 pixels
+        if (scrollY > 1) {
+          // The page has been scrolled for more than 54 pixels
+          setIsScrolled(true);
+          // You can perform any desired actions here.
+        } else {
+          setIsScrolled(false);
+        }
+      });
+    }
+  }
+
+  useEffect(() => {
+    handleScrolled();
+    setDeviceBasedOnWidth();
     // Listen for window resize and update isDevice
     if (typeof window !== "undefined") {
       window.addEventListener("resize", setDeviceBasedOnWidth);
@@ -55,6 +77,7 @@ const AppContextProvider = ({ children }) => {
     selectedLocale,
     toggleLocale,
     isDevice,
+    isScrolled,
   };
 
   return (

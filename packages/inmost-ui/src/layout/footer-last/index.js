@@ -52,6 +52,7 @@ const Center = styled.div`
   color: ${({ theme }) => theme.colors.primary};
   justify-content: center;
   @media ${({ theme }) => theme.device.small} {
+    justify-content: start;
     font-size: 12px;
   }
 `;

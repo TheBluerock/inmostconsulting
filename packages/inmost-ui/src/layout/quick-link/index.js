@@ -7,36 +7,45 @@ import Asterisk from "@components/asterisk";
 const LinkWrapper = styled.li`
   list-style: none;
   display: flex;
+  flex: 1;
   align-items: center;
+  justify-content: center;
 `;
 
 const StyledLink = styled(TLink)`
     color: ${({ theme }) => theme.colors.primary} !important;
-    font-size: ${({ theme }) => theme.typography.h4.desktop}px;
+    font-size: ${({ theme }) => theme.typography.h5.desktop};
     font-family: "Ogg Slant", serif;
     letter-spacing: -0.02em;
     text-decoration: none;
+    @media ${({ theme }) => theme.device.medium}{
+      font-size: ${({ theme }) => theme.typography.h5.tablet};
+    }
+    @media ${({ theme }) => theme.device.xsmall}{
+      font-size: ${({ theme }) => theme.typography.h3.mobile};
+    }
 }`;
 
 const StyledA = styled.a`
   color: ${({ theme }) => theme.colors.primary} !important;
-  font-size: ${({ theme }) => theme.typography.h4.desktop}px;
+  font-size: ${({ theme }) => theme.typography.h5.desktop};
   font-family: "Ogg Slant", serif;
   letter-spacing: -0.02em;
   text-decoration: none;
+  @media ${({ theme }) => theme.device.medium} {
+    font-size: ${({ theme }) => theme.typography.h5.tablet};
+  }
+  @media ${({ theme }) => theme.device.small} {
+    font-size: ${({ theme }) => theme.typography.h3.mobile};
+  }
 `;
 
 const IconWrapper = styled.div`
-  position: relative;
-  top: 2px;
-  height: 48px;
-  width: 48px;
+  height: 3vw;
+  width: 3vw;
   margin-right: 8px;
-  @media ${({ theme }) => theme.device.small} {
-    top: 0;
-    height: 36px;
-    width: 36px;
-    margin-right: 16px;
+  @media ${({ theme }) => theme.device.medium} {
+    display: none;
   }
 `;
 

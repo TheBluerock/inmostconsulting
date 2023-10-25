@@ -1,17 +1,16 @@
 import React from "react";
 import styled from "@emotion/styled";
 import { Link } from "gatsby";
-import typography from "../../theme/typography";
 
 const StyledParagraph = styled.p`
   text-transform: uppercase;
   color: ${({ theme }) => theme.colors.primary};
-  font-size: ${({ theme }) => theme.typography.p.desktop};
+  font-size: ${({ theme }) => theme.typography.h5.desktop};
   font-family: ${({ theme, sans }) =>
     sans ? theme.fonts.sans : theme.fonts.serif};
   line-height: 1.3em;
   margin: 0 7vw;
-  dispaly: inline-block;
+  display: inline-block;
 
   & > .bold {
     font-family: ${({ theme }) => theme.fonts.slant};
@@ -25,14 +24,14 @@ const StyledParagraph = styled.p`
   & > .aside {
     font-family: ${({ theme }) => theme.fonts.sans};
     font-size: 24px;
-    margin-right: 128px;
+    margin-right: 1em;
     line-height: 20px;
     font-weight: 600;
   }
 
   @media ${({ theme }) => theme.device.large} {
     margin: 0 16px;
-    font-size: ${({ theme }) => theme.typography.p.tablet};
+    font-size: clamp(3vw, ${({ theme }) => theme.typography.p.tablet}, 5vw);
     line-height: 1.6em;
     & > .bold {
       font-size: calc(${({ theme }) => theme.typography.p.tablet} * 1.5);
@@ -40,11 +39,16 @@ const StyledParagraph = styled.p`
   }
 
   @media ${({ theme }) => theme.device.small} {
-    margin: 0 16px;
-    font-size: ${({ theme }) => theme.typography.p.mobile}px;
-    line-height: 1.8em;
+    margin: 0 8px;
+    font-size: ${({ theme }) => theme.typography.p.mobile};
+    line-height: 1.4em;
     & > .bold {
-      font-size: calc(${({ theme }) => theme.typography.p.mobile}px * 1.5);
+      font-size: calc(${({ theme }) => theme.typography.p.mobile} * 1.2);
+    }
+    & > .aside {
+      display: block;
+      margin-bottom: 8px;
+      letter-spacing: 0.03em;
     }
   }
 `;
@@ -57,7 +61,7 @@ const ActionButton = styled(Link)`
   display: inline-block;
 `;
 
-const BigParagraph = ({ children, aside, action, sans }) => {
+const BigParagraph = ({ children, action, sans }) => {
   return (
     <>
       <StyledParagraph sans={sans}>{children}</StyledParagraph>

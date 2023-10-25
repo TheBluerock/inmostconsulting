@@ -1,11 +1,18 @@
 import React from 'react';
+import theme from '@theme';
+import Layout from '@layout';
+import NotFound from '@components/not-found';
 
 const NotFoundPage = () => {
-  return (
-    <>
-      <h1>404</h1>
-    </>
-  );
+  const NotFoundPageTheme = {
+    ...theme,
+    colors: {
+      primary: 'rgba(255, 255, 255, .9)',
+      background: '#101010',
+    },
+  };
+
+  return (<Layout theme={NotFoundPageTheme}><NotFound /></Layout>);
 };
 
 export default NotFoundPage;

@@ -1,13 +1,11 @@
 import React from "react";
 import { useTheme } from "@emotion/react";
+import styled from "@emotion/styled";
 
 const Text = ({
-  as: Tag = "span",
+  as: TextComponent = "span",
   children,
-  size,
-  fonttype,
-  center,
-  uppercase,
+  fontFamily,
   ...props
 }) => {
   // Access the theme object
@@ -15,7 +13,7 @@ const Text = ({
 
   // Determine the font family based on the fontType prop
   const getFontFamily = () => {
-    switch (fonttype) {
+    switch (fontFamily) {
       case "serif":
         return theme.fonts.serif;
       case "slant":
@@ -26,40 +24,39 @@ const Text = ({
     }
   };
 
-  // Determine the typography size based on the 'size' prop or use default size
-
   // Define common styles for the text
 
-  const commonStyles = {
-    color: theme.colors.primary,
-    fontWeight: 400,
-    fontFamily: getFontFamily(),
-    fontStyle: "normal",
-    lineHeight: "1em",
-    textTransform: uppercase && "uppercase",
-    textAlign: center && "center",
-    margin: `0 0 ${({ bottom }) => (bottom ? bottom * 8 + "px" : 0)} 0`,
-  };
+  const StyledText = styled(TextComponent)`
+    color: ${(props) => props.color || theme.colors.primary};
+    font-size: ${(props) => props.fontSize.desktop};
+    font-family: ${getFontFamily()};
+    text-align: ${(props) => props.align};
+    line-height: ${(props) => props.lineHeight};
+    max-width: ${(props) => props.maxWidth};
+    font-weight: ${(props) => props.fontWeight};
+    letter-spacing: ${(props) => props.letterSpacing};
+    text-transform: ${(props) => props.textTransform};
+    opacity: ${(props) => props.opacity};
+    display: ${(props) => props.display};
+    margin: ${(props) => props.m};
+    margin-bottom: ${(props) => props.mb};
+    margin-top: ${(props) => props.mt};
+    padding: ${(props) => props.p};
+    position: ${(props) => props.position};
+    top: ${(props) => props.top};
+    left: ${(props) => props.left};
+    transform: ${(props) => props.transform};
+    z-index: ${(props) => props.zIndex};
+    padding-top: ${(props) => props.pt};
+    @media ${({ theme }) => theme.device.large} {
+      font-size: ${(props) => props.fontSize.tablet};
+    }
+    @media ${({ theme }) => theme.device.xxsmall} {
+      font-size: ${(props) => props.fontSize.mobile};
+    }
+  `;
 
-  // Define responsive styles using CSS media queries
-  const responsiveStyles = {
-    ...commonStyles,
-    fontSize: theme.typography.p.mobile, // Default to mobile size
-
-    // Media queries for different screen sizes
-    [`@media ${theme.device.medium}`]: {
-      fontSize: theme.typography.h1.tablet,
-    },
-    [`@media ${theme.device.xxlarge}`]: {
-      fontSize: size || theme.typography.h1.desktop,
-    },
-  };
-
-  return (
-    <Tag css={responsiveStyles} {...props}>
-      {children}
-    </Tag>
-  );
+  return <StyledText {...props}>{children}</StyledText>;
 };
 
 export default Text;

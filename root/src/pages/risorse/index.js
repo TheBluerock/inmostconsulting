@@ -6,7 +6,7 @@ const ResourcesPage = () => {
   const ResourcesPageTheme = {
     ...theme,
     colors: {
-      primary: 'rgba(0, 0, 0, .87)',
+      primary: '#1ba14a',
       lightPrimary: 'rgba(0, 0, 0, .32)',
       background: '#e9ede1',
     },

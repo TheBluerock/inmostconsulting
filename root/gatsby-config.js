@@ -2,6 +2,7 @@ require('dotenv').config();
 
 module.exports = {
   siteMetadata: {
+    locale: 'it',
     name: 'Inmost®',
     links: [
       {
@@ -9,17 +10,13 @@ module.exports = {
         slug: '/',
       },
       {
-        name: 'Servizi',
-        slug: '/servizi/',
+        name: 'Articoli',
+        slug: '/risorse/articoli/',
       },
       {
-        name: 'Risorse',
-        slug: '/risorse/',
-      },
-      {
-        name: 'Contatti',
-        slug: '/contatti/',
-      },
+        name: 'Podcast',
+        slug: '/risorse/podcast/inmost-talks/',
+      }
     ],
     cta: {
       title: 'test',
@@ -34,8 +31,37 @@ module.exports = {
   },
   plugins: [
     'gatsby-plugin-image',
-    'gatsby-transformer-remark',
     'gatsby-plugin-sharp',
+    'gatsby-transformer-sharp',
+    {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: `Inmost®`,
+        short_name: `Inmost®`,
+        start_url: `/`,
+        display: `standalone`,
+        icon: `src/images/icon.png`,
+        icon_options: {
+          purpose: `any maskable`,
+        },
+        shortcuts: [
+          {
+            "name": "Leggi",
+            "short_name": "Articoli e Approfondimenti",
+            "description": "View the list of podcasts you saved for later",
+            "url": "/risorse/articles/",
+            "icons": [{ "src": "src/images/layers.png", "sizes": "192x192" }]
+          },
+          {
+            "name": "Ascolta",
+            "short_name": "Il podcast di Inmost®",
+            "description": "View the list of podcasts you listen to",
+            "url": "/risorse/podcast/inmost-talks/",
+            "icons": [{ "src": "src/images/stereo.png", "sizes": "192x192" }]
+          }
+        ],
+      },
+    },
     {
       resolve: 'inmost-ui',
       options: {
@@ -43,12 +69,6 @@ module.exports = {
       },
     },
     'inmost-helpers',
-    {
-      resolve: 'inmost-blog',
-      options: {
-        basePath: '/articoli/',
-      },
-    },
     {
       resolve: 'gatsby-source-contentful',
       options: {

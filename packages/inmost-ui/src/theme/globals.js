@@ -3,7 +3,6 @@ import { Global, css, useTheme } from "@emotion/react";
 
 const GlobalStyles = () => {
   const theme = useTheme();
-
   return (
     <Global
       styles={css`
@@ -27,11 +26,6 @@ const GlobalStyles = () => {
           background-color: ${theme.colors.background};
           font-family: "Neue Haas Grotesque", sans-serif;
           -webkit-tap-highlight-color: transparent;
-          overflow-x: hidden;
-        }
-
-        body.no-scroll {
-          overflow: hidden;
         }
       `}
     />

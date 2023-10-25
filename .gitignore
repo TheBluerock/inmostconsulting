@@ -6,6 +6,7 @@ yarn-debug.log*
 yarn-error.log*
 
 **/public/
+
 # Runtime data
 pids
 *.pid
@@ -77,5 +78,6 @@ yarn-error.log
 
 # firebase cache files
 .firebase/
+
 # Local Netlify folder
 .netlify

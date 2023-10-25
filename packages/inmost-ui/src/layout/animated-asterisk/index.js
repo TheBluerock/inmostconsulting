@@ -32,7 +32,7 @@ const Asterisk = ({ size, number }) => {
 
     // Rotate the entire Asterisk component
     gsap.to(asteriskRef.current, {
-      duration: 14, // 8 seconds for one full rotation
+      duration: 16, // 8 seconds for one full rotation
       rotation: 360, // 360 degrees for one full rotation
       repeat: -1, // Repeat indefinitely
       ease: "linear",
