@@ -5,10 +5,9 @@ import Text from "@commons/text";
 import { useTheme } from "@emotion/react";
 import StarPositive from "@components/star-positive";
 import { GatsbyImage } from "gatsby-plugin-image";
-import { TransitionLink } from "gatsby-plugin-transition-link/components/TransitionLink";
-import gsap from "gsap";
+import { Link } from "gatsby";
 
-const CardWrapper = styled(TransitionLink)`
+const CardWrapper = styled(Link)`
   cursor: pointer;
   flex: 1;
   display: flex;
@@ -56,18 +55,6 @@ const StarContainer = styled.div`
 const ArticleCard = ({ article }) => {
   const theme = useTheme();
 
-  const exitAnimation = (node) => {
-    const tl = gsap.timeline();
-    tl.to(node, { opacity: 0, duration: 1 });
-    return tl;
-  };
-
-  const entryAnimation = (node) => {
-    const tl = gsap.timeline();
-    tl.from(node, { opacity: 0, duration: 2 });
-    return tl;
-  };
-
   const pruneString = (inputString, maxLength) => {
     return inputString.length <= maxLength
       ? inputString
@@ -77,14 +64,6 @@ const ArticleCard = ({ article }) => {
   return (
     <CardWrapper
       to={`/risorse/articoli/${article.slug}/`}
-      exit={{
-        trigger: ({ node }) => exitAnimation(node),
-        length: 1,
-      }}
-      entry={{
-        trigger: ({ node }) => entryAnimation(node),
-        length: 2,
-      }}
       >
       <CardImage>
         <GatsbyImage

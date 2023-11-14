@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "@emotion/styled";
-import { TransitionLink as TLink } from "gatsby-plugin-transition-link/components/TransitionLink";
+import { Link as GLink } from "gatsby";
 import Asterisk from "@components/asterisk";
 
 const LinkWrapper = styled.li`
@@ -11,7 +11,7 @@ const LinkWrapper = styled.li`
   justify-content: center;
 `;
 
-const StyledLink = styled(TLink)`
+const StyledLink = styled(GLink)`
     color: ${({ theme }) => theme.colors.primary} !important;
     font-size: ${({ theme }) => theme.typography.h5.desktop};
     font-family: "Ogg Slant", serif;

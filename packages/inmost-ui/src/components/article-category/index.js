@@ -23,7 +23,7 @@ const ArticleCategory = ({ category }) => {
       "lightPrimary": "#8d94a6",
       "secondary": "#BB0808",
       "background": "#ede9e9"
-  }
+    }
   };
 
   return (

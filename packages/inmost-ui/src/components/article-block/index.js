@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "@emotion/styled";
-import { TransitionLink as Link } from "gatsby-plugin-transition-link/components/TransitionLink";
+import { Link } from "gatsby";
 import Spacer from "@components/spacer";
 import Text from "@commons/text";
 import { useTheme } from "@emotion/react";
@@ -23,14 +23,16 @@ const ArticleBlock = ({ link, title, author }) => {
         }}
         aria-label={`Go to ${title}`}
       >
-        {/* 
-                Image
+
+        {   /* 
+              Image
                 Title
                 Published
                 category
                 Author
-                Excerpt
-            */}
+              Excerpt
+            */
+          }
         <MarginController>
           <ImageContainer />
           <TextContainer>

@@ -1,5 +1,5 @@
 import React from "react";
-import AsteriskSvg from "../../svg/asterisk.svg";
+import AsteriskSvg from "@svg/asterisk.svg";
 import styled from "@emotion/styled";
 
 const OuterWrapper = styled.span`

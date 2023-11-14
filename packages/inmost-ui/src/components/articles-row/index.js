@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import styled from '@emotion/styled';
-import ArticleCard from '../article-card';
+import ArticleCard from '@components/article-card';
 import { useAppContext } from '@helpers/app-context';
 
 const Row = styled.div`

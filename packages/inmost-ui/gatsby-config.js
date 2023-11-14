@@ -4,7 +4,6 @@ module.exports = (options) => {
   return {
     plugins: [
       "gatsby-plugin-emotion",
-      "gatsby-plugin-transition-link",
       {
         resolve: "gatsby-plugin-react-svg",
         options: {

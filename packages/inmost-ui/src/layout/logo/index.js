@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import TransitionLink from "gatsby-plugin-transition-link";
+import { Link } from "gatsby";
 import styled from "@emotion/styled";
 import Asterisk from "@layout/animated-asterisk";
 import { keyframes } from "@emotion/react";
@@ -8,7 +8,7 @@ import { useLocation } from "@reach/router";
 import { useStaticQuery, graphql } from "gatsby";
 import { useAppContext } from "@helpers/app-context";
 
-const StyledLink = styled(TransitionLink)`
+const StyledLink = styled(Link)`
   font-size: 36px;
   text-transform: uppercase;
   text-decoration: none;

@@ -2,8 +2,6 @@ import React, { useState, useEffect } from "react";
 import Marquee from "react-fast-marquee";
 import styled from "@emotion/styled";
 
-const primary = `${({ theme }) => theme.colors.primary}`;
-
 const Wrapper = styled.div`
   border: 1px solid ${({ theme }) => theme.colors.primary};
   border-bottom: 1px solid ${({ theme }) => theme.colors.primary};

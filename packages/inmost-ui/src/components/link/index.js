@@ -1,5 +1,5 @@
 import React from "react";
-import TransitionLink from "gatsby-plugin-transition-link";
+import { Link as GLink } from "gatsby";
 import { useTheme, css } from "@emotion/react";
 import styled from "@emotion/styled";
 import gsap from "gsap";
@@ -33,7 +33,7 @@ const StyledAnchor = styled.a`
   }
 `;
 
-const StyledLink = styled(TransitionLink)`
+const StyledLink = styled(GLink)`
   text-decoration: none;
   color: ${({ theme, color }) => (color ? color : theme.colors.primary)};
   margin: 0 8px;
@@ -73,17 +73,6 @@ const Ellipse = styled.span`
 const Link = ({ to, text, color, ellipse, underline, fontFamily }) => {
   const isInternal = isInternalLink(to);
   const theme = useTheme();
-  const exitAnimation = (node) => {
-    const tl = gsap.timeline();
-    tl.to(node, { opacity: 0, duration: 2 });
-    return tl;
-  };
-
-  const entryAnimation = (node) => {
-    const tl = gsap.timeline();
-    tl.from(node, { opacity: 0, duration: 2, delay: 1 });
-    return tl;
-  };
 
   if (isInternal) {
     return (
@@ -92,14 +81,6 @@ const Link = ({ to, text, color, ellipse, underline, fontFamily }) => {
           to={to}
           underline={underline && underline.toString()}
           color={color}
-          exit={{
-            trigger: ({ node }) => exitAnimation(node),
-            length: 1,
-          }}
-          entry={{
-            trigger: ({ node }) => entryAnimation(node),
-            length: 2,
-          }}
           aria-label={`Go to ${text}`}
         >
           <Text

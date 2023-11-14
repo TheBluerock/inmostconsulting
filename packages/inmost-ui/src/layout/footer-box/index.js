@@ -1,32 +1,13 @@
 import React from "react";
 import styled from "@emotion/styled";
-import { TransitionLink as Link } from "gatsby-plugin-transition-link/components/TransitionLink";
-import gsap from "gsap";
+import { Link } from "gatsby";
+
 
 const FooterBox = ({ title, description, icon, link }) => {
-  const exitAnimation = (node) => {
-    const tl = gsap.timeline();
-    tl.to(node, { opacity: 0, duration: 1 });
-    return tl;
-  };
-
-  const entryAnimation = (node) => {
-    const tl = gsap.timeline();
-    tl.from(node, { opacity: 0, duration: 2 });
-    return tl;
-  };
 
   return (
     <BoxContainer
       to={link}
-      exit={{
-        trigger: ({ node }) => exitAnimation(node),
-        length: 1,
-      }}
-      entry={{
-        trigger: ({ node }) => entryAnimation(node),
-        length: 1,
-      }}
       aria-label={`Go to ${title}`}
     >
       <BoxInnerWrapper>
