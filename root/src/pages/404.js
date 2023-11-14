@@ -8,7 +8,7 @@ const NotFoundPage = () => {
     ...theme,
     colors: {
       primary: 'rgba(255, 255, 255, .9)',
-      background: '#101010',
+      background: '#111111',
     },
   };
 
