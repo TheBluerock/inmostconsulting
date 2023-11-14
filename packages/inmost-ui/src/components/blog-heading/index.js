@@ -16,13 +16,13 @@ const BlogHeading = ({
 }) => {
   return (
     <>
-      {as !== "h1" && <Spacer space={12} line star />}
+      {as !== "h1" && <Spacer space={16} star />}
       <StyledContainer width={"65vw"}>
         <Text
           as={as}
           fontSize={fontSize}
           fontFamily={serif && "serif"}
-          lineHeight={"1.1em"}
+          lineHeight={"1.2em"}
           fontWeight={fontWeight}
           textTransform={textTransform}
         >

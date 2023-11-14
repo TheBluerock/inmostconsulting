@@ -5,20 +5,31 @@ import styled from "@emotion/styled";
 import gsap from "gsap";
 import Text from "@commons/text";
 
-const styles = css`
-  text-decoration: none;
-  color: ${({ theme, color }) => (color ? color : theme.colors.primary)};
+const StyledAnchor = styled.a`
+  /* Common styles */
   margin: 0 8px;
   position: relative;
+  text-decoration: underline;
+  color: ${({ theme, color }) => color || theme.colors.primary};
+  font-family: ${({ theme }) => theme.fonts.slant};
 
+  /* Conditional underline */
+  text-decoration: ${({ underline, color }) =>
+    underline ? `underline dotted ${color || "inherit"}` : "none"};
+
+  /* Pseudo-classes */
   &:active,
   &:visited {
     color: ${({ theme }) => theme.colors.primary};
   }
 
+  /* Media queries */
   @media ${({ theme }) => theme.device.large} {
+    /* Large screen styles */
   }
+
   @media ${({ theme }) => theme.device.small} {
+    /* Small screen styles */
   }
 `;
 
@@ -59,18 +70,18 @@ const Ellipse = styled.span`
   transform: rotate(-15deg);
 `;
 
-const Link = ({ to, text, color, ellipse, underline }) => {
+const Link = ({ to, text, color, ellipse, underline, fontFamily }) => {
   const isInternal = isInternalLink(to);
   const theme = useTheme();
   const exitAnimation = (node) => {
     const tl = gsap.timeline();
-    tl.to(node, { opacity: 0, duration: 1 });
+    tl.to(node, { opacity: 0, duration: 2 });
     return tl;
   };
 
   const entryAnimation = (node) => {
     const tl = gsap.timeline();
-    tl.from(node, { opacity: 0, duration: 2 });
+    tl.from(node, { opacity: 0, duration: 2, delay: 1 });
     return tl;
   };
 
@@ -79,7 +90,7 @@ const Link = ({ to, text, color, ellipse, underline }) => {
       <Wrapper>
         <StyledLink
           to={to}
-          underline={underline.toString()}
+          underline={underline && underline.toString()}
           color={color}
           exit={{
             trigger: ({ node }) => exitAnimation(node),
@@ -92,7 +103,7 @@ const Link = ({ to, text, color, ellipse, underline }) => {
           aria-label={`Go to ${text}`}
         >
           <Text
-            fontFamily={"slant"}
+            fontFamily={fontFamily || "slant"}
             fontSize={theme.typography.p}
             color={color}
           >
@@ -104,9 +115,15 @@ const Link = ({ to, text, color, ellipse, underline }) => {
     );
   } else {
     return (
-      <a href={to} target="_blank" rel="noopener noreferrer" css={styles}>
+      <StyledAnchor
+        href={to}
+        target="_blank"
+        rel="noopener noreferrer"
+        color={color}
+        underline={underline}
+      >
         {text}
-      </a>
+      </StyledAnchor>
     );
   }
 };

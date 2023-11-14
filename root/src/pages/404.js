@@ -12,7 +12,11 @@ const NotFoundPage = () => {
     },
   };
 
-  return (<Layout theme={NotFoundPageTheme}><NotFound /></Layout>);
+  return (
+    <Layout theme={NotFoundPageTheme}>
+      <NotFound />
+    </Layout>
+  );
 };
 
 export default NotFoundPage;

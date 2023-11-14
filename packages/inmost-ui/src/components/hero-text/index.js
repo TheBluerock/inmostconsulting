@@ -10,7 +10,6 @@ const StyledHeroText = styled.h1`
   font-family: ${({ theme }) => theme.fonts.serif};
   justify-content: space-between;
   text-transform: uppercase;
-
   line-height: 1em;
 `;
 

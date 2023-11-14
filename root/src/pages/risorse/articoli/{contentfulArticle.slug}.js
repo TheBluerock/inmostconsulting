@@ -1,20 +1,28 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 import { renderRichText } from 'gatsby-source-contentful/rich-text';
+import { BLOCKS, MARKS, INLINES } from '@contentful/rich-text-types';
 import Layout from '@layout';
 import theme from '@theme';
-import { BLOCKS, MARKS, INLINES } from '@contentful/rich-text-types';
 import BlogParagraph from '@components/blog-paragraph';
 import BlogHeading from '@components/blog-heading';
+import BlogImage from '@components/blog-image';
 import BlogList from '@components/blog-list';
-import BlogQuote from '@components/blog-quote';
 import BlogListItem from '@components/blog-list-item';
+import BlogQuote from '@components/blog-quote';
 import Txt from '@commons/text';
 import Link from '@components/link';
 import BlogHead from '@components/blog-head';
 import Spacer from '@components/spacer';
 
 //Marks
+//React-Share
+//Partialy active
+//Related Articles
+//Quotes
+//Linked Articles Over
+//Related Services
+//Tags and related Therms
 
 const Bold = ({ children, ...props }) => (
   <Txt
@@ -41,36 +49,54 @@ const Italic = ({ children, ...props }) => (
 const Text = ({ children }) => <BlogParagraph>{children}</BlogParagraph>;
 
 const ArticlePage = ({ data }) => {
+  const colors = data.contentfulArticle.category.theme;
+
   const ArticlePageTheme = {
     ...theme,
-    colors: {
-      primary: '#1C2A4E',
-      lightPrimary: '#8d94a6',
-      secondary: '#BB0808',
-      background: '#e9ede1',
-    },
+    colors: colors,
   };
 
   const options = {
     renderMark: {
       [MARKS.BOLD]: text => (
-        <Bold color={ArticlePageTheme.colors.secondary}>{text}</Bold>
+        <Bold color={ArticlePageTheme.colors.primary}>{text}</Bold>
       ),
       [MARKS.ITALIC]: text => (
-        <Italic color={ArticlePageTheme.colors.secondary}>{text}</Italic>
+        <Italic color={ArticlePageTheme.colors.primary}>{text}</Italic>
       ),
     },
     renderNode: {
+      [INLINES.HYPERLINK]: (node, children) => {
+        return (
+          <Link
+            to={node.data.uri}
+            text={children}
+            color={ArticlePageTheme.colors.primary}
+            underline
+            serif
+          />
+        );
+      },
+
       [INLINES.ENTRY_HYPERLINK]: (node, children) => {
         return (
           <Link
             to={`/risorse/articoli/${node.data.target.slug}/`}
             text={children}
-            color={ArticlePageTheme.colors.secondary}
-            underline={true}
+            color={ArticlePageTheme.colors.primary}
+            underline
             serif
           />
         );
+      },
+
+      'embedded-asset-block': node => {
+        const { gatsbyImageData, title } = node.data.target;
+
+        if (!gatsbyImageData) {
+          return null;
+        }
+        return <BlogImage image={gatsbyImageData} alt={title} />;
       },
       [BLOCKS.QUOTE]: (node, children) => <BlogQuote>{children}</BlogQuote>,
       [BLOCKS.PARAGRAPH]: (node, children) => <Text>{children}</Text>,
@@ -107,8 +133,7 @@ const ArticlePage = ({ data }) => {
     },
   };
 
-  const { title, body, excerpt, date } = data.contentfulArticle;
-  console.log(data);
+  const { title, body, excerpt, date, author, category } = data.contentfulArticle;
 
   return (
     <Layout theme={ArticlePageTheme}>
@@ -119,7 +144,10 @@ const ArticlePage = ({ data }) => {
           alt={data.contentfulArticle.heroImage.description}
           excerpt={excerpt}
           date={date}
+          author={author}
+          category={category}
         />
+        <Spacer space={4} />
         {renderRichText(body, options)}
       </article>
       <Spacer space={8} />
@@ -137,7 +165,9 @@ export const Head = ({ data }) => {
     updatedAt,
     heroImage,
     slug,
+    author,
   } = data.contentfulArticle;
+
   const articleUrl = `https://inmostconsulting.com/risorse/articoli/${slug}`;
 
   const articleSchema = {
@@ -148,7 +178,7 @@ export const Head = ({ data }) => {
     about: excerpt,
     author: {
       '@type': 'Person',
-      name: 'Matteo Albini',
+      name: author.name,
     },
     dateCreated: createdAt,
     dateModified: updatedAt,
@@ -213,12 +243,23 @@ export const query = graphql`
       excerpt
       createdAt
       updatedAt
-      date(locale: "it", formatString: "DD MMMM YYYY")
+
+      date(locale: "it", formatString: "DD.MM.YYYY")
+
       category {
         name
+        theme {
+          id
+          lightPrimary
+          primary
+          secondary
+          background
+        }
       }
+
       body {
         raw
+
         references {
           ... on ContentfulArticle {
             id
@@ -227,8 +268,26 @@ export const query = graphql`
             slug
             title
           }
+
+          ... on ContentfulAsset {
+            id
+            contentful_id
+            __typename
+            gatsbyImageData
+            title
+          }
         }
       }
+
+      author {
+        shortBio
+        name
+        slug
+        bio {
+          raw
+        }
+      }
+
       heroImage {
         title
         description

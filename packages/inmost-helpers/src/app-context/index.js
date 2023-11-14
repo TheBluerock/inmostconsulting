@@ -1,19 +1,25 @@
 import React, { createContext, useState, useContext, useEffect } from "react";
-
+import theme from "@theme";
 // Step 1: Create a context and provider
 const AppContext = createContext();
 
 const AppContextProvider = ({ children }) => {
   // Step 2: Define the state and functions
-  const [isMenuOpen, setMenuOpen] = useState(false);
   const [selectedLocale, setSelectedLocale] = useState("it");
   const [isDevice, setIsDevice] = useState(null);
   const [footerQuote, setFooterQuote] = useState("");
   const [isScrolled, setIsScrolled] = useState(false);
+  const [currentTheme, setCurrentTheme] = useState(theme);
+
+  // MENU OPEN
+
+  const [isMenuOpen, setMenuOpen] = useState(false);
 
   const toggleMenu = () => {
     setMenuOpen(!isMenuOpen);
   };
+
+  //Type of Device
 
   const toggleLocale = () => {
     const nextLocale = selectedLocale === "it" ? "en" : "it";
@@ -56,7 +62,15 @@ const AppContextProvider = ({ children }) => {
     }
   }
 
+  const setTheme = (t) => {
+    setCurrentTheme({
+      ...theme,
+      t,
+    });
+  };
+
   useEffect(() => {
+    console.log(currentTheme);
     handleScrolled();
     setDeviceBasedOnWidth();
     // Listen for window resize and update isDevice
@@ -78,6 +92,8 @@ const AppContextProvider = ({ children }) => {
     toggleLocale,
     isDevice,
     isScrolled,
+    currentTheme,
+    setTheme,
   };
 
   return (

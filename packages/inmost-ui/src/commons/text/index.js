@@ -30,7 +30,7 @@ const Text = ({
     color: ${(props) => props.color || theme.colors.primary};
     font-size: ${(props) => props.fontSize.desktop};
     font-family: ${getFontFamily()};
-    text-align: ${(props) => props.align};
+    text-align: ${(props) => props.textAlign};
     line-height: ${(props) => props.lineHeight};
     max-width: ${(props) => props.maxWidth};
     font-weight: ${(props) => props.fontWeight};

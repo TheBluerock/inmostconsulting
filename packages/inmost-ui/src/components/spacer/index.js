@@ -30,14 +30,14 @@ const StarLineStc = styled.div`
 const Star = ({ line }) => {
   const theme = useTheme();
 
-  return (
-    line && (
-      <div style={{ display: "flex", flex: 1, alignItems: " center" }}>
-        <StarLineStc />
-        <StarNegative style={{ height: 48, fill: theme.colors.primary }} />
-        <StarLineStc />
-      </div>
-    )
+  return line ? (
+    <div style={{ display: "flex", flex: 1, alignItems: " center" }}>
+      <StarLineStc />
+      <StarNegative style={{ height: 36, fill: theme.colors.primary }} />
+      <StarLineStc />
+    </div>
+  ) : (
+    <StarNegative style={{ height: 36, fill: theme.colors.primary }} />
   );
 };
 

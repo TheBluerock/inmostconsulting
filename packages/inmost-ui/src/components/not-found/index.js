@@ -8,20 +8,23 @@ const OuterWrapper = styled.div`
   flex: 1;
   flex-direction: row;
   height: 50vw;
+  @media ${({ theme }) => theme.device.small} {
+    flex-direction: column;
+    height: 100vh;
+  }
 `;
 
 const NotFound = () => {
-
   const theme = useTheme();
 
   return (
     <>
-    <OuterWrapper>
+      <OuterWrapper>
         <Four color={theme.colors.primary} />
         <Zero color={theme.colors.primary} />
         <Four color={theme.colors.primary} />
-    </OuterWrapper>
-    <Spacer space={4} />
+      </OuterWrapper>
+      <Spacer space={4} />
     </>
   );
 };

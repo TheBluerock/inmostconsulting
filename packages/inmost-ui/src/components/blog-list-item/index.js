@@ -6,15 +6,22 @@ import Asterisk from "@components/asterisk";
 const BlogListItemStd = styled.li`
   display: flex;
   flex-direction: row;
-  align-items: center;
   margin: 24px 0;
+  align-items: start;
 `;
 
 const AsteriskContainer = styled.span`
-  height: 36px;
-  width: 36px;
+  position: relative;
+  top: 8px;
+  width: 48px;
   display: inline-block;
   margin-right: 24px;
+
+  @media ${({ theme }) => theme.device.small} {
+    display: inline;
+    width: 128px;
+    height: 100%;
+  }
 `;
 
 const TextContainer = styled.span`

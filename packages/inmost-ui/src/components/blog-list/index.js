@@ -5,7 +5,6 @@ import Spacer from "@components/spacer";
 
 const BlogListStd = styled.ul`
   list-style: none;
-  margin-left: 4em;
 `;
 
 const BlogList = ({ children }) => {

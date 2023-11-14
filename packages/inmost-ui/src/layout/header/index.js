@@ -21,6 +21,7 @@ const ContentWrapper = styled.div`
   flex-direction: row;
   margin: 0 64px;
   min-height: 54px;
+
   @media ${({ theme }) => theme.device.medium} {
     margin: 0 16px;
   }

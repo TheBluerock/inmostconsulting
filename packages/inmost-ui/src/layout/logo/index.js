@@ -49,6 +49,7 @@ const OuterWrapper = styled.div`
 `;
 
 const Logo = () => {
+  
   const [name, setName] = useState(null);
   const { pathname } = useLocation();
   const { isDevice } = useAppContext();
@@ -68,12 +69,15 @@ const Logo = () => {
   // Simplify the getName function
   const getName = (pathname) => {
     const parts = pathname.replace(/(^\/|\/$)/g, "").split("/");
-    if (parts.length >= 2) {
-      return parts[1];
+    const cleaned = parts.map(part => part.replace(/-/g, " "));
+  
+    if (cleaned.length >= 2) {
+      return cleaned[1];
     } else {
-      return parts[0];
+      return cleaned[0];
     }
   };
+  
 
   useEffect(() => {
     setName(pathname === "/" ? siteName : getName(pathname));
@@ -98,17 +102,22 @@ const Logo = () => {
         <Asterisk active={true} size={isDevice === "mobile" ? 32 : 36} />
       </AsteriskWrapper>
       <StyledLink
+
         to={pathname}
+
         exit={{
           trigger: ({ node }) => exitAnimation(node),
           length: 1,
         }}
+
         entry={{
           delay: 0.5,
           trigger: ({ node }) => entryAnimation(node),
           length: 1,
         }}
+
         aria-label={`Go to ${name}`}
+
       >
         {name}
       </StyledLink>

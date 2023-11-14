@@ -1,6 +1,7 @@
 import React from "react";
 import Text from "@commons/text";
 import { useTheme, css } from "@emotion/react";
+import Spacer from '@components/spacer';
 
 const blogParagraphStyles = (theme) => css`
   color: ${theme.colors.primary};
@@ -8,7 +9,6 @@ const blogParagraphStyles = (theme) => css`
   font-weight: 400;
   margin: 0 auto;
   max-width: 55vw;
-  margin-bottom: 1em;
 
   @media ${theme.device.medium} {
     max-width: 80vw;
@@ -25,9 +25,12 @@ const BlogParagraph = ({ children }) => {
   const theme = useTheme();
 
   return (
+    <>
     <Text as="p" fontSize={theme.typography.p} css={blogParagraphStyles(theme)}>
       {children}
     </Text>
+    <Spacer space={2} />
+    </>
   );
 };
 

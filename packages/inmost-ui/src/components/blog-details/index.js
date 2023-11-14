@@ -26,19 +26,19 @@ const RowWrapper = styled.div`
 const BlogDetails = ({ date, author, category }) => {
   const theme = useTheme();
 
+  React.useEffect(() => {
+    console.log("author: " + author);
+  }, []);
+
   return (
     <Container width={"65vw"}>
       <OuterWrapper>
         <LeftWrapper>
           <RowWrapper>
             <Text as={"span"} fontSize={theme.typography.p} fontWeight={400}>
-              Pubblicato il{" "}
+              Pubblicato il:{" "}
             </Text>
-            <Text
-              as={"span"}
-              fontSize={theme.typography.p}
-              color={theme.colors.secondary}
-            >
+            <Text as={"span"} fontSize={theme.typography.p} >
               {date}
             </Text>
           </RowWrapper>
@@ -46,12 +46,8 @@ const BlogDetails = ({ date, author, category }) => {
             <Text as={"span"} fontSize={theme.typography.p} fontWeight={400}>
               Scritto da{" "}
             </Text>
-            <Text
-              as={"span"}
-              fontSize={theme.typography.p}
-              color={theme.colors.secondary}
-            >
-              Matteo Albini
+            <Text as={"span"} fontSize={theme.typography.p}>
+              {author.name}
             </Text>
           </RowWrapper>
         </LeftWrapper>
@@ -60,12 +56,8 @@ const BlogDetails = ({ date, author, category }) => {
             <Text as={"span"} fontSize={theme.typography.p} fontWeight={400}>
               Nella categoria{" "}
             </Text>
-            <Text
-              as={"span"}
-              fontSize={theme.typography.p}
-              color={theme.colors.secondary}
-            >
-              Approfondimenti
+            <Text as={"span"} fontSize={theme.typography.p}>
+              {category.name}
             </Text>
           </RowWrapper>
           <RowWrapper>

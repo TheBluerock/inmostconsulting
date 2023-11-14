@@ -1,7 +1,6 @@
 import React from "react";
 import AsteriskSvg from "../../svg/asterisk.svg";
 import styled from "@emotion/styled";
-import { useTheme } from "@emotion/react";
 
 const OuterWrapper = styled.span`
   height: ${({ size }) => size}px;
@@ -13,8 +12,6 @@ const AsteriskStd = styled(AsteriskSvg)`
 `;
 
 const Asterisk = ({ size, stroke }) => {
-  const theme = useTheme();
-
   return (
     <OuterWrapper size={size}>
       <AsteriskStd stroke={stroke} />

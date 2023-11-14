@@ -10,13 +10,17 @@ module.exports = {
         slug: '/',
       },
       {
+        name: 'About',
+        slug: '/about/matteo-albini/',
+      },
+      {
         name: 'Articoli',
         slug: '/risorse/articoli/',
       },
       {
         name: 'Podcast',
         slug: '/risorse/podcast/inmost-talks/',
-      }
+      },
     ],
     cta: {
       title: 'test',
@@ -46,19 +50,19 @@ module.exports = {
         },
         shortcuts: [
           {
-            "name": "Leggi",
-            "short_name": "Articoli e Approfondimenti",
-            "description": "View the list of podcasts you saved for later",
-            "url": "/risorse/articles/",
-            "icons": [{ "src": "src/images/layers.png", "sizes": "192x192" }]
+            name: 'Leggi',
+            short_name: 'Articoli e Approfondimenti',
+            description: 'View the list of podcasts you saved for later',
+            url: '/risorse/articles/',
+            icons: [{ src: 'src/images/layers.png', sizes: '192x192' }],
           },
           {
-            "name": "Ascolta",
-            "short_name": "Il podcast di Inmost®",
-            "description": "View the list of podcasts you listen to",
-            "url": "/risorse/podcast/inmost-talks/",
-            "icons": [{ "src": "src/images/stereo.png", "sizes": "192x192" }]
-          }
+            name: 'Ascolta',
+            short_name: 'Il podcast di Inmost®',
+            description: 'View the list of podcasts you listen to',
+            url: '/risorse/podcast/inmost-talks/',
+            icons: [{ src: 'src/images/stereo.png', sizes: '192x192' }],
+          },
         ],
       },
     },

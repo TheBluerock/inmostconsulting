@@ -47,6 +47,7 @@ function NavLink({ url, text, asterisk }) {
   const { pathname } = useLocation();
 
   useEffect(() => {
+    console.log("url: " + url + " pathname: "  + pathname );
     setIsActive(url === pathname);
   }, [url, pathname]);
 

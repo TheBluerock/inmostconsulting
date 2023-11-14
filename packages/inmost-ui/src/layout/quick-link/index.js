@@ -1,6 +1,5 @@
 import React from "react";
 import styled from "@emotion/styled";
-import { css } from "@emotion/react";
 import { TransitionLink as TLink } from "gatsby-plugin-transition-link/components/TransitionLink";
 import Asterisk from "@components/asterisk";
 
@@ -41,8 +40,8 @@ const StyledA = styled.a`
 `;
 
 const IconWrapper = styled.div`
-  height: 3vw;
-  width: 3vw;
+  height: 36px;
+  width: 36px;
   margin-right: 8px;
   @media ${({ theme }) => theme.device.medium} {
     display: none;

@@ -12,7 +12,8 @@ const BlogExcerpt = ({ excerpt }) => {
         fontFamily={"slant"}
         fontSize={theme.typography.h5}
         as={"h4"}
-        lineHeight={"1.4em"}
+        lineHeight={"1.25em"}
+        fontWeight={400}
       >
         {excerpt}
       </Text>

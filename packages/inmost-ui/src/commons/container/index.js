@@ -21,13 +21,14 @@ const InnerWrapper = styled.div`
   width: 100%;
   display: flex;
   flex-direction: ${({ column }) => (column ? "column" : "row")};
+  justify-content: ${({ align }) => align || "flex-start"};
 `;
 
 // Container component
-const Container = ({ children, reverse, column, width }) => {
+const Container = ({ children, reverse, column, width, align }) => {
   return (
     <OuterWrapper width={width}>
-      <InnerWrapper reverse={reverse} column={column}>
+      <InnerWrapper reverse={reverse} column={column} align={align}>
         {children}
       </InnerWrapper>
     </OuterWrapper>
