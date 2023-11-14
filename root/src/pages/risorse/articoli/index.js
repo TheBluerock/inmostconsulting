@@ -32,93 +32,47 @@ const ArticlePage = ({ data }) => {
 
 export default ArticlePage;
 
-// export const query = graphql`
-//   query CategoryQuery {
-//     allContentfulCategory(filter: { node_locale: { eq: "it" } }, limit: 6 ) {
-//       edges {
-//         node {
-//           id
-//           node_locale
-//           description
-//           name
-//           theme {
-//             id
-//             lightPrimary
-//             primary
-//             secondary
-//             background
-//           }
-//           article {
-//             id
-//             date(formatString: "DD.MM.YY", locale: "it")
-//             title
-//             excerpt
-//             slug
-//             category {
-//               name
-//             }
-//             author {
-//               name
-//               slug
-//             }
-//             heroImage {
-//               id
-//               gatsbyImageData(
-//                 cropFocus: CENTER
-//                 aspectRatio: 1.5
-//                 layout: CONSTRAINED
-//               )
-//               title
-//             }
-//           }
-//         }
-//       }
-//     }
-//   }
-// `;
-
-
-// export const query = graphql`
-//   query CategoryQuery {
-//     allContentfulArticles(filter: { node_locale: { eq: "it" } }, limit: 6 ) {
-//       edges {
-//         node {
-//           id
-//           node_locale
-//           description
-//           name
-//           theme {
-//             id
-//             lightPrimary
-//             primary
-//             secondary
-//             background
-//           }
-//           article {
-//             id
-//             date(formatString: "DD.MM.YY", locale: "it")
-//             title
-//             excerpt
-//             slug
-//             category {
-//               name
-//             }
-//             author {
-//               name
-//               slug
-//             }
-//             heroImage {
-//               id
-//               gatsbyImageData(
-//                 cropFocus: CENTER
-//                 aspectRatio: 1.5
-//                 layout: CONSTRAINED
-//               )
-//               title
-//             }
-//           }
-//         }
-//       }
-//     }
-//   }
-// `;
+export const query = graphql`
+  query CategoryQuery {
+    allContentfulCategory(filter: { node_locale: { eq: "it" } }, limit: 6 ) {
+      edges {
+        node {
+          id
+          node_locale
+          description
+          name
+          theme {
+            id
+            lightPrimary
+            primary
+            secondary
+            background
+          }
+          article {
+            id
+            date(formatString: "DD.MM.YY", locale: "it")
+            title
+            excerpt
+            slug
+            category {
+              name
+            }
+            author {
+              name
+              slug
+            }
+            heroImage {
+              id
+              gatsbyImageData(
+                cropFocus: CENTER
+                aspectRatio: 1.5
+                layout: CONSTRAINED
+              )
+              title
+            }
+          }
+        }
+      }
+    }
+  }
+`;
