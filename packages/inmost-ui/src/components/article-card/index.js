@@ -108,7 +108,7 @@ const ArticleCard = ({ article }) => {
           lineHeight={1.5}
           fontFamily={"sans"}
           >
-          {pruneString(article.excerpt, 75)}
+          {pruneString(article.excerpt, 76)}
         </Text>
         <Spacer space={2} />
       </CardExcerpt>
