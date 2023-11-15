@@ -1,7 +1,7 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 import { renderRichText } from 'gatsby-source-contentful/rich-text';
-import { BLOCKS, MARKS, INLINES } from '@contentful/rich-text-types';
+import { BLOCKS } from '@contentful/rich-text-types';
 import Layout from '@layout';
 import theme from '@theme';
 import Container from '@commons/container';

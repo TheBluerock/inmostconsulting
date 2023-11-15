@@ -22,8 +22,6 @@ const ArticlePage = ({ data }) => {
       {categories.map(({ node }) => {
         if (node.article) {
           return <ArticleCategory key={node.id} category={node} />;
-        } else {
-          return;
         }
       })}
     </Layout>
@@ -41,13 +39,13 @@ export const query = graphql`
           node_locale
           description
           name
-          theme {
-            id
-            lightPrimary
-            primary
-            secondary
-            background
-          }
+          # theme {
+          #   id
+          #   lightPrimary
+          #   primary
+          #   secondary
+          #   background
+          # }
           article {
             id
             date(formatString: "DD.MM.YY", locale: "it")

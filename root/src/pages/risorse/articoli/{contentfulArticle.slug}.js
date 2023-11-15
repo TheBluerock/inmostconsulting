@@ -6,7 +6,7 @@ import Layout from '@layout';
 import theme from '@theme';
 import BlogParagraph from '@components/blog-paragraph';
 import BlogHeading from '@components/blog-heading';
-import BlogImage from '@components/blog-image';
+//import BlogImage from '@components/blog-image';
 import BlogList from '@components/blog-list';
 import BlogListItem from '@components/blog-list-item';
 import BlogQuote from '@components/blog-quote';
@@ -90,14 +90,15 @@ const ArticlePage = ({ data }) => {
         );
       },
 
-      'embedded-asset-block': node => {
-        const { gatsbyImageData, title } = node.data.target;
+      // 'embedded-asset-block': node => {
+      //   const { gatsbyImageData, title } = node.data.target;
 
-        if (!gatsbyImageData) {
-          return null;
-        }
-        return <BlogImage image={gatsbyImageData} alt={title} />;
-      },
+      //   if (!gatsbyImageData) {
+      //     return null;
+      //   }
+      //   return <BlogImage image={gatsbyImageData} alt={title} />;
+      // },
+
       [BLOCKS.QUOTE]: (node, children) => <BlogQuote>{children}</BlogQuote>,
       [BLOCKS.PARAGRAPH]: (node, children) => <Text>{children}</Text>,
       [BLOCKS.UL_LIST]: (node, children) => <BlogList>{children}</BlogList>,
