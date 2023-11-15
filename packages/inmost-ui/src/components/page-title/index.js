@@ -17,7 +17,7 @@ const PageTitle = () => {
         style={{
           fill: "rgba(0, 0, 0, .9)",
           fontSize: 235,
-          fontFamily: "Ogg Roman",
+          fontFamily: "sans",
         }}
       >
         talks

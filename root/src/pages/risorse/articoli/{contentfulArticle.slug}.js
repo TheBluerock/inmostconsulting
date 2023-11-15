@@ -269,13 +269,13 @@ export const query = graphql`
             title
           }
 
-          ... on ContentfulAsset {
-            id
-            contentful_id
-            __typename
-            gatsbyImageData
-            title
-          }
+      #     ... on ContentfulAsset {
+      #       id
+      #       contentful_id
+      #       __typename
+      #       gatsbyImageData
+      #       title
+      #     }
         }
       }
 
