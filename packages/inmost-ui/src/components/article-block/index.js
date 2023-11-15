@@ -7,20 +7,13 @@ import { useTheme } from "@emotion/react";
 import MarginController from "@commons/margin-controller";
 
 const ArticleBlock = ({ link, title, author }) => {
+
   const theme = useTheme();
 
   return (
     <>
       <BoxContainer
         to={link}
-        exit={{
-          trigger: ({ node }) => exitAnimation(node),
-          length: 1,
-        }}
-        entry={{
-          trigger: ({ node }) => entryAnimation(node),
-          length: 1,
-        }}
         aria-label={`Go to ${title}`}
       >
 
