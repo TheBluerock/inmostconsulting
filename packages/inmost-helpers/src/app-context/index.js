@@ -16,7 +16,6 @@ const AppContextProvider = ({ children }) => {
   const [render, setRender] = useState(false);
 
   // MENU OPEN
-
   const [isMenuOpen, setMenuOpen] = useState(false);
 
   const toggleMenu = () => {
@@ -24,7 +23,6 @@ const AppContextProvider = ({ children }) => {
   };
 
   //Type of Device
-
   const toggleLocale = () => {
     const nextLocale = selectedLocale === "it" ? "en" : "it";
     setSelectedLocale(nextLocale);

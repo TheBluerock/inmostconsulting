@@ -9,6 +9,8 @@ import MarginController from '@commons/margin-controller';
 const PodcastPage = ({ data }) => {
   const theme = useTheme();
 
+  
+
   return (
     <motion.div
       initial={{ opacity: 0, y: '500px' }}
