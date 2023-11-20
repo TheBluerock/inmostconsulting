@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
-import NotFound from '@components/not-found';
-import TitleMarquee from '@components/marquee-title';
+// import NotFound from '@components/not-found';
+// import TitleMarquee from '@components/marquee-title';
 import { useTheme } from '@emotion/react';
 import styled from "@emotion/styled";
 
@@ -9,7 +9,7 @@ const NotFoundPage = () => {
 
   return (
     <>
-      <NotFound />
+      {/* <NotFound /> */}
     </>
   );
 };
