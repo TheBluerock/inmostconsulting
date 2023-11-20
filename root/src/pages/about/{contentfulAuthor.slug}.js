@@ -1,34 +1,32 @@
-import React, { useRef } from 'react';
+import React from 'react';
 import { graphql } from 'gatsby';
 import { renderRichText } from 'gatsby-source-contentful/rich-text';
 import { BLOCKS, INLINES, MARKS } from '@contentful/rich-text-types';
+import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 import Container from '@commons/container';
 import MarginController from '@commons/margin-controller';
 import BlogParagraph from '@components/blog-paragraph';
 import BlogHeading from '@components/blog-heading';
 import Link from '@components/link';
-import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 import Spacer from '@components/spacer';
 import Text from '@commons/text';
 import { useAppContext } from '@helpers/app-context';
-import { motion } from 'framer-motion';
 import { useTheme } from '@emotion/react';
 import StarCircle from '@components/star-circle';
 import About from '@components/about';
 
+import { motion } from 'framer-motion';
 
-
-const AuthorPage = ({ data  }) => {
+const AuthorPage = ({ data }) => {
   const { bio, name, image, description } = data.contentfulAuthor;
   const { setColorTheme } = useAppContext();
   const theme = useTheme();
-  const scrollRef = useRef(null)
 
   React.useEffect(() => {
     setColorTheme({
-      background: 'rgba( 233, 237, 225, .9)',
-      lightPrimary: 'rgba(8, 8, 8, .2)',
-      secondary: 'rgba(0, 0, 0, .9)',
+      background: 'rgba(253,255,250, .9)',
+      lightPrimary: 'rgba(8, 8, 25, .2)',
+      secondary: 'rgba(187, 8, 8, .9)',
       primary: 'rgba(187, 8, 8, .9)',
     });
   }, []);
@@ -51,7 +49,7 @@ const AuthorPage = ({ data  }) => {
       fontSize={theme.typography.h4}
       fontFamily={'serif'}
       color={props.color}
-      textTransform={"uppercase"}
+      textTransform={'uppercase'}
     >
       {children}
     </Text>
@@ -59,9 +57,7 @@ const AuthorPage = ({ data  }) => {
 
   const options = {
     renderMark: {
-      [MARKS.BOLD]: text => (
-        <Bold color={theme.colors.primary}>{text}</Bold>
-      ),
+      [MARKS.BOLD]: text => <Bold color={theme.colors.primary}>{text}</Bold>,
       [MARKS.ITALIC]: text => (
         <Italic color={theme.colors.primary}>{text}</Italic>
       ),
@@ -101,16 +97,15 @@ const AuthorPage = ({ data  }) => {
         return (
           <BlogHeading
             as={'h2'}
-            fontSize={theme.typography.h2}
+            fontSize={theme.typography.h3}
             fontWeight={400}
             textTransform={'uppercase'}
             color={theme.colors.secondary}
-            align={"center"}
+            align={'center'}
             serif
-            >
+          >
             {children}
           </BlogHeading>
-
         );
       },
 
@@ -135,59 +130,55 @@ const AuthorPage = ({ data  }) => {
       [BLOCKS.PARAGRAPH]: (node, children) => {
         //const words = children[0].split(/(\s+)/);
         return (
-        
-            <Text
-              ref={scrollRef}
-              //paragraph={words}
-              fontSize={ theme.typography.h4 }
-              fontFamily={"serif"}
-              textTransform={"uppercase"}
-              lineHeight={1.1}
-              color={ theme.colors.secondary }
-              style={{ textIndent: "4em"}}
-            >
-              { children}
-            </Text>
-              
-        
-      )
+          <Text
+            //paragraph={words}
+            fontSize={theme.typography.h4}
+            fontFamily={'serif'}
+            textTransform={'uppercase'}
+            lineHeight={1.1}
+            color={theme.colors.secondary}
+            style={{ textIndent: '4em' }}
+          >
+            {children}
+          </Text>
+        );
+      },
     },
-    }
-  }
+  };
 
   const authorImage = getImage(image);
 
   return (
     <motion.div
-      initial={{ opacity: 0, y: "500px" }}
+      initial={{ opacity: 0, y: '500px' }}
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0 }}
       transition={{
         duration: 1.75,
-      }}>
-    <Spacer line space={4} />
-    <MarginController>
-      <About color={ theme.colors.primary }/>
-    </MarginController>
-    <Spacer space={4}/>
-        <Spacer space={2} />
-        <MarginController ref={scrollRef}>
-        { renderRichText(description, optionsDescription) }
-        </MarginController>
-      <Spacer space={6} line />
+      }}
+    >
+      <Spacer line space={4} />
+      <MarginController>
+        <About color={theme.colors.primary} />
+      </MarginController>
+      <Spacer space={8} line star />
+      <MarginController>
+        {renderRichText(description, optionsDescription)}
+      </MarginController>
+      <Spacer space={4} />
       <Container width='55vw' align={'center'}>
         <GatsbyImage image={authorImage} alt={name} />
       </Container>
       <Spacer space={6} />
       <Container align={'center'}>
-      <StarCircle />
+        <StarCircle />
       </Container>
       <Spacer space={4} />
       <Container width='55vw' align={'center'}>
-        <Text 
+        <Text
           fontSize={theme.typography.h5}
-          fontWeight={400}
-          fontFamily={'serif'}
+          fontWeight={600}
+          fontFamily={'sans'}
         >
           {name}
         </Text>
@@ -236,7 +227,6 @@ export const query = graphql`
           resizingBehavior: CROP
           width: 480
           formats: [WEBP, AUTO]
-          cornerRadius: 24
         )
         width
         title
@@ -247,50 +237,31 @@ export const query = graphql`
 `;
 
 export const Head = ({ data }) => {
-  const {
-    node_locale,
-    name,
-    shortBio,
-    date,
-    createdAt,
-    updatedAt,
-    image,
-    bio,
-    slug,
-    author,
-  } = data.contentfulAuthor;
+  const { node_locale, name, shortBio, image, slug } = data.contentfulAuthor;
 
   const authorUrl = `https://inmostconsulting.com/about/${slug}`;
 
   const authorSchema = {
-    "@context": "http://schema.org",
-    "@type": "Person",
-    "name": name,
-    "url": authorUrl,
-    "image": "URL of the author's image",
-    "description": shortBio,
-    "jobTitle": "Author or relevant job title",
-    "worksFor": {
-      "@type": "Organization",
-      "name": "Inmost Consulting®"
+    '@context': 'http://schema.org',
+    '@type': 'Person',
+    name: name,
+    url: authorUrl,
+    image: image.url,
+    description: shortBio,
+    worksFor: {
+      '@type': 'Organization',
+      name: 'Inmost Consulting®',
     },
-    "alumniOf": {
-      "@type": "EducationalOrganization",
-      "name": "Educational Institution Name"
+    birthDate: '1977',
+    address: {
+      '@type': 'PostalAddress',
+      streetAddress: 'Piazza Del Carroccio 5',
+      addressLocality: 'Legnano',
+      addressRegion: 'Milano',
+      postalCode: '20025',
+      addressCountry: 'Italia',
     },
-    "birthDate": "1977",
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "Piazza Del Carroccio 5",
-      "addressLocality": "Legnano",
-      "addressRegion": "Milano",
-      "postalCode": "20025",
-      "addressCountry": "Italia"
-    },
-    "sameAs": [
-      "URLs of author's social media profiles"
-    ]
-  }
+  };
 
   return (
     <>
@@ -303,7 +274,7 @@ export const Head = ({ data }) => {
         content='width=device-width, initial-scale=1, shrink-to-fit=no'
       />
       <meta name='author' content='Your Name' />
-      <meta property='og:title' content={name} />
+      <meta property='og:title' content={`about ${name}`} />
       <meta property='og:description' content={shortBio} />
       <meta property='og:image' content={image.url} />
       <meta name='twitter:card' content={shortBio} />

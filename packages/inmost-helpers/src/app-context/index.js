@@ -7,7 +7,7 @@ const AppContextProvider = ({ children }) => {
   // Step 2: Define the state and functions
   const [selectedLocale, setSelectedLocale] = useState("it");
   const [isDevice, setIsDevice] = useState(null);
-  const [footerQuote, setFooterQuote] = useState("");
+  //const [footerQuote, setFooterQuote] = useState("");
   const [isScrolled, setIsScrolled] = useState(false);
   const [currentColorTheme, setCurrentColorTheme] = useState({
     primary: "transparent",

@@ -17,6 +17,7 @@ const CardWrapper = styled(Link)`
   :transition: background 0.5s ease-in;
   text-decoration: none;
   border-radius: 24px 24px 0 0;
+  border: 1px solid ${({ theme }) => theme.colors.primary};
   &:hover {
     background: ${({ theme }) => theme.colors.lightPrimary};
   }

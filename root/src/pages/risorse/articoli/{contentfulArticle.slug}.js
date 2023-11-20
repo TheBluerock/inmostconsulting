@@ -2,8 +2,7 @@ import React from 'react';
 import { graphql } from 'gatsby';
 import { renderRichText } from 'gatsby-source-contentful/rich-text';
 import { BLOCKS, MARKS, INLINES } from '@contentful/rich-text-types';
-import Layout from '@layout';
-import theme from '@theme';
+import { useTheme } from '@emotion/react';
 import BlogParagraph from '@components/blog-paragraph';
 import BlogHeading from '@components/blog-heading';
 //import BlogImage from '@components/blog-image';
@@ -24,54 +23,57 @@ import Spacer from '@components/spacer';
 //Related Services
 //Tags and related Therms
 
-const Bold = ({ children, ...props }) => (
-  <Txt
-    as={'span'}
-    fontWeight={400}
-    fontSize={theme.typography.p}
-    fontFamily={'serif'}
-    color={props.color}
-  >
-    {children}
-  </Txt>
-);
-const Italic = ({ children, ...props }) => (
-  <Txt
-    as={'span'}
-    fontWeight={400}
-    fontSize={theme.typography.p}
-    fontFamily={'slant'}
-    color={props.color}
-  >
-    {children}
-  </Txt>
-);
-const Text = ({ children }) => <BlogParagraph>{children}</BlogParagraph>;
-
 const ArticlePage = ({ data }) => {
-  const colors = data.contentfulArticle.category.theme;
+  const theme = useTheme();
 
-  const ArticlePageTheme = {
-    ...theme,
-    colors: colors,
+  const Text = ({ children }) => <BlogParagraph>{children}</BlogParagraph>;
+
+  const Bold = ({ children, ...props }) => (
+    <Txt
+      as={'span'}
+      fontWeight={400}
+      fontSize={theme.typography.p}
+      fontFamily={'serif'}
+      color={props.color}
+    >
+      {children}
+    </Txt>
+  );
+
+  const Italic = ({ children, ...props }) => (
+    <Txt
+      as={'span'}
+      fontWeight={400}
+      fontSize={theme.typography.p}
+      fontFamily={'slant'}
+      color={props.color}
+    >
+      {children}
+    </Txt>
+  );
+
+  const colors = {
+    primary: '#BB0808',
+    lightPrimary: 'rgba(187, 8, 8, .2)',
+    secondary: '#1C2A4E',
+    background: '#e9ede1',
   };
 
   const options = {
     renderMark: {
-      [MARKS.BOLD]: text => (
-        <Bold color={ArticlePageTheme.colors.primary}>{text}</Bold>
-      ),
+      [MARKS.BOLD]: text => <Bold color={theme.colors.primary}>{text}</Bold>,
       [MARKS.ITALIC]: text => (
-        <Italic color={ArticlePageTheme.colors.primary}>{text}</Italic>
+        <Italic color={theme.colors.primary}>{text}</Italic>
       ),
     },
+
     renderNode: {
       [INLINES.HYPERLINK]: (node, children) => {
         return (
           <Link
             to={node.data.uri}
             text={children}
-            color={ArticlePageTheme.colors.primary}
+            color={theme.colors.primary}
             underline
             serif
           />
@@ -83,28 +85,23 @@ const ArticlePage = ({ data }) => {
           <Link
             to={`/risorse/articoli/${node.data.target.slug}/`}
             text={children}
-            color={ArticlePageTheme.colors.primary}
+            color={theme.colors.primary}
             underline
             serif
           />
         );
       },
 
-      // 'embedded-asset-block': node => {
-      //   const { gatsbyImageData, title } = node.data.target;
-
-      //   if (!gatsbyImageData) {
-      //     return null;
-      //   }
-      //   return <BlogImage image={gatsbyImageData} alt={title} />;
-      // },
-
       [BLOCKS.QUOTE]: (node, children) => <BlogQuote>{children}</BlogQuote>,
+
       [BLOCKS.PARAGRAPH]: (node, children) => <Text>{children}</Text>,
+
       [BLOCKS.UL_LIST]: (node, children) => <BlogList>{children}</BlogList>,
+
       [BLOCKS.LIST_ITEM]: (node, children) => (
         <BlogListItem>{children}</BlogListItem>
       ),
+
       [BLOCKS.HEADING_2]: (node, children) => {
         return (
           <BlogHeading as={'h2'} fontSize={theme.typography.h3} serif>
@@ -112,6 +109,7 @@ const ArticlePage = ({ data }) => {
           </BlogHeading>
         );
       },
+
       [BLOCKS.HEADING_3]: (node, children) => {
         return (
           <BlogHeading
@@ -124,6 +122,7 @@ const ArticlePage = ({ data }) => {
           </BlogHeading>
         );
       },
+
       [BLOCKS.HEADING_4]: (node, children) => {
         return (
           <BlogHeading as={'h4'} fontSize={theme.typography.h4}>

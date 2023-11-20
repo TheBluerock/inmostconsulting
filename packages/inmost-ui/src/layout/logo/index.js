@@ -97,7 +97,7 @@ const Logo = () => {
   return (
     <OuterWrapper>
       <AsteriskWrapper active={true} aria-label={`${name} is active`}>
-        <Asterisk active={true} size={isDevice === "mobile" ? 32 : 36} />
+        <Asterisk active={true} size={isDevice === "mobile" ? 36 : 36} />
       </AsteriskWrapper>
       <StyledLink
         to={pathname}

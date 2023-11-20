@@ -1,29 +1,35 @@
 import React from 'react';
-import Layout from '@layout';
-import theme from '@theme';
 import { graphql } from 'gatsby';
 import ArticleCategory from '@components/article-category';
+import ArticlesTitle from '@components/articoli';
+import { useTheme } from '@emotion/react';
+import { motion } from 'framer-motion';
+import Spacer from '@components/spacer';
+import MarginController from '@commons/margin-controller';
 
 const ArticlePage = ({ data }) => {
-  const ArticlePageTheme = {
-    ...theme,
-    colors: {
-      primary: '#1C2A4E',
-      lightPrimary: '#8d94a6',
-      secondary: '#BB0808',
-      background: '#ede9e9',
-    },
-  };
+  const theme = useTheme();
 
   const categories = data.allContentfulCategory.edges;
 
   return (
-    <>
+    <motion.div
+      initial={{ opacity: 0, y: '500px' }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0 }}
+      transition={{
+        duration: 1.75,
+      }}
+    >
+      <Spacer space={4} line />
+      <MarginController>
+        <ArticlesTitle theme={theme} />
+      </MarginController>
       {categories.map(
         ({ node }) =>
           node.article && <ArticleCategory key={node.id} category={node} />
       )}
-    </>
+    </motion.div>
   );
 };
 

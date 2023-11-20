@@ -1,7 +1,7 @@
-import React, { memo } from 'react';
-import { motion } from 'framer-motion';
-import Text from '@commons/text';
-import { useTheme } from '@emotion/react';
+import React, { memo } from "react";
+import { motion } from "framer-motion";
+import Text from "@commons/text";
+import { useTheme } from "@emotion/react";
 
 const AnimatedParagraph = ({ paragraph, color }) => {
   const theme = useTheme();
@@ -13,7 +13,7 @@ const AnimatedParagraph = ({ paragraph, color }) => {
       color={color}
       fontFamily="serif"
       lineHeight={1.1}
-      style={{ textIndent: '3em' }}
+      style={{ textIndent: "3em" }}
     >
       {Array.isArray(paragraph) &&
         paragraph.map((line, i) => (
@@ -30,12 +30,12 @@ const AnimatedLine = memo(({ children, i }) => {
     <motion.span
       initial="hidden"
       whileInView={"visible"}
-      animate={{ opacity: 1, y: 0}}
+      animate={{ opacity: 1, y: 0 }}
       viewport={{ once: "true" }}
-      transition={{ duration: 1, delay: 0.045 * i, ease: 'easeIn' }}
+      transition={{ duration: 1, delay: 0.045 * i, ease: "easeIn" }}
       variants={{
         visbile: { opacity: 1, y: 0 },
-        hidden: { opacity: 0, y: "100%" }
+        hidden: { opacity: 0, y: "100%" },
       }}
     >
       {children}

@@ -35,7 +35,7 @@ const StyledAnchor = styled.a`
 
 const StyledLink = styled(GLink)`
   text-decoration: none;
-  color: ${({ theme, color }) => ( color || theme.colors.primary)};
+  color: ${({ theme, color }) => color || theme.colors.primary};
   margin: 0 8px;
   position: relative;
   text-decoration: ${({ underline, color }) =>

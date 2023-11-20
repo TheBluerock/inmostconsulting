@@ -8,7 +8,6 @@ import Footer from "@layout/footer";
 import globalTheme from "@theme";
 
 const Layout = ({ children, colors }) => {
-
   const pageTheme = {
     ...globalTheme,
     colors: colors,
@@ -16,7 +15,7 @@ const Layout = ({ children, colors }) => {
 
   return (
     <ThemeProvider theme={pageTheme}>
-      <Spacer space={5} />
+      <Spacer space={6} />
       <MenuButton />
       <MenuOverlay />
       <Header />

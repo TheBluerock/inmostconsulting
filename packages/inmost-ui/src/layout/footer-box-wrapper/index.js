@@ -18,7 +18,7 @@ const FooterBoxWrapper = () => {
         />
         <FooterBox
           title={"Articoli"}
-          description={"Approfondimenti e Saggezza"}
+          description={"Approfondimenti"}
           icon={<LayersIcon />}
           link={"/risorse/articoli/"}
         />

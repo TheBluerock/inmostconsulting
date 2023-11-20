@@ -1,13 +1,12 @@
 import React from "react";
 import { motion } from "framer-motion";
 
-export const About = ({ color }) => {
+const TalksTitle = ({ theme }) => {
   return (
-    <svg x={0} y={0} viewBox="0 0 574.4 133.4">
-      <g style={{ fill: color, overflow: "hidden" }}>
+    <svg x="0px" y="0px" viewBox="0 0 763.9 201.8">
+      <g style={{ fill: theme.colors.primary, overflow: "hidden" }}>
         <motion.path
-          d="M45.1,2.5H72l45.1,128.1h-27l-8.6-27.2H35.3l-8.4,27.2H0.5L45.1,2.5z M41.4,83.5h33.9L63.8,46.6
-		c-2.1-6.8-5.2-19.7-5.2-19.7h-0.4c0,0-3.2,12.9-5.4,19.7L41.4,83.5z"
+          d="M0,3.8h155.7v33H97.5v160.6H58.2V36.8H0V3.8z"
           initial={"hidden"}
           animate={"visible"}
           whileInView={"visible"}
@@ -18,11 +17,9 @@ export const About = ({ color }) => {
             hidden: { opacity: 0, y: "100%", filter: "blur(5px)" },
           }}
         />
-
         <motion.path
-          d="M124.3,2.5h57.3c13.8,0,24.4,3.4,31,9.3c7,6.3,10.2,14,10.2,24c0,13.1-8.1,21.5-20.1,25.6V62c14.1,4.1,23.8,15.9,23.8,31.7
-		c0,12-3.8,20.2-11.3,26.7c-7.3,6.4-18.6,10.2-32.2,10.2h-58.7V2.5z M178.4,54.1c11.3,0,19-5.4,19-15.4c0-9.5-7-15-18.4-15h-28.7
-		v30.4H178.4z M150.3,109.1h29.9c12.5,0,20.1-7,20.1-17.4c0-12.2-9-18.4-20.8-18.4h-29.2V109.1z"
+          d="M188,3.8h40.6l68.2,193.6h-40.9l-13-41.2h-69.9l-12.7,41.2h-39.8L188,3.8z M182.3,126.2h51.2l-17.3-55.8
+                c-3.2-10.3-7.9-29.8-7.9-29.8h-0.5c0,0-4.9,19.5-8.1,29.8L182.3,126.2z"
           initial={"hidden"}
           animate={"visible"}
           whileInView={"visible"}
@@ -33,10 +30,8 @@ export const About = ({ color }) => {
             hidden: { opacity: 0, y: "100%", filter: "blur(5px)" },
           }}
         />
-
         <motion.path
-          d="M230,66.8C230,28.5,254,0,291.8,0s61.6,28.5,61.6,66.8c0,38.3-23.8,66.6-61.6,66.6S230,105.1,230,66.8z M326.9,66.8
-		c0-25.6-11.5-45.5-34.9-45.5s-35.5,19.9-35.5,45.5c0,25.4,12,45.3,35.5,45.3S326.9,92.2,326.9,66.8z"
+          d="M307.3,3.8h39.3v160.9h91v32.8H307.3V3.8z"
           initial={"hidden"}
           animate={"visible"}
           whileInView={"visible"}
@@ -47,10 +42,8 @@ export const About = ({ color }) => {
             hidden: { opacity: 0, y: "100%", filter: "blur(5px)" },
           }}
         />
-
         <motion.path
-          d="M362.9,89.4V2.5h26v86.9c0,13.3,6.6,22.6,24,22.6c16.5,0,24.2-9.7,24.2-22.9V2.5h26v86.9c0,27.4-16.8,43.3-49.6,43.3
-		C380.3,132.7,362.9,117.1,362.9,89.4z"
+          d="M450,3.8h39.3V81l74.5-77.2h48.7l-75.8,77.5l80.7,116.2h-46L509.1,107l-19.8,20v70.4H450V3.8z"
           initial={"hidden"}
           animate={"visible"}
           whileInView={"visible"}
@@ -62,11 +55,13 @@ export const About = ({ color }) => {
           }}
         />
         <motion.path
-          d="M471.4,2.5h103v21.9h-38.5v106.2h-26V24.4h-38.5V2.5z"
+          d="M604.9,137.6h38.5c2.7,23.3,16,32.5,43.6,32.5c20,0,37.6-7,37.6-24.9c0-19-18.4-22.8-47.9-29.5
+                c-34.7-7.9-66.4-17.1-66.4-57.4c0-38.2,31.1-58,74.2-58c43.6,0,71.8,21.4,74.7,60.4h-37.6c-2.2-19.5-17.3-29.2-37.4-29.2
+                c-21.1,0-34.9,8.9-34.9,22.7c0,15.7,13.5,20.3,42.2,26.5c39.8,8.7,72.3,18.1,72.3,59.9c0,39.3-31.7,61.2-75.3,61.2
+                C636.1,201.8,606.3,178.5,604.9,137.6z"
           initial={"hidden"}
           animate={"visible"}
           whileInView={"visible"}
-          exit={"hidden"}
           transition={{ duration: 1.5, delay: 0.8 }}
           viewport={{ once: true }}
           variants={{
@@ -79,4 +74,4 @@ export const About = ({ color }) => {
   );
 };
 
-export default About;
+export default TalksTitle;
