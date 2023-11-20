@@ -1,6 +1,9 @@
 require('dotenv').config();
 
 module.exports = {
+  flags: {
+    DEV_SSR: true,
+  },
   siteMetadata: {
     locale: 'it',
     name: 'Inmost®',
