@@ -5,10 +5,10 @@ module.exports = {
     locale: 'it',
     name: 'Inmost®',
     links: [
-      {
-        name: 'Inmost®',
-        slug: '/',
-      },
+      // {
+      //   name: 'Inmost®',
+      //   slug: '/',
+      // },
       {
         name: 'About',
         slug: '/about/matteo-albini/',
@@ -51,14 +51,14 @@ module.exports = {
         shortcuts: [
           {
             name: 'Leggi',
-            short_name: 'Articoli e Approfondimenti',
+            short_name: 'Articoli',
             description: 'View the list of podcasts you saved for later',
-            url: '/risorse/articles/',
+            url: '/risorse/articoli/',
             icons: [{ src: 'src/images/layers.png', sizes: '192x192' }],
           },
           {
             name: 'Ascolta',
-            short_name: 'Il podcast di Inmost®',
+            short_name: 'Inmost® Talks',
             description: 'View the list of podcasts you listen to',
             url: '/risorse/podcast/inmost-talks/',
             icons: [{ src: 'src/images/stereo.png', sizes: '192x192' }],

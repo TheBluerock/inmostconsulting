@@ -32,10 +32,7 @@ const BlogHead = ({
       </BlogHeading>
       <BlogExcerpt excerpt={excerpt} />
       <Spacer space={8} line />
-      <BlogDetails 
-          date={date}  
-          author={author} 
-          category={category} />
+      <BlogDetails date={date} author={author} category={category} />
       <Spacer space={8} line />
     </>
   );

@@ -1,7 +1,7 @@
 import React from "react";
 import Text from "@commons/text";
 import { useTheme, css } from "@emotion/react";
-import Spacer from '@components/spacer';
+import Spacer from "@components/spacer";
 
 const blogParagraphStyles = (theme) => css`
   color: ${theme.colors.primary};
@@ -26,10 +26,14 @@ const BlogParagraph = ({ children }) => {
 
   return (
     <>
-    <Text as="p" fontSize={theme.typography.p} css={blogParagraphStyles(theme)}>
-      {children}
-    </Text>
-    <Spacer space={2} />
+      <Text
+        as="p"
+        fontSize={theme.typography.p}
+        css={blogParagraphStyles(theme)}
+      >
+        {children}
+      </Text>
+      <Spacer space={2} />
     </>
   );
 };

@@ -1,22 +1,18 @@
-import React from 'react';
-import theme from '@theme';
-import Layout from '@layout';
+import React, { useEffect } from 'react';
+import { useAppContext } from '@helpers/app-context';
 import NotFound from '@components/not-found';
 
 const NotFoundPage = () => {
-  const NotFoundPageTheme = {
-    ...theme,
-    colors: {
-      primary: 'rgba(255, 255, 255, .9)',
-      background: '#111111',
-    },
-  };
+  const { setColorTheme } = useAppContext();
 
-  return (
-    <Layout theme={NotFoundPageTheme}>
-      <NotFound />
-    </Layout>
-  );
+  useEffect(() => {
+    setColorTheme({
+      primary: 'rgba(255, 255, 240, .9)',
+      background: 'rgba( 12, 12, 12, .9)',
+    });
+  }, []);
+
+  return <NotFound />;
 };
 
 export default NotFoundPage;

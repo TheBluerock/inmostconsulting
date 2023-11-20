@@ -1,5 +1,5 @@
 import React, { createContext, useState, useContext, useEffect } from "react";
-import theme from "@theme";
+
 // Step 1: Create a context and provider
 const AppContext = createContext();
 
@@ -9,7 +9,11 @@ const AppContextProvider = ({ children }) => {
   const [isDevice, setIsDevice] = useState(null);
   const [footerQuote, setFooterQuote] = useState("");
   const [isScrolled, setIsScrolled] = useState(false);
-  const [currentTheme, setCurrentTheme] = useState(theme);
+  const [currentColorTheme, setCurrentColorTheme] = useState({
+    primary: "transparent",
+    background: "transparent",
+  });
+  const [render, setRender] = useState(false);
 
   // MENU OPEN
 
@@ -49,7 +53,6 @@ const AppContextProvider = ({ children }) => {
       window.addEventListener("scroll", function () {
         // Get the current scroll position
         var scrollY = window.scrollY;
-
         // Check if the scroll position is greater than 54 pixels
         if (scrollY > 1) {
           // The page has been scrolled for more than 54 pixels
@@ -62,15 +65,11 @@ const AppContextProvider = ({ children }) => {
     }
   }
 
-  const setTheme = (t) => {
-    setCurrentTheme({
-      ...theme,
-      t,
-    });
+  const setColorTheme = (t) => {
+    setCurrentColorTheme(t);
   };
 
   useEffect(() => {
-    console.log(currentTheme);
     handleScrolled();
     setDeviceBasedOnWidth();
     // Listen for window resize and update isDevice
@@ -92,8 +91,10 @@ const AppContextProvider = ({ children }) => {
     toggleLocale,
     isDevice,
     isScrolled,
-    currentTheme,
-    setTheme,
+    currentColorTheme,
+    setColorTheme,
+    render,
+    setRender,
   };
 
   return (

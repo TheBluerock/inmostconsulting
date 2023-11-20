@@ -1,27 +1,28 @@
 import React from "react";
 import { ThemeProvider } from "@emotion/react";
-import { AppContextProvider } from "@helpers/app-context";
-import GlobalStyles from "@theme/globals";
-import * as fontsCss from "@theme/fonts.css";
-import Header from "@layout/header";
 import MenuButton from "@layout/menu-button";
 import Spacer from "@components/spacer";
 import MenuOverlay from "@layout/menu";
+import Header from "@layout/header";
 import Footer from "@layout/footer";
+import globalTheme from "@theme";
 
-const Layout = ({ children, theme }) => {
+const Layout = ({ children, colors }) => {
+
+  const pageTheme = {
+    ...globalTheme,
+    colors: colors,
+  };
+
   return (
-    <AppContextProvider>
-      <ThemeProvider theme={theme}>
-        <GlobalStyles style={fontsCss} />
-        <Spacer space={7} />
-        <MenuButton />
-        <MenuOverlay />
-        <Header />
-        <main>{children}</main>
-        <Footer />
-      </ThemeProvider>
-    </AppContextProvider>
+    <ThemeProvider theme={pageTheme}>
+      <Spacer space={5} />
+      <MenuButton />
+      <MenuOverlay />
+      <Header />
+      <main>{children}</main>
+      <Footer />
+    </ThemeProvider>
   );
 };
 

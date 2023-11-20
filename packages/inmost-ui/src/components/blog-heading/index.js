@@ -11,13 +11,15 @@ const BlogHeading = ({
   as,
   fontSize,
   serif,
+  align,
   fontWeight,
   textTransform,
+  color,
 }) => {
   return (
     <>
       {as !== "h1" && <Spacer space={16} star />}
-      <StyledContainer width={"65vw"}>
+      <StyledContainer width={"65vw"} align={align}>
         <Text
           as={as}
           fontSize={fontSize}
@@ -25,11 +27,13 @@ const BlogHeading = ({
           lineHeight={"1.2em"}
           fontWeight={fontWeight}
           textTransform={textTransform}
+          color={color}
+          textAlign={align}
         >
           {children}
         </Text>
       </StyledContainer>
-      <Spacer space={4} />
+      <Spacer space={4} color={color} />
     </>
   );
 };

@@ -7,25 +7,19 @@ import { useTheme } from "@emotion/react";
 import MarginController from "@commons/margin-controller";
 
 const ArticleBlock = ({ link, title, author }) => {
-
   const theme = useTheme();
 
   return (
     <>
-      <BoxContainer
-        to={link}
-        aria-label={`Go to ${title}`}
-      >
-
-        {   /* 
+      <BoxContainer to={link} aria-label={`Go to ${title}`}>
+        {/* 
               Image
                 Title
                 Published
                 category
                 Author
               Excerpt
-            */
-          }
+            */}
         <MarginController>
           <ImageContainer />
           <TextContainer>

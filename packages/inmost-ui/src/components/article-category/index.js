@@ -17,13 +17,12 @@ const ArticleCategory = ({ category }) => {
 
   const categoryTheme = {
     ...theme,
-    colors: 
-    {
-      "primary": "#1C2A4E",
-      "lightPrimary": "#8d94a6",
-      "secondary": "#BB0808",
-      "background": "#ede9e9"
-    }
+    colors: {
+      primary: "#1C2A4E",
+      lightPrimary: "#8d94a6",
+      secondary: "#BB0808",
+      background: "#ede9e9",
+    },
   };
 
   return (

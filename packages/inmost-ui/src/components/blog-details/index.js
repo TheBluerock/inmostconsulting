@@ -38,7 +38,7 @@ const BlogDetails = ({ date, author, category }) => {
             <Text as={"span"} fontSize={theme.typography.p} fontWeight={400}>
               Pubblicato il:{" "}
             </Text>
-            <Text as={"span"} fontSize={theme.typography.p} >
+            <Text as={"span"} fontSize={theme.typography.p}>
               {date}
             </Text>
           </RowWrapper>

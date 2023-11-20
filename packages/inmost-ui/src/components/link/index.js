@@ -20,7 +20,7 @@ const StyledAnchor = styled.a`
   /* Pseudo-classes */
   &:active,
   &:visited {
-    color: ${({ theme }) => theme.colors.primary};
+    color: ${({ theme, color }) => color || theme.colors.primary};
   }
 
   /* Media queries */
@@ -35,14 +35,14 @@ const StyledAnchor = styled.a`
 
 const StyledLink = styled(GLink)`
   text-decoration: none;
-  color: ${({ theme, color }) => (color ? color : theme.colors.primary)};
+  color: ${({ theme, color }) => ( color || theme.colors.primary)};
   margin: 0 8px;
   position: relative;
   text-decoration: ${({ underline, color }) =>
     underline ? `underline dotted ${color}` : "none"};
   &:active,
   &:visited {
-    color: ${({ theme }) => theme.colors.primary};
+    color: ${({ theme, color }) => color || theme.colors.primary};
   }
 
   @media ${({ theme }) => theme.device.large} {

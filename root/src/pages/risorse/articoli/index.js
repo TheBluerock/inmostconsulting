@@ -18,13 +18,12 @@ const ArticlePage = ({ data }) => {
   const categories = data.allContentfulCategory.edges;
 
   return (
-    <Layout theme={ArticlePageTheme}>
-      {categories.map(({ node }) => {
-        if (node.article) {
-          return <ArticleCategory key={node.id} category={node} />;
-        }
-      })}
-    </Layout>
+    <>
+      {categories.map(
+        ({ node }) =>
+          node.article && <ArticleCategory key={node.id} category={node} />
+      )}
+    </>
   );
 };
 
@@ -32,13 +31,16 @@ export default ArticlePage;
 
 export const query = graphql`
   query CategoryQuery {
-    allContentfulCategory(filter: { node_locale: { eq: "it" } }, limit: 6 ) {
+    allContentfulCategory(filter: { node_locale: { eq: "it" } }, limit: 6) {
       edges {
         node {
           id
           node_locale
           description
           name
+          #
+          # Add this
+          #
           # theme {
           #   id
           #   lightPrimary

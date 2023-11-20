@@ -27,13 +27,15 @@ const StarLineStc = styled.div`
   background: ${({ theme }) => theme.colors.primary};
 `;
 
-const Star = ({ line }) => {
+const Star = ({ line, color }) => {
   const theme = useTheme();
 
   return line ? (
     <div style={{ display: "flex", flex: 1, alignItems: " center" }}>
       <StarLineStc />
-      <StarNegative style={{ height: 36, fill: theme.colors.primary }} />
+      <StarNegative
+        style={{ height: 36, fill: color || theme.colors.primary }}
+      />
       <StarLineStc />
     </div>
   ) : (
@@ -41,11 +43,11 @@ const Star = ({ line }) => {
   );
 };
 
-const Spacer = ({ space, line, star }) => {
+const Spacer = ({ space, line, star, color }) => {
   return (
     <SpacerStc height={space}>
       {!star && line && <LineStc />}
-      {star && <Star line={line} />}
+      {star && <Star line={line} color={color} />}
     </SpacerStc>
   );
 };

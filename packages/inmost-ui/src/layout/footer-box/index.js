@@ -2,14 +2,9 @@ import React from "react";
 import styled from "@emotion/styled";
 import { Link } from "gatsby";
 
-
 const FooterBox = ({ title, description, icon, link }) => {
-
   return (
-    <BoxContainer
-      to={link}
-      aria-label={`Go to ${title}`}
-    >
+    <BoxContainer to={link} aria-label={`Go to ${title}`}>
       <BoxInnerWrapper>
         <BoxIconWrapper>{icon}</BoxIconWrapper>
       </BoxInnerWrapper>

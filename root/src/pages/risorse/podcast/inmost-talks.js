@@ -14,9 +14,9 @@ const PodcastPage = () => {
   };
 
   return (
-    <Layout theme={PodcastPageTheme}>
+    <>
       <PageTitle />
-    </Layout>
+    </>
   );
 };
 

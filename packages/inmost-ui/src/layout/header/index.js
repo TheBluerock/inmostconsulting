@@ -2,6 +2,7 @@ import React from "react";
 import styled from "@emotion/styled";
 import Navigation from "@layout/navigation";
 import { useAppContext } from "@helpers/app-context";
+import { motion, AnimatePresence } from "framer-motion";
 
 const HeaderWrapper = styled.header`
   background: ${({ theme, isScrolled }) =>
@@ -41,11 +42,20 @@ const Header = () => {
 
   return (
     <HeaderWrapper isScrolled={isScrolled}>
-      <ContentWrapper>
-        <Container>
-          <Navigation />
-        </Container>
-      </ContentWrapper>
+      <AnimatePresence mode="wait">
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.75 }}
+        >
+          <ContentWrapper>
+            <Container>
+              <Navigation />
+            </Container>
+          </ContentWrapper>
+        </motion.div>
+      </AnimatePresence>
     </HeaderWrapper>
   );
 };

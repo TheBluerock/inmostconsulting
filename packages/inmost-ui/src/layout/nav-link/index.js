@@ -4,6 +4,7 @@ import { Link } from "gatsby";
 import styled from "@emotion/styled";
 import { useLocation } from "@reach/router";
 import Asterisk from "@layout/animated-asterisk";
+import { globalHistory } from "@reach/router";
 
 NavLink.propTypes = {
   url: PropTypes.string.isRequired,
@@ -15,6 +16,7 @@ const StyledLink = styled(Link)`
   font-size: ${({ theme }) => theme.typography.h5.desktop};
   text-transform: uppercase;
   color: ${({ theme }) => theme.colors.primary};
+  font-family: ${({ theme }) => theme.fonts.sans};
 `;
 
 const AsteriskWrapper = styled.span`
@@ -42,26 +44,29 @@ const OuterWrapper = styled.div`
 `;
 
 function NavLink({ url, text, asterisk }) {
-  const [isActive, setIsActive] = useState(false);
+  const [isActive, setIsActive] = useState(true);
+  const [render, setRender] = useState(false);
   const { pathname } = useLocation();
 
   useEffect(() => {
     setIsActive(url === pathname);
+
+    return globalHistory.listen(({ action }) => {
+      if (action === "PUSH") setRender(true);
+    });
   }, [url, pathname]);
 
+  console.log("isActive: " + isActive + "render:" + render);
 
   return (
     <OuterWrapper>
       {asterisk && (
         <AsteriskWrapper active={isActive} aria-label={`${text} is active`}>
-          <Asterisk active={isActive} size={36} />
+          {isActive && <Asterisk size={36} />}
         </AsteriskWrapper>
       )}
 
-      <StyledLink
-        to={url}
-        aria-label={`Go to ${text}`}
-      >
+      <StyledLink to={url} aria-label={`Go to ${text}`}>
         {text}
       </StyledLink>
     </OuterWrapper>

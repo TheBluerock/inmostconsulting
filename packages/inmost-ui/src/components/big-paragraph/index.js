@@ -1,15 +1,14 @@
 import React from "react";
 import styled from "@emotion/styled";
 import { Link } from "gatsby";
+import Container from "@commons/container";
 
 const StyledParagraph = styled.p`
   text-transform: uppercase;
-  color: ${({ theme }) => theme.colors.primary};
+  color: ${({ theme, color }) => color || theme.colors.primary};
   font-size: ${({ theme }) => theme.typography.h5.desktop};
-  font-family: ${({ theme, sans }) =>
-    sans ? theme.fonts.sans : theme.fonts.serif};
+  font-family: ${({ theme, sans }) => sans && theme.fonts.sans || theme.fonts.serif};
   line-height: 1.3em;
-  margin: 0 7vw;
   display: inline-block;
 
   & > .bold {
@@ -53,20 +52,16 @@ const StyledParagraph = styled.p`
   }
 `;
 
-const Aside = styled.h2`
-  display: inline-block;
-`;
-
 const ActionButton = styled(Link)`
   display: inline-block;
 `;
 
-const BigParagraph = ({ children, action, sans }) => {
+const BigParagraph = ({ children, action, sans, color }) => {
   return (
-    <>
-      <StyledParagraph sans={sans}>{children}</StyledParagraph>
+    <Container width={"65vw"}>
+      <StyledParagraph sans={sans} color={color}>{children}</StyledParagraph>
       {action && <ActionButton to={action.link}>{action.text}</ActionButton>}
-    </>
+    </Container>
   );
 };
 

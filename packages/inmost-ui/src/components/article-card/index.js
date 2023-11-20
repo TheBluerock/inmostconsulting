@@ -13,8 +13,8 @@ const CardWrapper = styled(Link)`
   display: flex;
   flex-direction: column;
   background: transparent;
-  margin: 0 8px;:
-  transition: background 0.5s ease-in;
+  margin: 0 8px;
+  :transition: background 0.5s ease-in;
   text-decoration: none;
   border-radius: 24px 24px 0 0;
   &:hover {
@@ -62,9 +62,7 @@ const ArticleCard = ({ article }) => {
   };
 
   return (
-    <CardWrapper
-      to={`/risorse/articoli/${article.slug}/`}
-      >
+    <CardWrapper to={`/risorse/articoli/${article.slug}/`}>
       <CardImage>
         <GatsbyImage
           image={article.heroImage.gatsbyImageData}
@@ -72,46 +70,44 @@ const ArticleCard = ({ article }) => {
         />
       </CardImage>
       <div style={{ padding: "0 8px" }}>
-
-      <CardHeader>
-        <Text fontSize={theme.typography.p}>
-          in <span style={{ fontWeight: 600 }}>{article.category.name}</span>
-        </Text>
-        <Text fontSize={theme.typography.p}>{article.date}</Text>
-      </CardHeader>
-      <StarContainer>
-        <StarPositive />
-      </StarContainer>
-      <Spacer space={1} />
-      <CardTitle>
-        <Text
-          as={"h2"}
-          fontSize={theme.typography.h5}
-          fontFamily={"serif"}
-          textTransform={"uppercase"}
-          lineHeight={1.12}
+        <CardHeader>
+          <Text fontSize={theme.typography.p}>
+            in <span style={{ fontWeight: 600 }}>{article.category.name}</span>
+          </Text>
+          <Text fontSize={theme.typography.p}>{article.date}</Text>
+        </CardHeader>
+        <StarContainer>
+          <StarPositive />
+        </StarContainer>
+        <Spacer space={1} />
+        <CardTitle>
+          <Text
+            as={"h2"}
+            fontSize={theme.typography.h5}
+            fontFamily={"serif"}
+            textTransform={"uppercase"}
+            lineHeight={1.12}
           >
-          {pruneString(article.title, 35)}
-        </Text>
-        <Text
-          as={"h5"}
-          fontSize={theme.typography.p}
-          lineHeight={1.12}
-          >
-        </Text>
-      </CardTitle>
-      <Spacer space={2} />
-      <CardExcerpt>
-        <Text
-          as={"p"}
-          fontSize={theme.typography.p}
-          lineHeight={1.5}
-          fontFamily={"sans"}
-          >
-          {pruneString(article.excerpt, 76)}
-        </Text>
+            {pruneString(article.title, 35)}
+          </Text>
+          <Text
+            as={"h5"}
+            fontSize={theme.typography.p}
+            lineHeight={1.12}
+          ></Text>
+        </CardTitle>
         <Spacer space={2} />
-      </CardExcerpt>
+        <CardExcerpt>
+          <Text
+            as={"p"}
+            fontSize={theme.typography.p}
+            lineHeight={1.5}
+            fontFamily={"sans"}
+          >
+            {pruneString(article.excerpt, 76)}
+          </Text>
+          <Spacer space={2} />
+        </CardExcerpt>
       </div>
     </CardWrapper>
   );

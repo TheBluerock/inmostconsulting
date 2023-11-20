@@ -14,7 +14,7 @@ const FooterBoxWrapper = () => {
           title={"Servizi"}
           description={"Come ti posso aiutare"}
           icon={<AsteriskIcon />}
-          link={"/servizi/"}
+          link={"/"}
         />
         <FooterBox
           title={"Articoli"}
@@ -32,7 +32,7 @@ const FooterBoxWrapper = () => {
         />
         <FooterBox
           title={"Corsi"}
-          description={"Il mio corso di preparazione"}
+          description={"Il mio corso"}
           icon={<AtomIcon />}
           link={"/"}
         />

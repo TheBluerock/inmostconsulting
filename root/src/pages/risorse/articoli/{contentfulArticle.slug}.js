@@ -134,10 +134,11 @@ const ArticlePage = ({ data }) => {
     },
   };
 
-  const { title, body, excerpt, date, author, category } = data.contentfulArticle;
+  const { title, body, excerpt, date, author, category } =
+    data.contentfulArticle;
 
   return (
-    <Layout theme={ArticlePageTheme}>
+    <>
       <article>
         <BlogHead
           title={title}
@@ -152,7 +153,7 @@ const ArticlePage = ({ data }) => {
         {renderRichText(body, options)}
       </article>
       <Spacer space={8} />
-    </Layout>
+    </>
   );
 };
 
@@ -261,23 +262,23 @@ export const query = graphql`
       body {
         raw
 
-        references {
-          ... on ContentfulArticle {
-            id
-            contentful_id
-            __typename
-            slug
-            title
-          }
+        # references {
+        #   ... on ContentfulArticle {
+        #     id
+        #     contentful_id
+        #     __typename
+        #     slug
+        #     title
+        #   }
 
-      #     ... on ContentfulAsset {
-      #       id
-      #       contentful_id
-      #       __typename
-      #       gatsbyImageData
-      #       title
-      #     }
-        }
+        #   #     ... on ContentfulAsset {
+        #   #       id
+        #   #       contentful_id
+        #   #       __typename
+        #   #       gatsbyImageData
+        #   #       title
+        #   #     }
+        # }
       }
 
       author {
@@ -299,7 +300,7 @@ export const query = graphql`
           layout: CONSTRAINED
           aspectRatio: 2
           placeholder: BLURRED
-          formats: [AVIF, WEBP, AUTO]
+          formats: [WEBP, AUTO]
         )
       }
     }

@@ -59,7 +59,15 @@ const DesktopNavigation = ({ links }) => {
   return (
     <>
       {links.map(({ slug, name }, index) => {
-        return <NavLink key={index} text={name} url={slug} asterisk />;
+        return (
+          <NavLink
+            key={index}
+            text={name}
+            url={slug}
+            asterisk
+            isActive={true}
+          />
+        );
       })}
     </>
   );
