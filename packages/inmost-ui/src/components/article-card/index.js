@@ -16,7 +16,7 @@ const CardWrapper = styled(Link)`
   margin: 0 8px;
   :transition: background 0.5s ease-in;
   text-decoration: none;
-  border-radius: 24px 24px 0 0;
+  border-radius: 24px;
   border: 1px solid ${({ theme }) => theme.colors.primary};
   &:hover {
     background: ${({ theme }) => theme.colors.lightPrimary};
@@ -71,6 +71,7 @@ const ArticleCard = ({ article }) => {
         />
       </CardImage>
       <div style={{ padding: "0 8px" }}>
+        <Spacer space={2} />
         <CardHeader>
           <Text fontSize={theme.typography.p}>
             in <span style={{ fontWeight: 600 }}>{article.category.name}</span>

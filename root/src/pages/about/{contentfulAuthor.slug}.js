@@ -161,14 +161,14 @@ const AuthorPage = ({ data }) => {
       <MarginController>
         <About color={theme.colors.primary} />
       </MarginController>
-      <Spacer space={8} line star />
-      <MarginController>
-        {renderRichText(description, optionsDescription)}
-      </MarginController>
-      <Spacer space={4} />
+      <Spacer space={8} line />
       <Container width='55vw' align={'center'}>
         <GatsbyImage image={authorImage} alt={name} />
       </Container>
+      <Spacer space={4} />
+      <MarginController>
+        {renderRichText(description, optionsDescription)}
+      </MarginController>
       <Spacer space={6} />
       <Container align={'center'}>
         <StarCircle />
