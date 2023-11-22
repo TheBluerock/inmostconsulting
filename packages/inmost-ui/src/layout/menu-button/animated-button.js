@@ -1,58 +1,61 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "@emotion/styled";
 import CircleLoader from "@layout/circle-loader";
-import { useAppContext } from "@helpers/app-context"; // Import the context
+import { useAppContext } from "@helpers/app-context";
 
 const BurgerButtonWrapper = styled.div`
-  align-items: center;
   display: flex;
   flex-direction: column;
-  height: ${({ isOpen, isHovered }) => (isOpen || isHovered ? "3px" : "25%")};
+  height: ${({ isOpen }) => (isOpen ? "3px" : "25%")};
   position: relative;
   transition: height 0.3s ease-in-out;
-  width: 100%; /* Adjust the width as needed */
+  width: 100%;
   z-index: 2;
+  cursor: pointer;
 `;
 
 const Line = styled.div`
   width: 100%;
-  display:flex;
+  display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
 
-  &:before {
-    content: "";
-    width: ${({ isOpen }) => (isOpen ? "3px" : "calc(100% - 4px)")};
-    border-radius: ${({ isOpen }) => (isOpen ? "3px" : "0")};
-    height: 3px;
-    background-color: ${({ theme }) => theme.colors.primary};
-    top: 0;
-    position: absolute;
-    transition: width .3s ease-in-out, border-radius .3s ease-in-out;
-  }
-
+  &:before,
   &:after {
     content: "";
     width: ${({ isOpen }) => (isOpen ? "3px" : "calc(100% - 4px)")};
     border-radius: ${({ isOpen }) => (isOpen ? "3px" : "0")};
     height: 3px;
-    background-color: ${({ theme }) => theme.colors.primary};
-    bottom: 0;
+    background-color: ${({ theme, isOpen }) => isOpen ? theme.colors.background : theme.colors.primary};
     position: absolute;
-    transition: width .3s ease-in-out, border-radius .3s ease-in-out;
+    transition: width 0.3s ease-in-out, border-radius 0.3s ease-in-out, background-color 0.3 easeInOut;
   }
-}`;
+
+  &:before {
+    top: 0;
+  }
+
+  &:after {
+    bottom: 0;
+  }
+`;
 
 const MenuButton = ({ hovered }) => {
-  const { isMenuOpen } = useAppContext(); // Use the context
+  const { isMenuOpen, toggleMenu } = useAppContext();
+  const [isClicked, setIsClicked] = useState(false);
+
+  const handleClick = () => {
+    toggleMenu();
+    setIsClicked(!isClicked);
+  };
 
   return (
     <>
-      <BurgerButtonWrapper isOpen={isMenuOpen} isHovered={hovered}>
-        <Line isOpen={isMenuOpen} />
-      </BurgerButtonWrapper>
-      <CircleLoader play={isMenuOpen} r={48} />
+    <BurgerButtonWrapper onClick={handleClick} isOpen={isMenuOpen} isHovered={hovered} clicked={isClicked}>
+      <Line isOpen={isMenuOpen} />
+    </BurgerButtonWrapper>
+    <CircleLoader play={isMenuOpen} r={48} />
     </>
   );
 };

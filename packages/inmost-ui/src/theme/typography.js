@@ -2,7 +2,7 @@ import device from "./device";
 
 // Define named constants for font sizes and ratios
 const FONT_SIZE_BASE = {
-  mobile: (28 * 100) / 480,
+  mobile: (29 * 100) / 480,
   tablet: (24 * 100) / 768,
   desktop: (21 * 100) / 1280,
 };

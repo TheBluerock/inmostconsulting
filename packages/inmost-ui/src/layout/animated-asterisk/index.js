@@ -6,15 +6,10 @@ const Asterisk = ({ size, number }) => {
   const asteriskRef = useRef(null);
   const asteriskSize = size || 64;
   const radius = asteriskSize / 2;
-  const stemCount = number || 16; // Default to 16 stems if number prop is not provided
+  const stemCount = number || 16;
   const controls = useAnimation();
 
   useEffect(() => {
-    controls.start((i) => ({
-      x2: radius * Math.cos((((i * 360) / stemCount) * Math.PI) / 180) + radius,
-      y2: radius * Math.sin((((i * 360) / stemCount) * Math.PI) / 180) + radius,
-    }));
-
     controls.start({
       rotate: 360,
       transition: {
@@ -24,10 +19,10 @@ const Asterisk = ({ size, number }) => {
         ease: "linear",
       },
     });
-  });
+  }, [controls]);
 
   const stems = Array.from({ length: stemCount }).map((_, i) => (
-    <Line key={i} id={`stem-${i}`} controls={controls} i={i} radius={radius} />
+    <Line key={i} id={`stem-${i}`} i={i} radius={radius} />
   ));
 
   return (
@@ -36,14 +31,25 @@ const Asterisk = ({ size, number }) => {
       viewBox={`0 0 ${asteriskSize} ${asteriskSize}`}
       height={asteriskSize}
       width={asteriskSize}
+      animate={controls}
     >
       {stems}
     </motion.svg>
   );
 };
 
-const Line = ({ controls, i, radius, id }) => {
+const Line = ({ i, radius, id }) => {
   const theme = useTheme();
+  const stemVariants = {
+    initial: { x2: radius, y2: radius },
+    animate: {
+      x2: radius * Math.cos((((i * 360) / 16) * Math.PI) / 180) + radius,
+      y2: radius * Math.sin((((i * 360) / 16) * Math.PI) / 180) + radius,
+      transition: { delay: i * 0.035 },
+    },
+    exit: { x2: radius, y2: radius },
+  };
+
   return (
     <motion.line
       custom={i}
@@ -52,10 +58,10 @@ const Line = ({ controls, i, radius, id }) => {
       stroke={theme.colors.primary}
       strokeWidth={1.1}
       id={id}
-      initial={{ x2: radius, y2: radius }}
-      animate={controls}
-      exit={{ x2: radius, y2: radius }}
-      transition={{ delay: i * 0.035 }}
+      variants={stemVariants}
+      initial="initial"
+      animate="animate"
+      exit="exit"
     />
   );
 };

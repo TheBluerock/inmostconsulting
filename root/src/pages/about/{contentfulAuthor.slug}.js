@@ -46,7 +46,7 @@ const AuthorPage = ({ data }) => {
     <Text
       as={'span'}
       fontWeight={400}
-      fontSize={theme.typography.h4}
+      fontSize={theme.typography.h5}
       fontFamily={'serif'}
       color={props.color}
       textTransform={'uppercase'}
@@ -132,12 +132,12 @@ const AuthorPage = ({ data }) => {
         return (
           <Text
             //paragraph={words}
-            fontSize={theme.typography.h4}
+            fontSize={theme.typography.h5}
             fontFamily={'serif'}
             textTransform={'uppercase'}
-            lineHeight={1.1}
+            lineHeight={1.25}
             color={theme.colors.secondary}
-            style={{ textIndent: '4em' }}
+            style={{ textIndent: '5vw' }}
           >
             {children}
           </Text>
@@ -161,14 +161,14 @@ const AuthorPage = ({ data }) => {
       <MarginController>
         <About color={theme.colors.primary} />
       </MarginController>
-      <Spacer space={8} line />
+      <Spacer space={4} line />
       <Container width='55vw' align={'center'}>
         <GatsbyImage image={authorImage} alt={name} />
       </Container>
       <Spacer space={4} />
-      <MarginController>
+      <Container width={"65vw"}>
         {renderRichText(description, optionsDescription)}
-      </MarginController>
+      </Container>
       <Spacer space={6} />
       <Container align={'center'}>
         <StarCircle />

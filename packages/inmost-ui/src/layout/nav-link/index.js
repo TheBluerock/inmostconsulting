@@ -49,6 +49,9 @@ function NavLink({ url, text, asterisk }) {
   const { pathname } = useLocation();
 
   useEffect(() => {
+
+    //improve this rule
+
     setIsActive(url === pathname);
 
     return globalHistory.listen(({ action }) => {

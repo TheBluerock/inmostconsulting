@@ -1,12 +1,23 @@
-import React, { useRef, useEffect, useState } from "react";
-import { gsap } from "gsap";
+import React, { useRef, useEffect } from "react";
+import { motion, useAnimation } from "framer-motion";
 import { useAppContext } from "@helpers/app-context";
 import styled from "@emotion/styled";
 
-const SecondWrapper = styled.aside`
+const UnderWrapper = styled(motion.aside)`
   position: fixed;
   overflow: hidden;
   background: ${({ theme }) => theme.colors.background};
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 11;
+`;
+
+const OverWrapper = styled(motion.aside)`
+  position: fixed;
+  overflow: hidden;
+  background: ${({ theme }) => theme.colors.primary};
   top: 0;
   right: 0;
   bottom: 0;
@@ -15,47 +26,36 @@ const SecondWrapper = styled.aside`
 `;
 
 const MenuOverlay = () => {
-  const SecondWrapperRef = useRef(null);
-  const { isMenuOpen, isDevice } = useAppContext(); // Replace YourContext with your actual context
+  const UnderWrapperRef = useRef(null);
+  const OverWrapperRef = useRef(null);
+  const { isMenuOpen, isDevice } = useAppContext();
+  const controls = useAnimation();
+  const controls2 = useAnimation();
 
   useEffect(() => {
-    const secondWrapper = SecondWrapperRef.current;
-
-    // Define the animation
-
-    const secondWrapperAnimation = gsap.timeline();
-
     const openClipPath =
       isDevice === "tablet"
         ? "circle(150% at 50% 32px)"
-        : "circle(150% at calc(100% - 64px) 32px)";
+        : "circle(150% at calc(100% - 48px) 30px)";
 
     const closeClipPath =
       isDevice === "tablet"
         ? "circle(0% at 50% 32px)"
-        : "circle(0% at calc(100% - 64px) 32px)";
+        : "circle(0% at calc(100% - 48px) 30px)";
 
     if (isMenuOpen) {
-      // Then SecondWrapper starts with a delay
-      secondWrapperAnimation.to(secondWrapper, {
-        clipPath: openClipPath,
-        duration: 0.6, // Adjust the duration as needed
-        ease: "power2.inOut", // Choose an easing function
-        delay: 0.3, // Delay SecondWrapper animation
-      });
+      controls2.start({ clipPath: openClipPath, transition: { duration: 0.5, ease: "easeInOut", delay: 0.3 } });
+      controls.start({ clipPath: openClipPath, transition: { duration: 0.5, ease: "easeInOut" } });
     } else {
-      // If isOpen is false (closing), SecondWrapper starts first
-      secondWrapperAnimation.to(secondWrapper, {
-        clipPath: closeClipPath,
-        duration: 0.6, // Adjust the duration as needed
-        ease: "power1.inOut", // Choose an easing function
-      });
+      controls.start({ clipPath: closeClipPath, transition: { duration: 0.5, ease: "easeInOut", delay: 0.3 } });
+      controls2.start({ clipPath: closeClipPath, transition: { duration: 0.5, ease: "easeInOut" } });
     }
-  }, [isMenuOpen]);
+  }, [isMenuOpen, isDevice, controls, controls2]);
 
   return (
     <>
-      <SecondWrapper ref={SecondWrapperRef}></SecondWrapper>
+      <OverWrapper ref={OverWrapperRef} animate={controls2}></OverWrapper>
+      <UnderWrapper ref={UnderWrapperRef} animate={controls}></UnderWrapper>
     </>
   );
 };
