@@ -136,7 +136,7 @@ const PodcastPage = ({ data }) => {
       <Spacer space={2} />
       </MarginController>
       <TitleMarquee text={description} />
-      <Spacer space={8} />
+      <Spacer space={4} />
       <Container width='55vw' align={'center'}>
           <GatsbyImage image={pageImage} alt={heroImage.title} style={{ borderRadius: "240px 240px 0 0"}}/>
       </Container>
