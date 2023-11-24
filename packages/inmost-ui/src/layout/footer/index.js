@@ -52,8 +52,8 @@ const Footer = () => {
       <Spacer line />
       <FooterBoxWrapper />
       <QuickLinks links={socials} />
-      <FooterMailchimp />
-      <QuickLinks links={links} />
+      {/* <FooterMailchimp /> */}
+      {/* <QuickLinks links={links} /> */}
       <FooterLast />
     </FooterStc>
   );

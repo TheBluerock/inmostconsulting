@@ -9,21 +9,8 @@ const Wrapper = styled.div`
   border-bottom: 1px solid ${({ theme }) => theme.colors.primary};
 `;
 
-const InnerText = styled.span`
-  font-size: ${({ theme }) => theme.typography.h3};
-  color: ${({ theme }) => theme.colors.primary};
-  font-family: ${({ theme }) => theme.fonts.serif};
-  text-transform: uppercase;
-  & > .slant {
-    font-family: ${({ theme }) => theme.fonts.slant};
-    margin: 0 24px;
-    text-transform: lowercase;
-  }
-`;
-
 const TitleMarquee = ({ text, color }) => {
   const theme = useTheme();
-
   const title = ` ${text} /`;
 
   return (

@@ -16,7 +16,7 @@ const FooterMarquee = () => {
   useEffect(() => {
     const dayOfTheYear = getDayOfYear();
     setLink(`https://lezioni.acim.org/it/chapters/lesson-${dayOfTheYear}`);
-  }, []);
+  }, []); // Remove dayOfTheYear from the dependency array
 
   return (
     <Wrapper>

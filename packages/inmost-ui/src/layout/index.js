@@ -9,6 +9,7 @@ import globalTheme from "@theme";
 import { motion } from "framer-motion";
 
 const Layout = ({ children, colors }) => {
+  
   const pageTheme = {
     ...globalTheme,
     colors: colors,

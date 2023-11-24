@@ -4,10 +4,20 @@ import Container from "@commons/container";
 import SunLogo from "@components/sun-logo";
 import Spacer from "@components/spacer";
 import BigParagraph from "@components/big-paragraph";
+import useMailChimp from '@helpers/use-mailchimp';
+import { useTheme } from "@emotion/react";
+import Text from "@commons/text";
 
 const FooterMailchimp = () => {
   const [email, setEmail] = useState("");
   const [isValidEmail, setIsValidEmail] = useState(true);
+  const {
+    handleSubmit,
+    canSubmit,
+    submitting,
+    message,
+    success
+  } = useMailChimp();
 
   useEffect(() => {
     // Regular expression for email validation
@@ -18,6 +28,10 @@ const FooterMailchimp = () => {
   const handleEmailChange = (e) => {
     setEmail(e.target.value);
   };
+
+  const theme = useTheme();
+
+  console.log("hello" )
 
   return (
     <Wrapper>
@@ -35,6 +49,7 @@ const FooterMailchimp = () => {
       </Container>
       <Spacer space={4} />
       <Container column>
+      <form onSubmit={handleSubmit}>
         <StyledInput
           name={"email"}
           type="email"
@@ -44,11 +59,21 @@ const FooterMailchimp = () => {
           isValid={isValidEmail}
           placeholder="qui la tua email 🥰"
           autocomplete={true}
-        />
+          />
+          <StyledButton 
+            type={"submit"}
+            disabled={isValidEmail}>
+            <Text
+              fontSize={ theme.typography.h4 }
+            >
+              { isValidEmail ? "valid" : "notvaid"}
+            </Text>
+          </StyledButton>
         <Spacer space={2} />
         <ErrorText visible={email != "" && !isValidEmail}>
           Inserisci un indirizzo valido 🙏{" "}
         </ErrorText>
+      </form>
       </Container>
       <Spacer space={4} />
     </Wrapper>
@@ -61,6 +86,18 @@ const Wrapper = styled.div`
   width: 100%;
   border-bottom: 1px solid ${({ theme }) => theme.colors.primary};
 `;
+
+const StyledButton = styled.button`
+  min-height: 64px;
+  font-family: ${({ theme }) => theme.fonts.sans};
+  color: ${({ theme }) => theme.colors.primary};
+  &:disabled,
+  &[disabled]{
+    border: 1px solid #999999;
+    background-color: #cccccc;
+    color: #666666;
+  }
+`
 
 const StyledInput = styled.input`
   background: transparent;
