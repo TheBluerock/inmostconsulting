@@ -32,7 +32,7 @@ const PodcastPage = ({ data }) => {
       secondary: 'rgba(2, 12, 10, .98)',
       primary: 'rgba(2, 12, 10, .8)',
     });
-  }, [setColorTheme]);
+  }, []);
 
   const Bold = ({ children, ...props }) => (
     <Text
@@ -179,8 +179,7 @@ export const query = graphql`
 `;
 
 export const Head = ({ data }) => {
-  const { node_locale, title, description, slug, heroImage, createdAt, updatedAt} =
-    data.contentfulWebpage;
+  const { node_locale, title, description, slug, heroImage, createdAt, updatedAt} = data.contentfulWebpage;
 
   const pageUrl = `https://inmostconsulting.com/risorse/podcast/${slug}`;
 
