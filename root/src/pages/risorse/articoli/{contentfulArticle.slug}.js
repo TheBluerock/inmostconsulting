@@ -144,6 +144,7 @@ const ArticlePage = ({ data }) => {
 
   return (
     <>
+      <Spacer space={1} />
       <article>
         <BlogHead
           title={title}
