@@ -40,7 +40,7 @@ const PodcastPage = ({ data }) => {
       fontWeight={400}
       fontSize={theme.typography.p}
       fontFamily={'serif'}
-      color={props.color}
+      color={theme.colors.secondary}
     >
       {children}
     </Text>
@@ -50,8 +50,8 @@ const PodcastPage = ({ data }) => {
       as={'span'}
       fontWeight={400}
       fontSize={theme.typography.h5}
-      fontFamily={'serif'}
-      color={props.color}
+      fontFamily={'slant'}
+      color={theme.colors.secondary}
       textTransform={'uppercase'}
     >
       {children}
@@ -136,7 +136,7 @@ const PodcastPage = ({ data }) => {
       <Spacer space={2} />
       </MarginController>
       <TitleMarquee text={description} />
-      <Spacer space={4} />
+      <Spacer space={2} />
       <Container width='55vw' align={'center'}>
           <GatsbyImage image={pageImage} alt={heroImage.title} style={{ borderRadius: "240px 240px 0 0"}}/>
       </Container>
@@ -157,6 +157,7 @@ export const query = graphql`
         raw
       }
       heroImage {
+        title
         url
         gatsbyImageData(
           aspectRatio: 1

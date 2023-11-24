@@ -23,7 +23,7 @@ const BlogHead = ({
       <Spacer space={4} />
       <BlogHeading
         as={"h1"}
-        fontSize={theme.typography.h2}
+        fontSize={theme.typography.h3}
         fontWeight={400}
         textTransform={"uppercase"}
         serif

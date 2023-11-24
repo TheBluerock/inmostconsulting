@@ -110,7 +110,7 @@ const ArticlePage = ({ data }) => {
 
       [BLOCKS.HEADING_2]: (node, children) => {
         return (
-          <BlogHeading as={'h2'} fontSize={theme.typography.h3} serif>
+          <BlogHeading as={'h2'} fontSize={theme.typography.h4} serif>
             {children}
           </BlogHeading>
         );

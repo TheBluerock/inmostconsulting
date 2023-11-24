@@ -44,7 +44,7 @@ const CircleLoader = ({ r, time, play }) => {
       <motion.circle
         style={{
           fill: "none",
-          stroke: "black",
+          stroke: theme.colors.primary,
           strokeWidth: 2,
           strokeLinecap: "round",
           strokeDasharray: (2 * Math.PI * radius) / 2,
