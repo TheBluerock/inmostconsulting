@@ -30,7 +30,7 @@ const AuthorPage = ({ data }) => {
       secondary: 'rgba(187, 8, 8, .9)',
       primary: 'rgba(22, 36, 71, .9)',
     });
-  }, [setColorTheme]);
+  }, []);
 
   const Bold = ({ children, ...props }) => (
     <Text
@@ -267,7 +267,7 @@ export const Head = ({ data }) => {
   return (
     <>
       <html lang={node_locale} />
-      <title>{`About ${name}`}</title>
+      <title>{`${name}: ${shortBio}`}</title>
       <link rel='canonical' href={authorUrl} />
       <meta name='description' content={shortBio} />
       <meta
