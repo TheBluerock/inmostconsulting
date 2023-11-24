@@ -23,7 +23,6 @@ const ArticlesRow = ({ articles }) => {
 
   React.useEffect(() => {
     // Use the cards object directly based on the device
-    console.log(cards[isDevice]);
   }, [isDevice]);
 
   // Initialize cardsPerRow based on the current device

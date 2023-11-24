@@ -26,10 +26,6 @@ const RowWrapper = styled.div`
 const BlogDetails = ({ date, author, category }) => {
   const theme = useTheme();
 
-  React.useEffect(() => {
-    console.log("author: " + author);
-  }, []);
-
   return (
     <Container width={"65vw"}>
       <OuterWrapper>

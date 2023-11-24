@@ -27,7 +27,7 @@ const Line = styled.div`
     width: ${({ isOpen }) => (isOpen ? "3px" : "calc(100% - 4px)")};
     border-radius: ${({ isOpen }) => (isOpen ? "3px" : "0")};
     height: 3px;
-    background-color: ${({ theme }) => theme.colors.primary};
+    background-color: ${({ theme }) => theme.colors.primary || "transparent"};
     position: absolute;
     transition:
       width 0.3s ease-in-out,
@@ -60,6 +60,7 @@ const MenuButton = ({ hovered }) => {
         isOpen={isMenuOpen}
         isHovered={hovered}
         clicked={isClicked}
+        aria-label="Toggle Menu"
       >
         <Line isOpen={isMenuOpen} />
       </BurgerButtonWrapper>

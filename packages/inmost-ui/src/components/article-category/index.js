@@ -6,25 +6,22 @@ import MarginController from "@commons/margin-controller";
 import Spacer from "@components/spacer";
 import Text from "@commons/text";
 import ArticlesRow from "@components/articles-row";
+import TitleMarquee from "@components/marquee-title";
 
 const ArticleCategory = ({ category }) => {
   const theme = useTheme();
 
   return (
     <OuterWrapper>
-      <Spacer space={10} star line />
+      <Spacer space={4} line />
+      <Spacer star />
+      <Spacer space={2} />
+      <TitleMarquee
+        text={category && category.name}
+        color={theme.colors.secondary}
+      />
+      <Spacer space={1} />
       <MarginController textAlign={"center"}>
-        <Text
-          as={"h2"}
-          fontSize={theme.typography.h2}
-          fontFamily={"serif"}
-          textTransform={"uppercase"}
-          textAlign={"center"}
-          lineHeight={1.1}
-        >
-          {category && category.name}
-        </Text>
-        <Spacer space={1} />
         <Container width={"45vw"}>
           <Text
             as={"h4"}

@@ -4,6 +4,7 @@ import { AppContextProvider } from "@helpers/app-context";
 import { AnimatePresence } from "framer-motion";
 import GlobalStyles from "@theme/globals";
 import * as fontsCss from "@theme/fonts.css";
+//import { extractCritical } from '@emotion/server';
 
 export const wrapPageElement = ({ element }) => {
   //const { currentColorTheme } = useAppContext();
@@ -28,3 +29,19 @@ export const wrapPageElement = ({ element }) => {
 export const wrapRootElement = ({ element }) => {
   return <AppContextProvider>{element}</AppContextProvider>;
 };
+
+// export const replaceRenderer = ({ bodyComponent, replaceBodyHTMLString }) => {
+//   const { ids, css } = extractCritical(bodyComponent);
+//   const styleElement = React.createElement('style', {
+//     key: 'emotion-css',
+//     dangerouslySetInnerHTML: { __html: css },
+//   });
+
+//   replaceBodyHTMLString(bodyComponent.html);
+//   return React.createElement(
+//     React.Fragment,
+//     null,
+//     bodyComponent.renderedBody,
+//     styleElement
+//   );
+// };

@@ -28,14 +28,18 @@ const MenuButton = () => {
   const { toggleMenu, isDevice, isMenuOpen } = useAppContext(); // Use the context
 
   useEffect(() => {
-    const bodyClassList = document.body.classList;
-    console.log(isMenuOpen);
+    const body = document.body;
+
     if (isMenuOpen) {
-      document.body.style.overflow = "hidden";
+      body.style.overflow = "hidden";
     } else {
-      document.body.style.overflow = "";
+      body.style.overflow = "";
     }
-    return () => (document.body.style.overflow = "");
+
+    // Cleanup function
+    return () => {
+      body.style.overflow = "";
+    };
   }, [isMenuOpen]);
 
   const handleMouseEnter = () => {

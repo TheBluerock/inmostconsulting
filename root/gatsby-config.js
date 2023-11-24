@@ -2,16 +2,16 @@ require('dotenv').config();
 
 module.exports = {
   flags: {
-    DEV_SSR: true,
+    DEV_SSR: false,
   },
   siteMetadata: {
     locale: 'it',
     name: 'Inmost®',
     links: [
-      // {
-      //   name: 'Inmost®',
-      //   slug: '/',
-      // },
+      {
+        name: 'Inmost®',
+        slug: '/',
+      },
       {
         name: 'About',
         slug: '/about/matteo-albini/',

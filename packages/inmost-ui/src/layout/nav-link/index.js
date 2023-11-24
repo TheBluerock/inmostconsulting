@@ -58,8 +58,6 @@ function NavLink({ url, text, asterisk }) {
     });
   }, [url, pathname]);
 
-  console.log("isActive: " + isActive + "render:" + render);
-
   return (
     <OuterWrapper>
       {asterisk && (

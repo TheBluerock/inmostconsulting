@@ -23,9 +23,9 @@ const ArticlePage = ({ data }) => {
 
   React.useEffect(() => {
     setColorTheme({
-      background: 'rgba(22, 22, 50, .9)',
+      background: 'rgba(177, 211, 232, .9)',
       lightPrimary: 'rgba(255, 255, 255, .2)',
-      primary: 'rgba(255, 200, 255, .9)',
+      primary: 'rgba(18, 25, 18, .9)',
       secondary: 'rgba(187, 8, 8, .9)',
     });
   }, []);

@@ -21,10 +21,10 @@ const InnerText = styled.span`
   }
 `;
 
-const TitleMarquee = ({ text }) => {
+const TitleMarquee = ({ text, color }) => {
   const theme = useTheme();
 
-  const title = ` ${text} / `;
+  const title = ` ${text} /`;
 
   return (
     <Wrapper>
@@ -36,6 +36,7 @@ const TitleMarquee = ({ text }) => {
           fontFamily={"serif"}
           textTransform={"uppercase"}
           style={{ marginLeft: "0.45em" }}
+          color={color}
         >
           {title}
         </Text>

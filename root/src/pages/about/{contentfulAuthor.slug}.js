@@ -14,11 +14,12 @@ import { useAppContext } from '@helpers/app-context';
 import { useTheme } from '@emotion/react';
 import StarCircle from '@components/star-circle';
 import About from '@components/about';
+import TitleMarquee from '@components/marquee-title';
 
 import { motion } from 'framer-motion';
 
 const AuthorPage = ({ data }) => {
-  const { bio, name, image, description } = data.contentfulAuthor;
+  const { bio, name, image, description, shortBio } = data.contentfulAuthor;
   const { setColorTheme } = useAppContext();
   const theme = useTheme();
 
@@ -27,7 +28,7 @@ const AuthorPage = ({ data }) => {
       background: 'rgba(252,252,250, .9)',
       lightPrimary: 'rgba(8, 8, 25, .2)',
       secondary: 'rgba(187, 8, 8, .9)',
-      primary: 'rgba(32, 46, 81, .9)',
+      primary: 'rgba(22, 36, 71, .9)',
     });
   }, []);
 
@@ -75,7 +76,6 @@ const AuthorPage = ({ data }) => {
         );
       },
       [INLINES.ENTRY_HYPERLINK]: (node, children) => {
-        console.log(node);
         return (
           <Link
             to={`/risorse/articoli/${node.data.target.slug}/`}
@@ -131,7 +131,6 @@ const AuthorPage = ({ data }) => {
         //const words = children[0].split(/(\s+)/);
         return (
           <Text
-            //paragraph={words}
             fontSize={theme.typography.h5}
             fontFamily={'serif'}
             textTransform={'uppercase'}
@@ -161,7 +160,9 @@ const AuthorPage = ({ data }) => {
       <MarginController>
         <About color={theme.colors.primary} />
       </MarginController>
-      <Spacer space={4} line />
+      <Spacer space={2} />
+      <TitleMarquee text={shortBio} />
+      <Spacer space={4} />
       <Container width='55vw' align={'center'}>
         <GatsbyImage image={authorImage} alt={name} />
       </Container>

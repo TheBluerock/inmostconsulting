@@ -79,7 +79,6 @@ const Logo = () => {
 
   useEffect(() => {
     setName(pathname === "/" ? siteName : getName(pathname));
-    console.log(name, pathname, getName(pathname));
   }, [pathname]);
 
   const exitAnimation = (node) => {

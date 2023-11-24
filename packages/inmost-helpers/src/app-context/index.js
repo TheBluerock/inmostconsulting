@@ -12,8 +12,8 @@ const AppContextProvider = ({ children }) => {
   const [currentColorTheme, setCurrentColorTheme] = useState({
     background: "rgba(0, 0, 0, 0)",
     primary: "rgba(0, 0, 0, 0)",
-    background: "rgba(0, 0, 0, 0)",
-    background: "rgba(0, 0, 0, 0)",
+    secondary: "rgba(0, 0, 0, 0)",
+    lightPrimary: "rgba(0, 0, 0, 0)",
   });
   const [render, setRender] = useState(false);
 

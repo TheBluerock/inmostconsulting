@@ -2,6 +2,7 @@ import React, { useRef, useEffect } from "react";
 import { motion, useAnimation } from "framer-motion";
 import { useAppContext } from "@helpers/app-context";
 import styled from "@emotion/styled";
+import MenuBody from "@layout/menu-body";
 
 const UnderWrapper = styled(motion.aside)`
   position: fixed;
@@ -67,8 +68,10 @@ const MenuOverlay = () => {
 
   return (
     <>
-      <OverWrapper ref={OverWrapperRef} animate={controls2}></OverWrapper>
-      <UnderWrapper ref={UnderWrapperRef} animate={controls}></UnderWrapper>
+      <OverWrapper ref={OverWrapperRef} animate={controls2}>
+        <MenuBody />
+      </OverWrapper>
+      <UnderWrapper ref={UnderWrapperRef} animate={controls} />
     </>
   );
 };

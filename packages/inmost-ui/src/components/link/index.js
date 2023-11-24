@@ -2,7 +2,6 @@ import React from "react";
 import { Link as GLink } from "gatsby";
 import { useTheme, css } from "@emotion/react";
 import styled from "@emotion/styled";
-import gsap from "gsap";
 import Text from "@commons/text";
 
 const StyledAnchor = styled.a`

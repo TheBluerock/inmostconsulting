@@ -5,7 +5,6 @@ import { BLOCKS, MARKS, INLINES } from '@contentful/rich-text-types';
 import { useTheme } from '@emotion/react';
 import BlogParagraph from '@components/blog-paragraph';
 import BlogHeading from '@components/blog-heading';
-//import BlogImage from '@components/blog-image';
 import BlogList from '@components/blog-list';
 import BlogListItem from '@components/blog-list-item';
 import BlogQuote from '@components/blog-quote';
@@ -13,6 +12,7 @@ import Txt from '@commons/text';
 import Link from '@components/link';
 import BlogHead from '@components/blog-head';
 import Spacer from '@components/spacer';
+import { useAppContext } from '@helpers/app-context';
 
 //Marks
 //React-Share
@@ -25,6 +25,19 @@ import Spacer from '@components/spacer';
 
 const ArticlePage = ({ data }) => {
   const theme = useTheme();
+
+  const { setColorTheme } = useAppContext();
+
+  const colors = {
+    primary: 'rgba(8, 10, 12, .8)',
+    lightPrimary: 'rgba(187, 8, 8, .2)',
+    secondary: '#1C2A4E',
+    background: '#e9ede1',
+  };
+
+  React.useEffect(() => {
+    setColorTheme(colors)
+  },[setColorTheme])
 
   const Text = ({ children }) => <BlogParagraph>{children}</BlogParagraph>;
 
@@ -51,13 +64,6 @@ const ArticlePage = ({ data }) => {
       {children}
     </Txt>
   );
-
-  const colors = {
-    primary: '#BB0808',
-    lightPrimary: 'rgba(187, 8, 8, .2)',
-    secondary: '#1C2A4E',
-    background: '#e9ede1',
-  };
 
   const options = {
     renderMark: {
