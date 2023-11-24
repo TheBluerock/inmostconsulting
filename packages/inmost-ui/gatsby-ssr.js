@@ -4,7 +4,6 @@ import { AppContextProvider } from "@helpers/app-context";
 import { AnimatePresence } from "framer-motion";
 import GlobalStyles from "@theme/globals";
 import * as fontsCss from "@theme/fonts.css";
-//import { extractCritical } from '@emotion/server';
 
 export const wrapPageElement = ({ element }) => {
   //const { currentColorTheme } = useAppContext();
@@ -13,10 +12,10 @@ export const wrapPageElement = ({ element }) => {
     <AnimatePresence mode="wait">
       <Layout
         colors={{
-          background: "rgba(253,255,250, .9)",
-          lightPrimary: "rgba(8, 8, 25, .2)",
-          secondary: "rgba(187, 8, 8, .9)",
-          primary: "rgba(187, 8, 8, .9)",
+          background: "rgba(253,255,250, 0)",
+          lightPrimary: "rgba(8, 8, 25, 0)",
+          secondary: "rgba(187, 8, 8, 0)",
+          primary: "rgba(187, 8, 8, 0)",
         }}
       >
         <GlobalStyles style={fontsCss} />
