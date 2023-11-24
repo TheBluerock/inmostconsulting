@@ -37,7 +37,7 @@ const ArticlePage = ({ data }) => {
       background: '#e9ede1',
     };
     setColorTheme(colors)
-  },[setColorTheme])
+  },[])
 
   const Text = ({ children }) => <BlogParagraph>{children}</BlogParagraph>;
 
