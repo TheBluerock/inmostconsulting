@@ -46,6 +46,11 @@ module.exports = {
         name: `Inmost®`,
         short_name: `Inmost®`,
         start_url: `/`,
+        background_color: "#fcfcfa",
+        theme_color: "#b80808",
+        orientation: "portrait",
+        lang: "it",
+        scope: "/",
         display: `standalone`,
         icon: `src/images/icon.png`,
         icon_options: {
