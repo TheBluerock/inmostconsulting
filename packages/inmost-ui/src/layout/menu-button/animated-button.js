@@ -27,9 +27,12 @@ const Line = styled.div`
     width: ${({ isOpen }) => (isOpen ? "3px" : "calc(100% - 4px)")};
     border-radius: ${({ isOpen }) => (isOpen ? "3px" : "0")};
     height: 3px;
-    background-color: ${({ theme, isOpen }) => isOpen ? theme.colors.background : theme.colors.primary};
+    background-color: ${({ theme }) => theme.colors.primary};
     position: absolute;
-    transition: width 0.3s ease-in-out, border-radius 0.3s ease-in-out, background-color 0.3 easeInOut;
+    transition:
+      width 0.3s ease-in-out,
+      border-radius 0.3s ease-in-out,
+      background-color 0.3 easeInOut;
   }
 
   &:before {
@@ -52,10 +55,15 @@ const MenuButton = ({ hovered }) => {
 
   return (
     <>
-    <BurgerButtonWrapper onClick={handleClick} isOpen={isMenuOpen} isHovered={hovered} clicked={isClicked}>
-      <Line isOpen={isMenuOpen} />
-    </BurgerButtonWrapper>
-    <CircleLoader play={isMenuOpen} r={48} />
+      <BurgerButtonWrapper
+        onClick={handleClick}
+        isOpen={isMenuOpen}
+        isHovered={hovered}
+        clicked={isClicked}
+      >
+        <Line isOpen={isMenuOpen} />
+      </BurgerButtonWrapper>
+      <CircleLoader play={isMenuOpen} r={48} />
     </>
   );
 };

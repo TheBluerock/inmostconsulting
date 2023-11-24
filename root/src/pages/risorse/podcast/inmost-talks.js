@@ -1,15 +1,27 @@
-import React from 'react';
+import React, { useLayoutEffect } from 'react';
 import TalksTitle from '@components/talks';
 import { graphql } from 'gatsby';
 import { useTheme } from '@emotion/react';
 import { motion } from 'framer-motion';
 import Spacer from '@components/spacer';
 import MarginController from '@commons/margin-controller';
+import { useAppContext } from '@helpers/app-context';
+import TitleMarquee from '@components/marquee-title';
 
 const PodcastPage = ({ data }) => {
+  const { setColorTheme } = useAppContext();
   const theme = useTheme();
 
-  
+  const { description } = data.contentfulWebpage;
+
+  React.useEffect(() => {
+    setColorTheme({
+      background: 'rgba(30,215,96, 1)',
+      lightPrimary: 'rgba(255, 255, 255, 0.95)',
+      secondary: 'rgba(187, 8, 8, .9)',
+      primary: 'rgba(0, 0, 0, .8)',
+    });
+  }, []);
 
   return (
     <motion.div
@@ -17,13 +29,14 @@ const PodcastPage = ({ data }) => {
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0 }}
       transition={{
-        duration: 1.75,
+        duration: 1.5,
       }}
     >
       <Spacer line space={4} />
       <MarginController>
         <TalksTitle theme={theme} />
       </MarginController>
+      <TitleMarquee text={description} />
       <Spacer line star space={6} />
       {}
     </motion.div>

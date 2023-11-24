@@ -1,14 +1,16 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import Marquee from "react-fast-marquee";
 import styled from "@emotion/styled";
+import Text from "@commons/text";
+import { useTheme } from "@emotion/react";
 
 const Wrapper = styled.div`
-  border: 1px solid ${({ theme }) => theme.colors.primary};
+  border-top: 1px solid ${({ theme }) => theme.colors.primary};
   border-bottom: 1px solid ${({ theme }) => theme.colors.primary};
 `;
 
 const InnerText = styled.span`
-  font-size: ${(props) => props.size || "5vw"};
+  font-size: ${({ theme }) => theme.typography.h3};
   color: ${({ theme }) => theme.colors.primary};
   font-family: ${({ theme }) => theme.fonts.serif};
   text-transform: uppercase;
@@ -19,35 +21,24 @@ const InnerText = styled.span`
   }
 `;
 
-const TitleMarquee = ({ text, size }) => {
-  const [isScrolling, setIsScrolling] = useState(false);
+const TitleMarquee = ({ text }) => {
+  const theme = useTheme();
 
-  useEffect(() => {
-    // Check if window is defined to ensure we're on the client side
-    if (typeof window !== "undefined") {
-      const handleScroll = () => {
-        // Check if the user is currently scrolling
-        if (window.scrollY > 0) {
-          setIsScrolling(true);
-        } else {
-          setIsScrolling(false);
-        }
-      };
-
-      // Add a scroll event listener to the window
-      window.addEventListener("scroll", handleScroll);
-
-      // Clean up the listener when the component unmounts
-      return () => {
-        window.removeEventListener("scroll", handleScroll);
-      };
-    }
-  }, []); // Empty dependency array means this effect runs once after component mount
+  const title = ` ${text} / `;
 
   return (
     <Wrapper>
-      <Marquee autoFill={true} play={isScrolling}>
-        <InnerText size={size}>{text}</InnerText>
+      <Marquee autoFill={true} play>
+        <Text
+          as={"h1"}
+          fontSize={theme.typography.h2}
+          direction={"right"}
+          fontFamily={"serif"}
+          textTransform={"uppercase"}
+          style={{ marginLeft: "0.45em" }}
+        >
+          {title}
+        </Text>
       </Marquee>
     </Wrapper>
   );

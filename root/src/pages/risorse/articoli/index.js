@@ -1,16 +1,34 @@
 import React from 'react';
+
+//Gatsby internal apis
 import { graphql } from 'gatsby';
-import ArticleCategory from '@components/article-category';
-import ArticlesTitle from '@components/articoli';
+
+//3rd Party Libraries
 import { useTheme } from '@emotion/react';
 import { motion } from 'framer-motion';
+
+//App Context
+import { useAppContext } from '@helpers/app-context';
+
+//Components
 import Spacer from '@components/spacer';
 import MarginController from '@commons/margin-controller';
+import ArticlesTitle from '@components/articoli';
+import ArticleCategory from '@components/article-category';
 
 const ArticlePage = ({ data }) => {
   const theme = useTheme();
-
   const categories = data.allContentfulCategory.edges;
+  const { setColorTheme } = useAppContext();
+
+  React.useEffect(() => {
+    setColorTheme({
+      background: 'rgba(22, 22, 50, .9)',
+      lightPrimary: 'rgba(255, 255, 255, .2)',
+      primary: 'rgba(255, 200, 255, .9)',
+      secondary: 'rgba(187, 8, 8, .9)',
+    });
+  }, []);
 
   return (
     <motion.div
@@ -82,3 +100,39 @@ export const query = graphql`
     }
   }
 `;
+
+// // To Test
+
+// // export const query = graphql`
+// #   query ArticlesByCategory {
+// #     allContentfulCategory(filter: { node_locale: { eq: "it" } }) {
+// #       nodes {
+// #         id
+// #         name
+// #         articles: article(limit: 6) {
+// #           id
+// #           date(formatString: "DD.MM.YY", locale: "it")
+// #           title
+// #           excerpt
+// #           slug
+// #           category {
+// #             name
+// #           }
+// #           author {
+// #             name
+// #             slug
+// #           }
+// #           heroImage {
+// #             id
+// #             gatsbyImageData(
+// #               cropFocus: CENTER
+// #               aspectRatio: 1.5
+// #               layout: CONSTRAINED
+// #             )
+// #             title
+// #           }
+// #         }
+// #       }
+// #     }
+// #   }
+// # `;

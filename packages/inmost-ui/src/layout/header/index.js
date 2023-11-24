@@ -5,7 +5,7 @@ import { useAppContext } from "@helpers/app-context";
 import { motion, AnimatePresence } from "framer-motion";
 
 const HeaderWrapper = styled.header`
-  background: ${({ theme, isScrolled }) =>
+  background-color: ${({ theme, isScrolled }) =>
     isScrolled ? theme.colors.background : "transparent"};
   transition: background 0.3s linear;
   position: fixed;

@@ -14,8 +14,8 @@ export const About = ({ color }) => {
           transition={{ duration: 1.5 }}
           viewport={{ once: true }}
           variants={{
-            visible: { opacity: 1, y: 0, filter: "blur(0px)" },
-            hidden: { opacity: 0, y: "100%", filter: "blur(5px)" },
+            visible: { opacity: 1, y: 0 },
+            hidden: { opacity: 0, y: "100%" },
           }}
         />
 
@@ -29,8 +29,8 @@ export const About = ({ color }) => {
           transition={{ duration: 1.5, delay: 0.2 }}
           viewport={{ once: true }}
           variants={{
-            visible: { opacity: 1, y: 0, filter: "blur(0px)" },
-            hidden: { opacity: 0, y: "100%", filter: "blur(5px)" },
+            visible: { opacity: 1, y: 0 },
+            hidden: { opacity: 0, y: "100%" },
           }}
         />
 
@@ -43,8 +43,8 @@ export const About = ({ color }) => {
           transition={{ duration: 1.5, delay: 0.4 }}
           viewport={{ once: true }}
           variants={{
-            visible: { opacity: 1, y: 0, filter: "blur(0px)" },
-            hidden: { opacity: 0, y: "100%", filter: "blur(5px)" },
+            visible: { opacity: 1, y: 0 },
+            hidden: { opacity: 0, y: "100%" },
           }}
         />
 
@@ -57,8 +57,8 @@ export const About = ({ color }) => {
           transition={{ duration: 1.5, delay: 0.6 }}
           viewport={{ once: true }}
           variants={{
-            visible: { opacity: 1, y: 0, filter: "blur(0px)" },
-            hidden: { opacity: 0, y: "100%", filter: "blur(5px)" },
+            visible: { opacity: 1, y: 0 },
+            hidden: { opacity: 0, y: "100%" },
           }}
         />
         <motion.path
@@ -70,8 +70,8 @@ export const About = ({ color }) => {
           transition={{ duration: 1.5, delay: 0.8 }}
           viewport={{ once: true }}
           variants={{
-            visible: { opacity: 1, y: 0, filter: "blur(0px)" },
-            hidden: { opacity: 0, y: "100%", filter: "blur(5px)" },
+            visible: { opacity: 1, y: 0 },
+            hidden: { opacity: 0, y: "100%" },
           }}
         />
       </g>

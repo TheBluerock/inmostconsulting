@@ -7,7 +7,8 @@ import { useAppContext } from "@helpers/app-context";
 const CircleLoader = ({ r, time, play }) => {
   const theme = useTheme();
   const radius = r || 64;
-  const { isMenuOpen } = useAppContext();
+
+  const { currentColorTheme } = useAppContext();
 
   const [isPlaying, setIsPlaying] = useState(play);
   const controls = useAnimation();
@@ -19,7 +20,7 @@ const CircleLoader = ({ r, time, play }) => {
       strokeDashoffset: isPlaying ? -1 : initialStrokeDashOffset,
       opacity: isPlaying ? 1 : 0,
       duration: time || 0.3,
-      ease: "power1.out",
+      ease: "easeOut",
     };
 
     controls.start(animationConfig);
@@ -43,13 +44,16 @@ const CircleLoader = ({ r, time, play }) => {
       <motion.circle
         style={{
           fill: "none",
-          stroke:  theme.colors.background,
+          stroke: "black",
           strokeWidth: 2,
           strokeLinecap: "round",
           strokeDasharray: (2 * Math.PI * radius) / 2,
         }}
         animate={controls}
-        initial={{ opacity: 0, strokeDashoffset: ((2 * Math.PI * radius) / 2) * -1 }}
+        initial={{
+          opacity: 0,
+          strokeDashoffset: ((2 * Math.PI * radius) / 2) * -1,
+        }}
         r={radius / 2}
         cx={(radius + 3) / 2} // Center the circle horizontally
         cy={(radius + 3) / 2} // Center the circle vertically

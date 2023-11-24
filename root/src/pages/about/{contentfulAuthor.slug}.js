@@ -24,10 +24,10 @@ const AuthorPage = ({ data }) => {
 
   React.useEffect(() => {
     setColorTheme({
-      background: 'rgba(253,255,250, .9)',
+      background: 'rgba(252,252,250, .9)',
       lightPrimary: 'rgba(8, 8, 25, .2)',
       secondary: 'rgba(187, 8, 8, .9)',
-      primary: 'rgba(187, 8, 8, .9)',
+      primary: 'rgba(32, 46, 81, .9)',
     });
   }, []);
 
@@ -136,7 +136,7 @@ const AuthorPage = ({ data }) => {
             fontFamily={'serif'}
             textTransform={'uppercase'}
             lineHeight={1.25}
-            color={theme.colors.secondary}
+            color={theme.colors.primary}
             style={{ textIndent: '5vw' }}
           >
             {children}
@@ -166,7 +166,7 @@ const AuthorPage = ({ data }) => {
         <GatsbyImage image={authorImage} alt={name} />
       </Container>
       <Spacer space={4} />
-      <Container width={"65vw"}>
+      <Container width={'65vw'}>
         {renderRichText(description, optionsDescription)}
       </Container>
       <Spacer space={6} />

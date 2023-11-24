@@ -10,6 +10,7 @@ const UnderWrapper = styled(motion.aside)`
   top: 0;
   right: 0;
   bottom: 0;
+  opacity: 0.5;
   left: 0;
   z-index: 11;
 `;
@@ -17,7 +18,7 @@ const UnderWrapper = styled(motion.aside)`
 const OverWrapper = styled(motion.aside)`
   position: fixed;
   overflow: hidden;
-  background: ${({ theme }) => theme.colors.primary};
+  background: ${({ theme }) => theme.colors.background};
   top: 0;
   right: 0;
   bottom: 0;
@@ -44,11 +45,23 @@ const MenuOverlay = () => {
         : "circle(0% at calc(100% - 48px) 30px)";
 
     if (isMenuOpen) {
-      controls2.start({ clipPath: openClipPath, transition: { duration: 0.5, ease: "easeInOut", delay: 0.3 } });
-      controls.start({ clipPath: openClipPath, transition: { duration: 0.5, ease: "easeInOut" } });
+      controls2.start({
+        clipPath: openClipPath,
+        transition: { duration: 0.5, ease: "easeInOut", delay: 0.3 },
+      });
+      controls.start({
+        clipPath: openClipPath,
+        transition: { duration: 0.5, ease: "easeInOut" },
+      });
     } else {
-      controls.start({ clipPath: closeClipPath, transition: { duration: 0.5, ease: "easeInOut", delay: 0.3 } });
-      controls2.start({ clipPath: closeClipPath, transition: { duration: 0.5, ease: "easeInOut" } });
+      controls.start({
+        clipPath: closeClipPath,
+        transition: { duration: 0.5, ease: "easeInOut", delay: 0.3 },
+      });
+      controls2.start({
+        clipPath: closeClipPath,
+        transition: { duration: 0.5, ease: "easeInOut" },
+      });
     }
   }, [isMenuOpen, isDevice, controls, controls2]);
 

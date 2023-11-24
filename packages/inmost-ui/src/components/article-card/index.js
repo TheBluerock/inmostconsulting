@@ -14,7 +14,7 @@ const CardWrapper = styled(Link)`
   flex-direction: column;
   background: transparent;
   margin: 0 8px;
-  :transition: background 0.5s ease-in;
+  transition: background 0.5s ease-in;
   text-decoration: none;
   border-radius: 24px;
   border: 1px solid ${({ theme }) => theme.colors.primary};

@@ -10,8 +10,10 @@ const AppContextProvider = ({ children }) => {
   //const [footerQuote, setFooterQuote] = useState("");
   const [isScrolled, setIsScrolled] = useState(false);
   const [currentColorTheme, setCurrentColorTheme] = useState({
-    primary: "transparent",
-    background: "transparent",
+    background: "rgba(0, 0, 0, 0)",
+    primary: "rgba(0, 0, 0, 0)",
+    background: "rgba(0, 0, 0, 0)",
+    background: "rgba(0, 0, 0, 0)",
   });
   const [render, setRender] = useState(false);
 

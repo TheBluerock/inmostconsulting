@@ -6,6 +6,7 @@ import MenuOverlay from "@layout/menu";
 import Header from "@layout/header";
 import Footer from "@layout/footer";
 import globalTheme from "@theme";
+import { motion } from "framer-motion";
 
 const Layout = ({ children, colors }) => {
   const pageTheme = {
@@ -16,10 +17,17 @@ const Layout = ({ children, colors }) => {
   return (
     <ThemeProvider theme={pageTheme}>
       <Spacer space={6} />
-      <MenuButton />
       <MenuOverlay />
+      <MenuButton />
       <Header />
-      <main>{children}</main>
+      <motion.main
+        initial={{ opacity: 0, y: "50vh" }}
+        animate={{ opacity: 1, y: "0px" }}
+        exit={{ opacity: 0, y: "-500px" }}
+        transition={{ duration: 1, ease: "easeIn" }}
+      >
+        {children}
+      </motion.main>
       <Footer />
     </ThemeProvider>
   );

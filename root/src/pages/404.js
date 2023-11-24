@@ -2,10 +2,21 @@ import React, { useEffect } from 'react';
 import NotFound from '@components/not-found';
 
 import { useTheme } from '@emotion/react';
-import styled from "@emotion/styled";
+import styled from '@emotion/styled';
+import { useAppContext } from '@helpers/app-context';
 
 const NotFoundPage = () => {
+  const { setColorTheme } = useAppContext();
   const theme = useTheme();
+
+  React.useEffect(() => {
+    setColorTheme({
+      background: 'rgba(0, 0, 0, .9)',
+      lightPrimary: 'rgba(8, 8, 25, .2)',
+      secondary: 'rgba(187, 8, 8, .9)',
+      primary: 'rgba(200, 210, 232, .9)',
+    });
+  }, []);
 
   return (
     <>
