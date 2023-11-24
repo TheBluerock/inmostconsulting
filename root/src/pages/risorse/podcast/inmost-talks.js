@@ -1,20 +1,21 @@
-import React from 'react';
-import TalksTitle from '@components/talks';
 import { graphql } from 'gatsby';
-import { useTheme } from '@emotion/react';
-import { motion } from 'framer-motion';
-import Spacer from '@components/spacer';
-import MarginController from '@commons/margin-controller';
-import { useAppContext } from '@helpers/app-context';
-import TitleMarquee from '@components/marquee-title';
-import Link from '@components/link';
-import { renderRichText } from 'gatsby-source-contentful/rich-text';
-import { BLOCKS, MARKS, INLINES } from '@contentful/rich-text-types';
-import Text from "@commons/text";
-import BlogParagraph from "@components/blog-paragraph";
-import BlogHeading from "@components/blog-heading";
 import { GatsbyImage, getImage } from 'gatsby-plugin-image';
-import  Container from '@commons/container';
+import { BLOCKS, INLINES, MARKS } from '@contentful/rich-text-types';
+import { renderRichText } from 'gatsby-source-contentful/rich-text';
+import { motion } from 'framer-motion';
+import React from 'react';
+import { useTheme } from '@emotion/react';
+import Spacer from '@components/spacer';
+import TalksTitle from '@components/talks';
+import TitleMarquee from '@components/marquee-title';
+import BlogHeading from '@components/blog-heading';
+import BlogParagraph from '@components/blog-paragraph';
+import Container from '@commons/container';
+import Link from '@components/link';
+import MarginController from '@commons/margin-controller';
+import Text from '@commons/text';
+import { useAppContext } from '@helpers/app-context';
+
 
 const PodcastPage = ({ data }) => {
   const { setColorTheme } = useAppContext();
@@ -172,12 +173,13 @@ export const query = graphql`
       node_locale
       title
       updatedAt
+      createdAt
     }
   }
 `;
 
 export const Head = ({ data }) => {
-  const { node_locale, title, description, slug, heroImage } =
+  const { node_locale, title, description, slug, heroImage, createdAt, updatedAt} =
     data.contentfulWebpage;
 
   const pageUrl = `https://inmostconsulting.com/risorse/podcast/${slug}`;
@@ -188,6 +190,9 @@ export const Head = ({ data }) => {
     name: title,
     description: description,
     url: pageUrl,
+    dateCreated: createdAt,
+    dateModified: updatedAt,
+    datePublished: createdAt,
     publisher: {
       '@type': 'Organization',
       name: 'Inmost Consulting®',

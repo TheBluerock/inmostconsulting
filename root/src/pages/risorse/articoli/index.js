@@ -28,7 +28,7 @@ const ArticlePage = ({ data }) => {
       primary: 'rgba(18, 25, 18, .9)',
       secondary: 'rgba(187, 8, 8, .9)',
     });
-  }, []);
+  }, [setColorTheme]);
 
   return (
     <motion.div

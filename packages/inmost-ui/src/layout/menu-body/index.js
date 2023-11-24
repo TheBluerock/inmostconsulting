@@ -10,24 +10,15 @@ const Wrapper = styled.div`
   flex-direction: row;
 `;
 
-const OuterWrapper = styled.div`
-  height: 100vh;
-  width: 100vw;
-  display: flex;
-  align-items: flex-end;
-`;
-
-const StyledMenuBoxWrapper = styled(MenuBoxWrapper)`
-    align-self: flex-end;
-`
 
 const MenuBody = () => {
   return (
-    <OuterWrapper>
+    <>
+    <Spacer space={8} />
       <Wrapper>
-        <StyledMenuBoxWrapper />
+        <MenuBoxWrapper />
       </Wrapper>
-    </OuterWrapper>
+    </>
   );
 };
 

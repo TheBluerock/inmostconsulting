@@ -28,14 +28,14 @@ const ArticlePage = ({ data }) => {
 
   const { setColorTheme } = useAppContext();
 
-  const colors = {
-    primary: 'rgba(8, 10, 12, .8)',
-    lightPrimary: 'rgba(187, 8, 8, .2)',
-    secondary: '#1C2A4E',
-    background: '#e9ede1',
-  };
-
+  
   React.useEffect(() => {
+    const colors = {
+      primary: 'rgba(8, 10, 12, .8)',
+      lightPrimary: 'rgba(187, 8, 8, .2)',
+      secondary: '#1C2A4E',
+      background: '#e9ede1',
+    };
     setColorTheme(colors)
   },[setColorTheme])
 
