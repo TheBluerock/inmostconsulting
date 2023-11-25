@@ -16,12 +16,11 @@ import MarginController from '@commons/margin-controller';
 import Text from '@commons/text';
 import { useAppContext } from '@helpers/app-context';
 
-
 const PodcastPage = ({ data }) => {
   const { setColorTheme } = useAppContext();
   const theme = useTheme();
 
-  const { description, body, heroImage } = data.contentfulWebpage;
+  const { id, description, body, heroImage } = data.contentfulWebpage;
 
   const pageImage = getImage(heroImage);
 
@@ -123,24 +122,29 @@ const PodcastPage = ({ data }) => {
 
   return (
     <motion.div
+      key={id}
       initial={{ opacity: 0, y: '500px' }}
       animate={{ opacity: 1, y: 0 }}
-      exit={{ opacity: 0 }}
+      exit={{ opacity: 0, y: '-500px' }}
       transition={{
-        duration: 1.5,
+        duration: 0.75,
       }}
     >
       <Spacer line space={4} />
       <MarginController>
         <TalksTitle theme={theme} />
-      <Spacer space={2} />
+        <Spacer space={2} />
       </MarginController>
       <TitleMarquee text={description} />
       <Spacer space={2} />
       <Container width='55vw' align={'center'}>
-          <GatsbyImage image={pageImage} alt={heroImage.title} style={{ borderRadius: "240px 240px 0 0"}}/>
+        <GatsbyImage
+          image={pageImage}
+          alt={heroImage.title}
+          style={{ borderRadius: '240px 240px 0 0' }}
+        />
       </Container>
-       { renderRichText(body, options)} 
+      {renderRichText(body, options)}
     </motion.div>
   );
 };
@@ -180,7 +184,15 @@ export const query = graphql`
 `;
 
 export const Head = ({ data }) => {
-  const { node_locale, title, description, slug, heroImage, createdAt, updatedAt} = data.contentfulWebpage;
+  const {
+    node_locale,
+    title,
+    description,
+    slug,
+    heroImage,
+    createdAt,
+    updatedAt,
+  } = data.contentfulWebpage;
 
   const pageUrl = `https://inmostconsulting.com/risorse/podcast/${slug}`;
 

@@ -31,23 +31,26 @@ const ArticlePage = ({ data }) => {
   }, []);
 
   return (
-    <motion.div
-      initial={{ opacity: 0, y: '500px' }}
-      animate={{ opacity: 1, y: 0 }}
-      exit={{ opacity: 0 }}
-      transition={{
-        duration: 1.75,
-      }}
-    >
-      <Spacer space={4} line />
-      <MarginController>
-        <ArticlesTitle theme={theme} />
-      </MarginController>
-      {categories.map(
-        ({ node }) =>
-          node.article && <ArticleCategory key={node.id} category={node} />
-      )}
-    </motion.div>
+    <>
+      <motion.div
+        key={'articles'}
+        initial={{ opacity: 0, y: '500px' }}
+        animate={{ opacity: 1, y: 0 }}
+        exit={{ opacity: 0, y: '-500px' }}
+        transition={{
+          duration: 0.75,
+        }}
+      >
+        <Spacer space={4} line />
+        <MarginController>
+          <ArticlesTitle theme={theme} />
+        </MarginController>
+        {categories.map(
+          ({ node }) =>
+            node.article && <ArticleCategory key={node.id} category={node} />
+        )}
+      </motion.div>
+    </>
   );
 };
 

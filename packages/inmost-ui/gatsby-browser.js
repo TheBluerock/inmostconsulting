@@ -9,19 +9,19 @@ export const wrapPageElement = ({ element }) => {
   const { currentColorTheme } = useAppContext();
 
   return (
-    <AnimatePresence mode="wait">
-      <Layout
-        colors={
-          currentColorTheme || {
-            background: "transaprent",
-            primary: "transparent",
-          }
+    <Layout
+      colors={
+        currentColorTheme || {
+          background: "transaprent",
+          primary: "transparent",
         }
-      >
-        <GlobalStyles style={fontsCss} />
+      }
+    >
+      <GlobalStyles style={fontsCss} />
+      <AnimatePresence mode="wait" initial>
         {element}
-      </Layout>
-    </AnimatePresence>
+      </AnimatePresence>
+    </Layout>
   );
 };
 

@@ -6,41 +6,14 @@ import GlobalStyles from "@theme/globals";
 import * as fontsCss from "@theme/fonts.css";
 
 export const wrapPageElement = ({ element }) => {
-  //const { currentColorTheme } = useAppContext();
-
   return (
-    <AnimatePresence mode="wait">
-      <Layout
-        colors={{
-          background: "rgba(253,255,250, 0)",
-          lightPrimary: "rgba(8, 8, 25, 0)",
-          secondary: "rgba(187, 8, 8, 0)",
-          primary: "rgba(187, 8, 8, 0)",
-        }}
-      >
-        <GlobalStyles style={fontsCss} />
-        {element}
-      </Layout>
-    </AnimatePresence>
+    <Layout>
+      <GlobalStyles style={fontsCss} />
+      <AnimatePresence mode="wait">{element}</AnimatePresence>
+    </Layout>
   );
 };
 
 export const wrapRootElement = ({ element }) => {
   return <AppContextProvider>{element}</AppContextProvider>;
 };
-
-// export const replaceRenderer = ({ bodyComponent, replaceBodyHTMLString }) => {
-//   const { ids, css } = extractCritical(bodyComponent);
-//   const styleElement = React.createElement('style', {
-//     key: 'emotion-css',
-//     dangerouslySetInnerHTML: { __html: css },
-//   });
-
-//   replaceBodyHTMLString(bodyComponent.html);
-//   return React.createElement(
-//     React.Fragment,
-//     null,
-//     bodyComponent.renderedBody,
-//     styleElement
-//   );
-// };

@@ -7,11 +7,10 @@ import { useAppContext } from "@helpers/app-context";
 const CircleLoader = ({ r, time, play }) => {
   const theme = useTheme();
   const radius = r || 64;
-
-  const { currentColorTheme } = useAppContext();
-
   const [isPlaying, setIsPlaying] = useState(play);
   const controls = useAnimation();
+  // this is a workaround
+  const { currentColorTheme } = useAppContext();
 
   useEffect(() => {
     const initialStrokeDashOffset = ((2 * Math.PI * radius) / 2) * -1;
@@ -30,6 +29,8 @@ const CircleLoader = ({ r, time, play }) => {
     setIsPlaying(play);
   }, [play]);
 
+  console.log("theme: " + theme.colors.primary);
+
   return (
     <motion.svg
       height={radius + 3}
@@ -37,14 +38,14 @@ const CircleLoader = ({ r, time, play }) => {
       style={{
         position: "absolute",
         margin: "0 auto",
-        background: "transparent",
+        background: theme.colors.background,
         borderRadius: "50%",
       }}
     >
       <motion.circle
         style={{
           fill: "none",
-          stroke: theme.colors.primary,
+          stroke: "rgba(0, 0, 0, .64)", //cant get theme.colors.primary
           strokeWidth: 2,
           strokeLinecap: "round",
           strokeDasharray: (2 * Math.PI * radius) / 2,

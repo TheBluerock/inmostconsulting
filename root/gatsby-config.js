@@ -2,7 +2,7 @@ require('dotenv').config();
 
 module.exports = {
   flags: {
-    DEV_SSR: false,
+    DEV_SSR: true,
   },
   siteMetadata: {
     locale: 'it',
@@ -46,11 +46,11 @@ module.exports = {
         name: `Inmost®`,
         short_name: `Inmost®`,
         start_url: `/`,
-        background_color: "#fcfcfa",
-        theme_color: "#b80808",
-        orientation: "portrait",
-        lang: "it",
-        scope: "/",
+        background_color: '#fcfcfa',
+        theme_color: '#b80808',
+        orientation: 'portrait',
+        lang: 'it',
+        scope: '/',
         display: `standalone`,
         icon: `src/images/icon.png`,
         icon_options: {

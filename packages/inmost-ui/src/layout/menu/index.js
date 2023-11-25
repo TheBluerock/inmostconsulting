@@ -7,7 +7,7 @@ import MenuBody from "@layout/menu-body";
 const UnderWrapper = styled(motion.aside)`
   position: fixed;
   overflow: hidden;
-  background: ${({ theme }) => theme.colors.background};
+  background: ${({ theme }) => theme.colors.background} || null};
   top: 0;
   right: 0;
   bottom: 0;
@@ -19,7 +19,7 @@ const UnderWrapper = styled(motion.aside)`
 const OverWrapper = styled(motion.aside)`
   position: fixed;
   overflow: hidden;
-  background: ${({ theme }) => theme.colors.background};
+  background: ${({ theme }) => theme.colors.background || null};
   top: 0;
   right: 0;
   bottom: 0;

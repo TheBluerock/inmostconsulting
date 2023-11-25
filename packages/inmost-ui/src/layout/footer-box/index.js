@@ -25,7 +25,7 @@ const BoxContainer = styled(Link)`
   background: transparent;
   transition: background 0.3s ease-in;
   &:hover {
-    background: ${({ theme }) => theme.colors.lightPrimary || "red"};
+    background: ${({ theme }) => theme.colors.lightPrimary};
   }
   @media ${({ theme }) => theme.device.large} {
     /* Media query for large devices */

@@ -6,13 +6,19 @@ import MenuOverlay from "@layout/menu";
 import Header from "@layout/header";
 import Footer from "@layout/footer";
 import globalTheme from "@theme";
-import { motion } from "framer-motion";
+import { useAppContext } from "@helpers/app-context";
 
-const Layout = ({ children, colors }) => {
-  
+const Layout = ({ children }) => {
+  const { currentColorTheme } = useAppContext();
+
   const pageTheme = {
     ...globalTheme,
-    colors: colors,
+    colors: {
+      primary: currentColorTheme.primary,
+      background: currentColorTheme.background,
+      lightPrimary: currentColorTheme.lightPrimary,
+      secondary: currentColorTheme.secondary,
+    },
   };
 
   return (
@@ -21,14 +27,7 @@ const Layout = ({ children, colors }) => {
       <MenuOverlay />
       <MenuButton />
       <Header />
-      <motion.main
-        initial={{ opacity: 0, y: "50vh" }}
-        animate={{ opacity: 1, y: "0px" }}
-        exit={{ opacity: 0, y: "-500px" }}
-        transition={{ duration: 1, ease: "easeIn" }}
-      >
-        {children}
-      </motion.main>
+      <main>{children}</main>
       <Footer />
     </ThemeProvider>
   );

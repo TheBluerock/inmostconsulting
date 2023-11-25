@@ -4,9 +4,7 @@ import { Link } from "gatsby";
 import { useAppContext } from "@helpers/app-context";
 
 const MenuBox = ({ title, description, icon, link }) => {
-
   const { toggleMenu } = useAppContext();
-
 
   return (
     <BoxContainer to={link} onClick={toggleMenu}>

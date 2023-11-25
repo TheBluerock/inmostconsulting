@@ -1,6 +1,11 @@
 import React from "react";
 import { motion } from "framer-motion";
 
+const variants = {
+  visible: { opacity: 1, y: 0 },
+  hidden: { opacity: 0, y: "100%" },
+};
+
 export const About = ({ color }) => {
   return (
     <svg x={0} y={0} viewBox="0 0 574.4 133.4">
@@ -10,13 +15,8 @@ export const About = ({ color }) => {
 		c-2.1-6.8-5.2-19.7-5.2-19.7h-0.4c0,0-3.2,12.9-5.4,19.7L41.4,83.5z"
           initial={"hidden"}
           animate={"visible"}
-          whileInView={"visible"}
-          transition={{ duration: 1.5 }}
-          viewport={{ once: true }}
-          variants={{
-            visible: { opacity: 1, y: 0 },
-            hidden: { opacity: 0, y: "100%" },
-          }}
+          transition={{ duration: 1 }}
+          variants={variants}
         />
 
         <motion.path
@@ -25,13 +25,8 @@ export const About = ({ color }) => {
 		v30.4H178.4z M150.3,109.1h29.9c12.5,0,20.1-7,20.1-17.4c0-12.2-9-18.4-20.8-18.4h-29.2V109.1z"
           initial={"hidden"}
           animate={"visible"}
-          whileInView={"visible"}
-          transition={{ duration: 1.5, delay: 0.2 }}
-          viewport={{ once: true }}
-          variants={{
-            visible: { opacity: 1, y: 0 },
-            hidden: { opacity: 0, y: "100%" },
-          }}
+          transition={{ duration: 1, delay: 0.2 }}
+          variants={variants}
         />
 
         <motion.path
@@ -39,13 +34,8 @@ export const About = ({ color }) => {
 		c0-25.6-11.5-45.5-34.9-45.5s-35.5,19.9-35.5,45.5c0,25.4,12,45.3,35.5,45.3S326.9,92.2,326.9,66.8z"
           initial={"hidden"}
           animate={"visible"}
-          whileInView={"visible"}
-          transition={{ duration: 1.5, delay: 0.4 }}
-          viewport={{ once: true }}
-          variants={{
-            visible: { opacity: 1, y: 0 },
-            hidden: { opacity: 0, y: "100%" },
-          }}
+          transition={{ duration: 1, delay: 0.4 }}
+          variants={variants}
         />
 
         <motion.path
@@ -53,26 +43,15 @@ export const About = ({ color }) => {
 		C380.3,132.7,362.9,117.1,362.9,89.4z"
           initial={"hidden"}
           animate={"visible"}
-          whileInView={"visible"}
-          transition={{ duration: 1.5, delay: 0.6 }}
-          viewport={{ once: true }}
-          variants={{
-            visible: { opacity: 1, y: 0 },
-            hidden: { opacity: 0, y: "100%" },
-          }}
+          transition={{ duration: 1, delay: 0.6 }}
+          variants={variants}
         />
         <motion.path
           d="M471.4,2.5h103v21.9h-38.5v106.2h-26V24.4h-38.5V2.5z"
           initial={"hidden"}
           animate={"visible"}
-          whileInView={"visible"}
-          exit={"hidden"}
-          transition={{ duration: 1.5, delay: 0.8 }}
-          viewport={{ once: true }}
-          variants={{
-            visible: { opacity: 1, y: 0 },
-            hidden: { opacity: 0, y: "100%" },
-          }}
+          transition={{ duration: 1, delay: 0.8 }}
+          variants={variants}
         />
       </g>
     </svg>

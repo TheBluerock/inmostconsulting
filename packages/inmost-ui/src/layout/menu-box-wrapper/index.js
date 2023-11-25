@@ -6,40 +6,39 @@ import MenuBox from "@layout/menu-box";
 import HomeIcon from "./home-icon";
 import EyeIcon from "./eye-icon";
 
-
 const MenuBoxWrapper = () => {
   return (
     <>
-    <OuterWrapper>
-      <InnerWrapper>
-        <MenuBox
-          title={"Home"}
-          description={"Dove tutto ha inizio"}
-          icon={<HomeIcon />}
-          link={"/"}
+      <OuterWrapper>
+        <InnerWrapper>
+          <MenuBox
+            title={"Home"}
+            description={"Dove tutto ha inizio"}
+            icon={<HomeIcon />}
+            link={"/"}
           />
-        <MenuBox
-          title={"About"}
-          description={"Chi è Matteo?"}
-          icon={<EyeIcon />}
-          link={"/about/matteo-albini"}
+          <MenuBox
+            title={"About"}
+            description={"Chi è Matteo?"}
+            icon={<EyeIcon />}
+            link={"/about/matteo-albini"}
           />
-      </InnerWrapper>
-      <InnerWrapper>
-        <MenuBox
-          title={"Articoli"}
-          description={"Approfondimenti"}
-          icon={<LayersIcon />}
-          link={"/risorse/articoli/"}
+        </InnerWrapper>
+        <InnerWrapper>
+          <MenuBox
+            title={"Articoli"}
+            description={"Approfondimenti"}
+            icon={<LayersIcon />}
+            link={"/risorse/articoli/"}
           />
-        <MenuBox
-          title={"Talks"}
-          description={"Il mio Podcast"}
-          icon={<StereoIcon />}
-          link={"/risorse/podcast/inmost-talks/"}
+          <MenuBox
+            title={"Talks"}
+            description={"Il mio Podcast"}
+            icon={<StereoIcon />}
+            link={"/risorse/podcast/inmost-talks/"}
           />
-      </InnerWrapper>
-    </OuterWrapper>
+        </InnerWrapper>
+      </OuterWrapper>
     </>
   );
 };

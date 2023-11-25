@@ -28,7 +28,6 @@ const ArticlePage = ({ data }) => {
 
   const { setColorTheme } = useAppContext();
 
-  
   React.useEffect(() => {
     const colors = {
       primary: 'rgba(8, 10, 12, .8)',
@@ -36,8 +35,8 @@ const ArticlePage = ({ data }) => {
       secondary: '#1C2A4E',
       background: '#e9ede1',
     };
-    setColorTheme(colors)
-  },[])
+    setColorTheme(colors);
+  }, []);
 
   const Text = ({ children }) => <BlogParagraph>{children}</BlogParagraph>;
 

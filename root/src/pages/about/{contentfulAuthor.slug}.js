@@ -5,11 +5,11 @@ import { BLOCKS, INLINES, MARKS } from '@contentful/rich-text-types';
 import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 import Container from '@commons/container';
 import MarginController from '@commons/margin-controller';
+import Text from '@commons/text';
 import BlogParagraph from '@components/blog-paragraph';
 import BlogHeading from '@components/blog-heading';
 import Link from '@components/link';
 import Spacer from '@components/spacer';
-import Text from '@commons/text';
 import { useAppContext } from '@helpers/app-context';
 import { useTheme } from '@emotion/react';
 import StarCircle from '@components/star-circle';
@@ -19,7 +19,7 @@ import TitleMarquee from '@components/marquee-title';
 import { motion } from 'framer-motion';
 
 const AuthorPage = ({ data }) => {
-  const { bio, name, image, description, shortBio } = data.contentfulAuthor;
+  const { id, bio, name, image, description, shortBio } = data.contentfulAuthor;
   const { setColorTheme } = useAppContext();
   const theme = useTheme();
 
@@ -149,11 +149,12 @@ const AuthorPage = ({ data }) => {
 
   return (
     <motion.div
+      key={id}
       initial={{ opacity: 0, y: '500px' }}
       animate={{ opacity: 1, y: 0 }}
-      exit={{ opacity: 0 }}
+      exit={{ opacity: 0, y: '-500px' }}
       transition={{
-        duration: 1.75,
+        duration: 0.75,
       }}
     >
       <Spacer line space={4} />
@@ -196,6 +197,7 @@ export default AuthorPage;
 export const query = graphql`
   query AuthorQuery($id: String) {
     contentfulAuthor(id: { eq: $id }) {
+      id
       bio {
         raw
         references {
