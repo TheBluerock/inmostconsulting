@@ -8,8 +8,8 @@ const AnimatedParagraph = ({ paragraph, color }) => {
 
   return (
     <Text
-      as="p"
-      fontSize={theme.typography.h4}
+      as="h1"
+      fontSize={theme.typography.h1}
       color={color}
       fontFamily="serif"
       lineHeight={1.1}

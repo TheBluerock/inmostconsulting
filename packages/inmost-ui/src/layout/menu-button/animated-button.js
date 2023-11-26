@@ -3,7 +3,7 @@ import styled from "@emotion/styled";
 import CircleLoader from "@layout/circle-loader";
 import { useAppContext } from "@helpers/app-context";
 import { ThemeProvider } from "@emotion/react";
-import theme from '@theme';
+import theme from "@theme";
 
 const BurgerButtonWrapper = styled.div`
   display: flex;
@@ -52,8 +52,8 @@ const MenuButton = ({ hovered }) => {
 
   const menuTheme = {
     ...theme,
-    colors: currentColorTheme
-  }
+    colors: currentColorTheme,
+  };
 
   const handleClick = () => {
     toggleMenu();

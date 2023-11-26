@@ -2,12 +2,13 @@ require('dotenv').config();
 
 module.exports = {
   flags: {
-    DEV_SSR: true,
+    DEV_SSR: false,
   },
   siteMetadata: {
     locale: 'it',
     name: 'Inmost®',
-    podcast: 'https://open.spotify.com/show/4Biam7fzH5KOEchby5Uw5C?si=fc880c8ffa4b4f3f',
+    podcast:
+      'https://open.spotify.com/show/4Biam7fzH5KOEchby5Uw5C?si=fc880c8ffa4b4f3f',
     links: [
       {
         name: 'Inmost®',

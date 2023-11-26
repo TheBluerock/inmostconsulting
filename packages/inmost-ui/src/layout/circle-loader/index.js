@@ -41,7 +41,7 @@ const CircleLoader = ({ r, time, play }) => {
       }}
     >
       <motion.circle
-        stroke={ theme.colors.primary } //cant get theme.colors.primary
+        stroke={theme.colors.primary} //cant get theme.colors.primary
         style={{
           fill: "none",
           strokeWidth: 2,

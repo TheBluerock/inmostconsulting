@@ -8,7 +8,7 @@ module.exports = (options) => {
         resolve: "gatsby-plugin-react-svg",
         options: {
           rule: {
-            include: path.resolve(__dirname, "./src/svg")
+            include: path.resolve(__dirname, "./src/svg"),
           },
         },
       },
@@ -16,7 +16,7 @@ module.exports = (options) => {
         resolve: "gatsby-plugin-mailchimp",
         options: {
           endpoint: options.mailchimpEndpoint,
-          timeout: 3500
+          timeout: 3500,
         },
       },
       {
@@ -28,7 +28,7 @@ module.exports = (options) => {
             "@layout": path.resolve(__dirname, "./src/layout"),
             "@theme": path.resolve(__dirname, "./src/theme"),
             "@widgets": path.resolve(__dirname, "./src/widgets"),
-            "@svg": path.resolve(__dirname, "./src/svg")
+            "@svg": path.resolve(__dirname, "./src/svg"),
           },
         },
       },

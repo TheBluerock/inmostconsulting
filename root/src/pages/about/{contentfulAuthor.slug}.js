@@ -136,7 +136,7 @@ const AuthorPage = ({ data }) => {
             textTransform={'uppercase'}
             lineHeight={1.25}
             color={theme.colors.primary}
-            style={{ textIndent: '5vw' }}
+            style={{ textIndent: '10vw' }}
           >
             {children}
           </Text>

@@ -31,16 +31,16 @@ const styles = css`
   }
 `;
 
-const SunLogo = () => {
+const SunLogo = ({ size }) => {
   const theme = useTheme();
 
   return (
     <svg
       id="eZ1B2N4W8Pt1"
       viewBox="0 0 1000 1000"
-      height={500}
-      width={500}
       css={styles}
+      height={size}
+      width={size}
     >
       <defs>
         <path
