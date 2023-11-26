@@ -7,6 +7,7 @@ module.exports = {
   siteMetadata: {
     locale: 'it',
     name: 'Inmost®',
+    podcast: 'https://open.spotify.com/show/4Biam7fzH5KOEchby5Uw5C?si=fc880c8ffa4b4f3f',
     links: [
       {
         name: 'Inmost®',

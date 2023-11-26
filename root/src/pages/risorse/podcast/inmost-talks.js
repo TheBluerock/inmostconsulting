@@ -15,6 +15,7 @@ import Link from '@components/link';
 import MarginController from '@commons/margin-controller';
 import Text from '@commons/text';
 import { useAppContext } from '@helpers/app-context';
+import SpotifyAnnouncer from '@components/spotify';
 
 const PodcastPage = ({ data }) => {
   const { setColorTheme } = useAppContext();
@@ -145,6 +146,7 @@ const PodcastPage = ({ data }) => {
         />
       </Container>
       {renderRichText(body, options)}
+      <SpotifyAnnouncer />
     </motion.div>
   );
 };

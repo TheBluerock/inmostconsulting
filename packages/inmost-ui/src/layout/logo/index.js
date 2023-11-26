@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "gatsby";
+import { motion } from "framer-motion";
 import styled from "@emotion/styled";
 import Asterisk from "@layout/animated-asterisk";
-import { keyframes } from "@emotion/react";
-import { gsap } from "gsap";
 import { useLocation } from "@reach/router";
 import { useStaticQuery, graphql } from "gatsby";
 import { useAppContext } from "@helpers/app-context";
@@ -18,21 +17,11 @@ const StyledLink = styled(Link)`
   }
 `;
 
-const rotate = keyframes`
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
-`;
-
-const AsteriskWrapper = styled.span`
+const AsteriskWrapper = styled(motion.span)`
   margin-right: 8px;
   height: 36px;
   width: 36px;
-  animation: ${(props) => (props.active ? rotate : "none")} 20s linear infinite;
-  opacity: ${(props) => (props.active ? 1 : 0)};
+  opacity: ${({ active }) => (active ? 1 : 0)};
   transition: opacity 0.5s ease-in;
   @media ${({ theme }) => theme.device.small} {
     height: 32px;
@@ -81,35 +70,19 @@ const Logo = () => {
     setName(pathname === "/" ? siteName : getName(pathname));
   }, [pathname]);
 
-  const exitAnimation = (node) => {
-    const tl = gsap.timeline();
-    tl.to(node, { opacity: 0, duration: 1 });
-    return tl;
-  };
-
-  const entryAnimation = (node) => {
-    const tl = gsap.timeline();
-    tl.from(node, { opacity: 0, duration: 1 });
-    return tl;
-  };
-
   return (
     <OuterWrapper>
-      <AsteriskWrapper active={true} aria-label={`${name} is active`}>
-        <Asterisk active={true} size={isDevice === "mobile" ? 33 : 36} />
+      <AsteriskWrapper
+        animate={{ rotate: 360 }}
+        transition={{ duration: 20, loop: Infinity }}
+        active
+      >
+        <Asterisk size={isDevice === "mobile" ? 33 : 36} />
       </AsteriskWrapper>
       <StyledLink
         to={pathname}
-        exit={{
-          trigger: ({ node }) => exitAnimation(node),
-          length: 1,
-        }}
-        entry={{
-          delay: 0.5,
-          trigger: ({ node }) => entryAnimation(node),
-          length: 1,
-        }}
-        aria-label={`Go to ${name}`}
+        exit={{ opacity: 0, duration: 1 }}
+        entry={{ opacity: 0, duration: 1, delay: 0.5 }}
       >
         {name}
       </StyledLink>

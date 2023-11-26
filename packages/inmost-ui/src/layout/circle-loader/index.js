@@ -29,8 +29,6 @@ const CircleLoader = ({ r, time, play }) => {
     setIsPlaying(play);
   }, [play]);
 
-  console.log("theme: " + theme.colors.primary);
-
   return (
     <motion.svg
       height={radius + 3}
@@ -38,14 +36,14 @@ const CircleLoader = ({ r, time, play }) => {
       style={{
         position: "absolute",
         margin: "0 auto",
-        background: theme.colors.background,
+        background: "transparent",
         borderRadius: "50%",
       }}
     >
       <motion.circle
+        stroke={ theme.colors.primary } //cant get theme.colors.primary
         style={{
           fill: "none",
-          stroke: "rgba(0, 0, 0, .64)", //cant get theme.colors.primary
           strokeWidth: 2,
           strokeLinecap: "round",
           strokeDasharray: (2 * Math.PI * radius) / 2,

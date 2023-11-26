@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import styled from "@emotion/styled";
 import CircleLoader from "@layout/circle-loader";
 import { useAppContext } from "@helpers/app-context";
+import { ThemeProvider } from "@emotion/react";
+import theme from '@theme';
 
 const BurgerButtonWrapper = styled.div`
   display: flex;
@@ -45,8 +47,13 @@ const Line = styled.div`
 `;
 
 const MenuButton = ({ hovered }) => {
-  const { isMenuOpen, toggleMenu } = useAppContext();
+  const { isMenuOpen, toggleMenu, currentColorTheme } = useAppContext();
   const [isClicked, setIsClicked] = useState(false);
+
+  const menuTheme = {
+    ...theme,
+    colors: currentColorTheme
+  }
 
   const handleClick = () => {
     toggleMenu();
@@ -54,7 +61,7 @@ const MenuButton = ({ hovered }) => {
   };
 
   return (
-    <>
+    <ThemeProvider theme={menuTheme}>
       <BurgerButtonWrapper
         onClick={handleClick}
         isOpen={isMenuOpen}
@@ -65,7 +72,7 @@ const MenuButton = ({ hovered }) => {
         <Line isOpen={isMenuOpen} />
       </BurgerButtonWrapper>
       <CircleLoader play={isMenuOpen} r={48} />
-    </>
+    </ThemeProvider>
   );
 };
 
