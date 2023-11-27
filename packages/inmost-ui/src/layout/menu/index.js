@@ -4,7 +4,7 @@ import { useAppContext } from "@helpers/app-context";
 import styled from "@emotion/styled";
 import MenuBody from "@layout/menu-body";
 
-const UnderWrapper = styled(motion.aside)`
+const UnderWrapper = styled(motion.div)`
   position: fixed;
   overflow: hidden;
   background: ${({ theme }) => theme.colors.background} || null};

@@ -7,6 +7,7 @@ module.exports = {
   siteMetadata: {
     locale: 'it',
     name: 'Inmost®',
+    siteUrl: 'https://inmostconsulting.com',
     podcast:
       'https://open.spotify.com/show/4Biam7fzH5KOEchby5Uw5C?si=fc880c8ffa4b4f3f',
     links: [
@@ -42,6 +43,12 @@ module.exports = {
     'gatsby-plugin-image',
     'gatsby-plugin-sharp',
     'gatsby-transformer-sharp',
+    {
+      resolve: `gatsby-plugin-sitemap`,
+      options: {
+        createLinkInHead: true
+      },
+    },
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
