@@ -1,10 +1,20 @@
 # Roadmap
 
+### Site Status
+
+[![Netlify Status](https://api.netlify.com/api/v1/badges/11a7003e-b970-4d2d-817a-e992722dfaa6/deploy-status)](https://app.netlify.com/sites/inmost/deploys)
+
+## Priority
+
+- Servizi
+- Homepage
+- Quinta Via
+- 
+
 ## Features
 
 - Glossary
 - F.a.q.
-- Transition
 - Splashscreen Loader
 - Homepage
 - Inmost Talks page
@@ -15,12 +25,9 @@
 
 ## SEO
 
-- Implement Sitemap
 - Add Fully PWA
 - Head Homepage
 - Head Articoli
-- Head Author
-- Head Podcast
 - FAQ
 - Head Glossary
 
@@ -30,3 +37,8 @@
 - Category Page
 - Terms Page
 - Related Services
+
+## Improvements
+
+- Sitemap Query
+- 

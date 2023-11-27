@@ -43,6 +43,7 @@ module.exports = {
     'gatsby-plugin-image',
     'gatsby-plugin-sharp',
     'gatsby-transformer-sharp',
+    //Create appropriate query
     {
       resolve: `gatsby-plugin-sitemap`,
       options: {
