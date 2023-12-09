@@ -34,7 +34,7 @@ const PodcastPage = ({ data }) => {
     });
   }, []);
 
-  const Bold = ({ children, ...props }) => (
+  const Bold = ({ children }) => (
     <Text
       as={'span'}
       fontWeight={400}
@@ -197,7 +197,7 @@ export const Head = ({ data }) => {
     updatedAt,
   } = data.contentfulWebpage;
 
-  const pageUrl = `https://inmostconsulting.com/risorse/podcast/${slug}`;
+  const pageUrl = `https://inmostconsulting.com/risorse/podcast/${slug}/`;
 
   const pageSchema = {
     '@context': 'https://schema.org',
@@ -220,7 +220,7 @@ export const Head = ({ data }) => {
     },
     mainEntityOfPage: {
       '@type': 'WebPage',
-      '@id': 'https://www.inmostconsulting.com',
+      '@id': 'https://www.inmostconsulting.com/',
     },
   };
 
