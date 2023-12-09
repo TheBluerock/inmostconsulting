@@ -2,6 +2,7 @@ import React from "react";
 import styled from "@emotion/styled";
 import { Link } from "gatsby";
 import Container from "@commons/container";
+import { motion } from "framer-motion";
 
 const StyledParagraph = styled.p`
   text-transform: uppercase;
@@ -24,15 +25,15 @@ const StyledParagraph = styled.p`
   & > .aside {
     font-family: ${({ theme }) => theme.fonts.sans};
     font-size: 24px;
-    margin-right: 1em;
+    margin-right: 3em;
     line-height: 20px;
     font-weight: 600;
   }
 
   @media ${({ theme }) => theme.device.large} {
     margin: 0 16px;
-    font-size: clamp(3vw, ${({ theme }) => theme.typography.p.tablet}, 5vw);
-    line-height: 1.6em;
+    font-size: clamp(3vw, ${({ theme }) => theme.typography.h4.tablet}, 5vw);
+    line-height: 1.3em;
     & > .bold {
       font-size: calc(${({ theme }) => theme.typography.p.tablet} * 1.5);
     }
@@ -40,7 +41,7 @@ const StyledParagraph = styled.p`
 
   @media ${({ theme }) => theme.device.small} {
     margin: 0 8px;
-    font-size: ${({ theme }) => theme.typography.p.mobile};
+    font-size: ${({ theme }) => theme.typography.h3.tablet};
     line-height: 1.4em;
     & > .bold {
       font-size: calc(${({ theme }) => theme.typography.p.mobile} * 1.2);
@@ -59,13 +60,29 @@ const ActionButton = styled(Link)`
 
 const BigParagraph = ({ children, action, sans, color }) => {
   return (
-    <Container width={"65vw"}>
+    <motion.div initial="hidden" animate="visible" variants={variants}>
+    <Container width={"67vw"}>
       <StyledParagraph sans={sans} color={color}>
         {children}
       </StyledParagraph>
       {action && <ActionButton to={action.link}>{action.text}</ActionButton>}
     </Container>
+    </motion.div>
   );
 };
 
 export default BigParagraph;
+
+const variants = {
+  visible: {
+    y: 0,
+    opacity: 1,
+    transition: {
+      duration: 1
+    }
+  },
+  hidden: {
+    y: 200,
+    opacity: 0
+  }
+}

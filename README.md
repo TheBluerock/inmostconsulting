@@ -6,10 +6,11 @@
 
 ## Priority
 
-- Servizi
 - Homepage
+- Servizi
+- Articoli
+- Categorie
 - Quinta Via
-- 
 
 ## Features
 
@@ -27,7 +28,7 @@
 
 - Add Fully PWA
 - Head Homepage
-- Head Articoli
+- Head Articles page
 - FAQ
 - Head Glossary
 
@@ -41,4 +42,4 @@
 ## Improvements
 
 - Sitemap Query
-- 
+-

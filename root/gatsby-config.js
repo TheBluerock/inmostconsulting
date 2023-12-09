@@ -47,7 +47,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-sitemap`,
       options: {
-        createLinkInHead: true
+        createLinkInHead: true,
       },
     },
     {
@@ -72,14 +72,14 @@ module.exports = {
             short_name: 'Articoli',
             description: 'View the list of podcasts you saved for later',
             url: '/risorse/articoli/',
-            icons: [{ src: 'src/images/layers.png', sizes: '192x192' }],
+            icons: [{ src: '/images/layers.png', sizes: '192x192' }],
           },
           {
             name: 'Ascolta',
             short_name: 'Inmost® Talks',
             description: 'View the list of podcasts you listen to',
             url: '/risorse/podcast/inmost-talks/',
-            icons: [{ src: 'src/images/stereo.png', sizes: '192x192' }],
+            icons: [{ src: '/images/stereo.png', sizes: '192x192' }],
           },
         ],
       },

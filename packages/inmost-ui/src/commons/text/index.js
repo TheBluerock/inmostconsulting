@@ -28,7 +28,7 @@ const Text = ({
 
   const StyledText = styled(TextComponent)`
     color: ${(props) => props.color || theme.colors.primary};
-    font-size: ${(props) => props.fontSize.desktop};
+    font-size: ${(props) => props.fontSize && props.fontSize.desktop};
     font-family: ${getFontFamily()};
     text-align: ${(props) => props.textAlign};
     line-height: ${(props) => props.lineHeight};
@@ -49,10 +49,10 @@ const Text = ({
     z-index: ${(props) => props.zIndex};
     padding-top: ${(props) => props.pt};
     @media ${({ theme }) => theme.device.large} {
-      font-size: ${(props) => props.fontSize.tablet};
+      font-size: ${(props) => props.fontSize && props.fontSize.tablet};
     }
     @media ${({ theme }) => theme.device.xxsmall} {
-      font-size: ${(props) => props.fontSize.mobile};
+      font-size: ${(props) => props.fontSize && props.fontSize.mobile};
     }
   `;
 

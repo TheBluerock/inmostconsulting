@@ -25,7 +25,7 @@ const AuthorPage = ({ data }) => {
 
   React.useEffect(() => {
     setColorTheme({
-      background: 'rgba(250,250,246, .9)',
+      background: 'rgba(255,245,226, .9)',
       lightPrimary: 'rgba(8, 8, 25, .2)',
       secondary: 'rgba(187, 8, 8, .9)',
       primary: 'rgba(18, 30, 40, .9)',
@@ -131,6 +131,7 @@ const AuthorPage = ({ data }) => {
         //const words = children[0].split(/(\s+)/);
         return (
           <Text
+            as={"p"}
             fontSize={theme.typography.h5}
             fontFamily={'serif'}
             textTransform={'uppercase'}

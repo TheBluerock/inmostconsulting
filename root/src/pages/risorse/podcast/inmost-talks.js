@@ -155,9 +155,10 @@ export default PodcastPage;
 
 export const query = graphql`
   query PageQuery {
-    contentfulWebpage {
+    contentfulWebpage(name: { eq: "Podcast" }, node_locale: { eq: "it" }) {
       id
       contentful_id
+      name
       createdAt
       body {
         raw

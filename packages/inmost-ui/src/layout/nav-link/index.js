@@ -5,6 +5,7 @@ import styled from "@emotion/styled";
 import { useLocation } from "@reach/router";
 import Asterisk from "@layout/animated-asterisk";
 import { globalHistory } from "@reach/router";
+import isPropValid from "@emotion/is-prop-valid";
 
 NavLink.propTypes = {
   url: PropTypes.string.isRequired,
@@ -16,17 +17,31 @@ const StyledLink = styled(Link)`
   font-size: ${({ theme }) => theme.typography.h5.desktop};
   text-transform: uppercase;
   color: ${({ theme }) => theme.colors.primary};
+  transition: color 0.5s easeIn;
   font-family: ${({ theme }) => theme.fonts.sans};
 `;
 
-const AsteriskWrapper = styled.span`
-  position: relative;
-  margin-right: 8px;
-  height: 36px;
-  width: 36px;
-  opacity: ${(props) => (props.active ? 1 : 0)};
-  transition: opacity 0.5s ease-in;
-`;
+// const AsteriskWrapper = styled('span', {
+//   shouldForwardProp: prop => isPropValid(prop) && prop !== 'active'
+// })`
+//   position: relative;
+//   margin-right: 8px;
+//   height: 36px;
+//   width: 36px;
+//   opacity: ${props => props.active};
+//   transition: opacity 0.5s ease-in;
+// `;
+
+const AsteriskWrapper = styled("span", {
+  shouldForwardProp: (prop) => isPropValid(prop),
+})((props) => ({
+  position: "relative",
+  marginRight: 8,
+  height: 36,
+  width: 36,
+  opacity: props.active,
+  transition: "opacity .5s easeIn",
+}));
 
 const OuterWrapper = styled.div`
   display: flex;

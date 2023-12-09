@@ -24,8 +24,6 @@ const SpotifyAnnouncer = () => {
 
   const podcatsUrl = data.site.siteMetadata.podcast;
 
-  console.log(podcatsUrl);
-
   const theme = useTheme();
 
   return (

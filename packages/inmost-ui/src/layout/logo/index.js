@@ -17,7 +17,9 @@ const StyledLink = styled(Link)`
   }
 `;
 
-const AsteriskWrapper = styled(motion.span)`
+const AsteriskWrapper = styled(motion.span, {
+  shouldForwardProp: (prop) => prop !== "active",
+})`
   margin-right: 8px;
   height: 36px;
   width: 36px;

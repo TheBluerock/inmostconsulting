@@ -26,6 +26,7 @@ const GlobalStyles = () => {
           background-color: ${theme.colors.background};
           font-family: "Neue Haas Grotesque", sans-serif;
           -webkit-tap-highlight-color: transparent;
+          scroll-snap-type: y mandatory;
         }
       `}
     />

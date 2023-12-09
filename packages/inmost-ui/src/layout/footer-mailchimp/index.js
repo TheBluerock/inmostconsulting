@@ -26,8 +26,6 @@ const FooterMailchimp = () => {
 
   const theme = useTheme();
 
-  console.log("hello");
-
   return (
     <Wrapper>
       <Spacer space={4} />

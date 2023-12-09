@@ -16,6 +16,7 @@ const AppContextProvider = ({ children }) => {
     lightPrimary: "rgba(0, 0, 0, 0)",
   });
   const [render, setRender] = useState(false);
+  const [ isFirstTime, setFirstTime ] = useState(true);
 
   // MENU OPEN
   const [isMenuOpen, setMenuOpen] = useState(false);
@@ -95,6 +96,8 @@ const AppContextProvider = ({ children }) => {
     setColorTheme,
     render,
     setRender,
+    isFirstTime,
+    setFirstTime
   };
 
   return (

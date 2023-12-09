@@ -35,7 +35,7 @@ const typography = {
   h3: calculateTypographySizes(FONT_SIZE_BASE, RATIO, 3),
   h2: calculateTypographySizes(FONT_SIZE_BASE, RATIO, 4),
   h1: calculateTypographySizes(FONT_SIZE_BASE, RATIO, 5),
-  big: calculateTypographySizes(FONT_SIZE_BASE, RATIO, 6),
+  big: calculateTypographySizes(FONT_SIZE_BASE, RATIO, 5.2),
 };
 
 export default typography;
