@@ -35,6 +35,9 @@ const HomePage = ({ data }) => {
       transition={{
         duration: 0.75,
       }}
+      style={{
+        overflow: "hidden"
+      }}
     >
       <Spacer space={4} line/>
       <MarginController>
