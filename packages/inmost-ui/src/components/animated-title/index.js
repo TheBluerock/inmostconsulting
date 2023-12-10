@@ -55,7 +55,7 @@ const Text = styled(motion.h1)`
   }
   @media ${({ theme }) => theme.device.small}{
     line-height: .9;
-    font-size: ${({ theme }) => theme.typography.h2.mobile};
+    font-size: ${({ theme }) => theme.typography.h3.mobile};
     text-align: right;
   }
 `;

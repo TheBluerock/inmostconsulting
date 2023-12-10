@@ -8,7 +8,7 @@ const AnimatedMarquee = ({ title, subtitle }) => {
       <Spacer line space={2} />
         <ParallaxTextSerifBig baseVelocity={-1} >{ title }</ParallaxTextSerifBig>
       <Spacer line space={2} />
-        <ParallaxTextSansSmall baseVelocity={2}>{ subtitle }</ParallaxTextSansSmall>
+        <ParallaxTextSansSmall baseVelocity={1}>{ subtitle }</ParallaxTextSansSmall>
       <Spacer line space={1} />
     </div>
   );

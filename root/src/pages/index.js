@@ -9,6 +9,7 @@ import HeroImage from '@components/hero-image';
 import AnimatedMarquee from '@components/animated-marquee';
 import { StaticImage } from 'gatsby-plugin-image';
 import { motion } from 'framer-motion';
+import InmostTitle from '@components/home-title';
 
 const HomePage = ({ data }) => {
   const { setColorTheme } = useAppContext();
@@ -35,6 +36,11 @@ const HomePage = ({ data }) => {
         duration: 0.75,
       }}
     >
+      <Spacer space={4} line/>
+      <MarginController>
+        <InmostTitle />
+      </MarginController>
+      <Spacer space={4} line/>
       <Spacer space={ 1 } /> 
       <MarginController>
         <HeroImage />
