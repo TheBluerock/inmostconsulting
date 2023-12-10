@@ -5,7 +5,7 @@ import Spacer from "@components/spacer";
 
 const blogParagraphStyles = (theme) => css`
   color: ${theme.colors.primary};
-  line-height: 1.6em;
+  line-height: 1.3em;
   font-weight: 400;
   margin: 0 auto;
   max-width: 55vw;
@@ -28,7 +28,7 @@ const BlogParagraph = ({ children }) => {
     <>
       <Text
         as="p"
-        fontSize={theme.typography.p}
+        fontSize={theme.typography.h5}
         css={blogParagraphStyles(theme)}
       >
         {children}

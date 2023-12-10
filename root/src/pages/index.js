@@ -7,8 +7,10 @@ import { graphql } from 'gatsby';
 import BigParagraph from '@components/big-paragraph';
 import HeroImage from '@components/hero-image';
 import AnimatedMarquee from '@components/animated-marquee';
+import { StaticImage } from 'gatsby-plugin-image';
+import { motion } from 'framer-motion';
 
-const HomePage = () => {
+const HomePage = ({ data }) => {
   const { setColorTheme } = useAppContext();
 
   React.useEffect(() => {
@@ -21,28 +23,53 @@ const HomePage = () => {
 
   }, []);
 
+  const id = data.contentfulWebpage;
+
   return (
-    <>
+    <motion.div
+      key={id}
+      initial={{ opacity: 0, y: '500px' }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: '-500px' }}
+      transition={{
+        duration: 0.75,
+      }}
+    >
       <Spacer space={ 1 } /> 
+      <MarginController>
+        <HeroImage />
+      </MarginController>
+      <Spacer space={ 16 } line star /> 
       <MarginController>
         <AnimatedTitle
           text={'A chi cerca pace, mostriamo la via del perdono.'}
         />
       </MarginController>
-      <Spacer space={ 1 } /> 
-      <MarginController>
-        <HeroImage />
-      </MarginController>
-      <Spacer space={ 3 } /> 
-      <BigParagraph>
+      <Spacer space={ 6 } /> 
+      <BigParagraph indent uppercase>
+        Sul percorso di <span className="bold">cambiamento</span>, sentiamo parlare di mente subcosciente, mindset o abitudini,  esistesse un altra prospettiva a cui guardare alle cose? e se Dietro ad ogni difficoltà percepita ci fosse una <span className='bold'>lezione di perdono</span> da imparare?
+      </BigParagraph>
+      <Spacer space={6} />
+      <AnimatedMarquee 
+        title={"Cosa possiamo fare per te •"} 
+        subtitle={"Il perdono offre qualsiasi cosa tu stia cercando •"} 
+      />
+      <Spacer space={16} star/>
+      <BigParagraph sans>
         <span className='aside'>
           Cosa facciamo
         </span>
-        A Inmost offriamo percorsi individuali di consapevolezza in cui fare esperienza del perdono come principale strumento di evoluzione personale.
+        A Inmost offriamo percorsi di consapevolezza in cui fare esperienza diretta del perdono come principale strumento di evoluzione personale.
       </BigParagraph>
-      <Spacer space={2} />
-      <AnimatedMarquee title={" this is title"} subtitle={"this is sub title"} />
-    </>
+      <MarginController>
+        <StaticImage src="../images/astronaut.webp" style={{ borderRadius: "100% "}}/>
+      </MarginController>
+      <Spacer space={4} />
+      <BigParagraph sans>
+        Creiamo percorsi fomativi e materiale divulgativo su temi quali perdono, non dualità ed evoluzione personale promuovendo gli insegnamenti di <span className='bold'>Un Corso in Miracoli</span>, mirando ad accrescere consapevolezza in ogni individuo.
+      </BigParagraph>
+      <Spacer space={4} />
+    </motion.div>
   );
 };
 

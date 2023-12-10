@@ -128,7 +128,7 @@ const AuthorPage = ({ data }) => {
 
     renderNode: {
       [BLOCKS.PARAGRAPH]: (node, children) => {
-        //const words = children[0].split(/(\s+)/);
+
         return (
           <Text
             as={"p"}
@@ -137,7 +137,7 @@ const AuthorPage = ({ data }) => {
             textTransform={'uppercase'}
             lineHeight={1.25}
             color={theme.colors.primary}
-            style={{ textIndent: '10vw' }}
+            style={{ textIndent: '30%' }}
           >
             {children}
           </Text>

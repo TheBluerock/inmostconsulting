@@ -8,7 +8,7 @@ const FONT_SIZE_BASE = {
 };
 
 const RATIO = {
-  mobile: 1.25,
+  mobile: 1.27,
   tablet: 1.33,
   desktop: 1.4,
 };

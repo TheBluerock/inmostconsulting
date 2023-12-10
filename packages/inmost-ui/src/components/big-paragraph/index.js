@@ -5,20 +5,22 @@ import Container from "@commons/container";
 import { motion } from "framer-motion";
 
 const StyledParagraph = styled.p`
-  text-transform: uppercase;
+  text-transform: ${({ uppercase }) => uppercase ? "uppercase" : "inherit" };
   color: ${({ theme, color }) => color || theme.colors.primary};
   font-size: ${({ theme }) => theme.typography.h5.desktop};
   font-family: ${({ theme, sans }) =>
     (sans && theme.fonts.sans) || theme.fonts.serif};
-  line-height: 1.3em;
+  line-height: 1.35em;
   display: inline-block;
+  letter-spacing: 0.02em;
+  text-indent: ${({ indent }) => indent ? "30%" : 0};
 
   & > .bold {
     font-family: ${({ theme }) => theme.fonts.slant};
     text-transform: lowercase;
-    font-size: calc(${({ theme }) => theme.typography.p.desktop} * 1.4);
+    font-size: calc(${({ theme }) => theme.typography.p.desktop} * 1.832);
     letter-spacing: -1%;
-    line-height: calc(${({ theme }) => theme.typography.p.desktop} * 1.4);
+    line-height: calc(${({ theme }) => theme.typography.p.desktop} * 1.2);
     text-decoration-style: dashed;
   }
 
@@ -28,6 +30,7 @@ const StyledParagraph = styled.p`
     margin-right: 3em;
     line-height: 20px;
     font-weight: 600;
+    text-transform: uppercase;
   }
 
   @media ${({ theme }) => theme.device.large} {
@@ -44,10 +47,12 @@ const StyledParagraph = styled.p`
     font-size: ${({ theme }) => theme.typography.h3.tablet};
     line-height: 1.4em;
     & > .bold {
-      font-size: calc(${({ theme }) => theme.typography.p.mobile} * 1.2);
+      font-size: calc(${({ theme }) => theme.typography.p.mobile} * 1.7);
     }
     & > .aside {
       display: block;
+      font-size: calc(${({ theme }) => theme.typography.p.mobile} * 1.7);
+      line-height: 1em;
       margin-bottom: 8px;
       letter-spacing: 0.03em;
     }
@@ -58,11 +63,11 @@ const ActionButton = styled(Link)`
   display: inline-block;
 `;
 
-const BigParagraph = ({ children, action, sans, color }) => {
+const BigParagraph = ({ children, action, sans, color, indent, uppercase }) => {
   return (
     <motion.div initial="hidden" animate="visible" variants={variants}>
     <Container width={"67vw"}>
-      <StyledParagraph sans={sans} color={color}>
+      <StyledParagraph sans={sans} color={color} indent={indent} uppercase={uppercase}>
         {children}
       </StyledParagraph>
       {action && <ActionButton to={action.link}>{action.text}</ActionButton>}

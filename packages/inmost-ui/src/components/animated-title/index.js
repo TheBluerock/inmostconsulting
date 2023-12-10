@@ -49,13 +49,14 @@ const Text = styled(motion.h1)`
   font-family: ${({ theme }) => theme.fonts.sans};
   line-height: .9;
   text-transform: uppercase;
-  @media ${({ theme }) => theme.device.small}{
-    line-height: .9;
-    font-size: ${({ theme }) => theme.typography.h1.mobile};
-  }
   @media ${({ theme }) => theme.device.medium}{
     line-height: .9;
     font-size: ${({ theme }) => theme.typography.big.tablet};
+  }
+  @media ${({ theme }) => theme.device.small}{
+    line-height: .9;
+    font-size: ${({ theme }) => theme.typography.h2.mobile};
+    text-align: right;
   }
 `;
 

@@ -67,8 +67,6 @@ export const ParallaxTextSerifBig = ({ children, baseVelocity = 100 }) => {
             <InnerSpan>{children} </InnerSpan>
             <InnerSpan>{children} </InnerSpan>
             <InnerSpan>{children} </InnerSpan>
-            <InnerSpan>{children} </InnerSpan>
-            <InnerSpan>{children} </InnerSpan>
         </Text>
       </motion.div>
     </ParallaxWrapper>
@@ -207,10 +205,6 @@ export const ParallaxTextSansSmall = ({ children, baseVelocity = 100 }) => {
             <InnerSpan>{children} </InnerSpan>
             <InnerSpan>{children} </InnerSpan>
             <InnerSpan>{children} </InnerSpan>
-            <InnerSpan>{children} </InnerSpan>
-            <InnerSpan>{children} </InnerSpan>
-            <InnerSpan>{children} </InnerSpan>
-            <InnerSpan>{children} </InnerSpan>
         </Text>
       </motion.div>
     </ParallaxWrapper>
@@ -230,5 +224,5 @@ const ParallaxWrapper = styled.div`
 `
 
   const InnerSpan = styled.span`
-  margin: 4px .2em;
+  margin: 4px 0;
 `
