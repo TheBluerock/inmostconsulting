@@ -47,7 +47,7 @@ const HomePage = ({ data }) => {
       </MarginController>
       <Spacer space={ 6 } /> 
       <BigParagraph indent uppercase>
-        Sul percorso di <span className="bold">cambiamento</span>, sentiamo parlare di mente subcosciente, mindset o abitudini,  esistesse un altra prospettiva a cui guardare alle cose? e se Dietro ad ogni difficoltà percepita ci fosse una <span className='bold'>lezione di perdono</span> da imparare?
+        Sul percorso di <span className="bold">cambiamento</span>, sentiamo spesso parlare di mente subcosciente, mindset e abitudini,  Esistesse un altra prospettiva a cui guardare alle cose? E se Dietro ad ogni difficoltà percepita ci fosse una <span className='bold'>lezione di perdono</span> da imparare?
       </BigParagraph>
       <Spacer space={6} />
       <AnimatedMarquee 
@@ -57,15 +57,18 @@ const HomePage = ({ data }) => {
       <Spacer space={16} star/>
       <BigParagraph sans>
         <span className='aside'>
-          Cosa facciamo
+          Percorsi
         </span>
         A Inmost offriamo percorsi di consapevolezza in cui fare esperienza diretta del perdono come principale strumento di evoluzione personale.
       </BigParagraph>
       <MarginController>
         <StaticImage src="../images/astronaut.webp" style={{ borderRadius: "100% "}}/>
       </MarginController>
-      <Spacer space={4} />
+      <Spacer space={16} star />
       <BigParagraph sans>
+        <span className='aside'>
+          Divulgazione
+        </span>
         Creiamo percorsi fomativi e materiale divulgativo su temi quali perdono, non dualità ed evoluzione personale promuovendo gli insegnamenti di <span className='bold'>Un Corso in Miracoli</span>, mirando ad accrescere consapevolezza in ogni individuo.
       </BigParagraph>
       <Spacer space={4} />

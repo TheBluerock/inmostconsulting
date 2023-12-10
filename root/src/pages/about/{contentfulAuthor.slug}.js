@@ -28,7 +28,7 @@ const AuthorPage = ({ data }) => {
       background: 'rgba(255,245,226, .9)',
       lightPrimary: 'rgba(8, 8, 25, .2)',
       secondary: 'rgba(187, 8, 8, .9)',
-      primary: 'rgba(18, 30, 40, .9)',
+      primary: 'rgba(25, 85, 117, .9)',
     });
   }, []);
 
