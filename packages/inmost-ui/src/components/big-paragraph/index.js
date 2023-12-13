@@ -18,7 +18,7 @@ const StyledParagraph = styled.p`
   & > .bold {
     font-family: ${({ theme }) => theme.fonts.slant};
     text-transform: lowercase;
-    font-size: calc(${({ theme }) => theme.typography.p.desktop} * 1.832);
+    font-size: calc(${({ theme }) => theme.typography.p.desktop} * 1.5);
     letter-spacing: -1%;
     line-height: calc(${({ theme }) => theme.typography.p.desktop} * 1.2);
     text-decoration-style: dashed;
@@ -44,10 +44,10 @@ const StyledParagraph = styled.p`
 
   @media ${({ theme }) => theme.device.small} {
     margin: 0 8px;
-    font-size: ${({ theme }) => theme.typography.h3.tablet};
-    line-height: 1.4em;
+    font-size: ${({ theme, sans }) => sans ? theme.typography.h4.tablet : theme.typography.h3.tablet};
+    line-height: 1.3em;
     & > .bold {
-      font-size: calc(${({ theme }) => theme.typography.p.mobile} * 1.7);
+      font-size: calc(${({ theme }) => theme.typography.p.mobile} * 1.2);
     }
     & > .aside {
       display: block;

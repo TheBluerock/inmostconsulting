@@ -48,6 +48,7 @@ const Text = styled(motion.h1)`
   font-size: ${({ theme }) => theme.typography.big.desktop};
   font-family: ${({ theme }) => theme.fonts.sans};
   line-height: .9;
+  font-weight: 400;
   text-transform: uppercase;
   @media ${({ theme }) => theme.device.medium}{
     line-height: .9;

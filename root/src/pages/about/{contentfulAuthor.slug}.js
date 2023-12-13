@@ -25,10 +25,10 @@ const AuthorPage = ({ data }) => {
 
   React.useEffect(() => {
     setColorTheme({
-      background: 'rgba(255,245,226, .9)',
+      background: 'rgba(250,245,226, .9)',
       lightPrimary: 'rgba(8, 8, 25, .2)',
       secondary: 'rgba(187, 8, 8, .9)',
-      primary: 'rgba(0, 32, 107, .9)',
+      primary: 'rgba(0, 0, 5, .75)',
     });
   }, []);
 

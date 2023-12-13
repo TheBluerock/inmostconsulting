@@ -8,15 +8,6 @@ import * as fontsCss from "@theme/fonts.css";
 export const wrapPageElement = ({ element }) => {
   
   const { currentColorTheme } = useAppContext();
-  const { isFirstTime, setFirstTime } = useAppContext();
-  
-  useEffect(() => {
-    console.log(isFirstTime)
-    isFirstTime === true &&
-    setFirstTime(false);
-    setTimeout(console.log(isFirstTime), 2000)
-  },[])
-
 
   return (
     <Layout

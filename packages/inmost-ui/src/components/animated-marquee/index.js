@@ -1,6 +1,6 @@
 import React from "react";
 import Spacer from '@components/spacer';
-import { ParallaxTextSerifBig, ParallaxTextSansSmall  } from "@components/parallax-text";
+import { ParallaxTextSerifBig, ParallaxTextSansSmall, ParallaxTextSerifSmall  } from "@components/parallax-text";
 
 const AnimatedMarquee = ({ title, subtitle }) => {
   return (
@@ -15,3 +15,13 @@ const AnimatedMarquee = ({ title, subtitle }) => {
 }
 
 export default AnimatedMarquee;
+
+export const SmallSerifMarquee = ({ subtitle }) => {
+  return(
+    <div style={{ position: "relative" }}>
+      <ParallaxTextSerifSmall baseVelocity={-4}>
+        { subtitle }
+      </ParallaxTextSerifSmall>
+    </div>
+  )
+}

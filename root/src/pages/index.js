@@ -44,14 +44,19 @@ const HomePage = ({ data }) => {
         <InmostTitle />
       </MarginController>
       <Spacer space={4} line/>
+      <MarginController>
+        <AnimatedTitle
+          text={'A chi cerca pace,'}
+          />
+      </MarginController>
       <Spacer space={ 1 } /> 
       <MarginController>
         <HeroImage />
       </MarginController>
-      <Spacer space={ 16 } line star /> 
       <MarginController>
+        <Spacer space={ 4 }/> 
         <AnimatedTitle
-          text={'A chi cerca pace, mostriamo la via del perdono.'}
+          text={'offro la via del perdono.'}
         />
       </MarginController>
       <Spacer space={ 6 } /> 
@@ -60,7 +65,7 @@ const HomePage = ({ data }) => {
       </BigParagraph>
       <Spacer space={6} />
       <AnimatedMarquee 
-        title={"Cosa possiamo fare per te •"} 
+        title={"Servizi •"} 
         subtitle={"Il perdono offre qualsiasi cosa tu stia cercando •"} 
       />
       <Spacer space={16} star/>
@@ -177,16 +182,3 @@ export const Head = ({ data }) => {
     </>
   );
 };
-
-// {
-//   "@context": "http://schema.org",
-//   "@type": "Organization",
-//   "name": "Your Organization Name",
-//   "url": "https://www.yourwebsite.com",
-//   "logo": "URL to your organization's logo",
-//   "contactPoint": {
-//     "@type": "ContactPoint",
-//     "telephone": "+1-555-555-5555",
-//     "contactType": "customer service"
-//   }
-// }
