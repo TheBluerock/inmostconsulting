@@ -59,9 +59,11 @@ const HomePage = ({ data }) => {
           text={'mostro la via del perdono.'}
         />
       </MarginController>
-      <Spacer space={ 6 } /> 
+      <Spacer space={ 4 } /> 
       <BigParagraph indent uppercase>
-        Sul percorso di <span className="bold">cambiamento</span>, sentiamo spesso parlare di mente subcosciente, mindset e abitudini,  Esistesse un altra prospettiva a cui guardare alle cose? E se Dietro ad ogni difficoltà percepita ci fosse una <span className='bold'>lezione di perdono</span> da imparare?
+        Chi cerca il cambiamento viene introdotto a concetti come mente subconscia, credenze e abitudini. 
+        Esiste un'ulteriore dimensione da esplorare? E se dietro ogni sfida percepita si nascondesse, 
+        in realtà, una <span className='bold'>lezione di perdono</span> da apprendere?
       </BigParagraph>
       <Spacer space={6} />
       <AnimatedMarquee 
