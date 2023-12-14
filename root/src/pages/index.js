@@ -85,7 +85,9 @@ const HomePage = ({ data }) => {
         <span className='aside'>
           Divulgazione
         </span>
-        Creiamo percorsi fomativi e materiale divulgativo su temi quali perdono e non dualità e promuovendo gli insegnamenti di <span className='bold'>Un Corso in Miracoli</span>. Miriamo ad accrescere consapevolezza in ogni individuo.
+        Creiamo percorsi fomativi e materiale divulgativo su temi quali perdono e non dualità, 
+        promuovendo gli insegnamenti di <span className='bold'>Un Corso in Miracoli</span>. 
+        Miriamo ad accrescere consapevolezza in ogni individuo.
       </BigParagraph>
       <Spacer space={4} />
     </motion.div>
