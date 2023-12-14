@@ -56,7 +56,7 @@ const HomePage = ({ data }) => {
       <MarginController>
         <Spacer space={ 4 }/> 
         <AnimatedTitle
-          text={'offro la via del perdono.'}
+          text={'mostro la via del perdono.'}
         />
       </MarginController>
       <Spacer space={ 6 } /> 
@@ -73,7 +73,7 @@ const HomePage = ({ data }) => {
         <span className='aside'>
           Percorsi
         </span>
-        A Inmost offriamo percorsi di consapevolezza in cui fare esperienza diretta del perdono come principale strumento di evoluzione personale.
+        A Inmost offriamo percorsi di consapevolezza in cui fare esperienza diretta del <span className='bold'>perdono</span> come principale strumento di evoluzione personale.
       </BigParagraph>
       <MarginController>
         <StaticImage src="../images/astronaut.webp" style={{ borderRadius: "100% "}}/>
@@ -83,7 +83,7 @@ const HomePage = ({ data }) => {
         <span className='aside'>
           Divulgazione
         </span>
-        Creiamo percorsi fomativi e materiale divulgativo su temi quali perdono, non dualità ed evoluzione personale promuovendo gli insegnamenti di <span className='bold'>Un Corso in Miracoli</span>, mirando ad accrescere consapevolezza in ogni individuo.
+        Creiamo percorsi fomativi e materiale divulgativo su temi quali perdono e non dualità e promuovendo gli insegnamenti di <span className='bold'>Un Corso in Miracoli</span>. Miriamo ad accrescere consapevolezza in ogni individuo.
       </BigParagraph>
       <Spacer space={4} />
     </motion.div>

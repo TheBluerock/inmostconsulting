@@ -28,7 +28,7 @@ const AuthorPage = ({ data }) => {
       background: 'rgba(250,245,226, .9)',
       lightPrimary: 'rgba(8, 8, 25, .2)',
       secondary: 'rgba(187, 8, 8, .9)',
-      primary: 'rgba(0, 0, 5, .75)',
+      primary: 'rgba(0, 0, 5, .75)'
     });
   }, []);
 
@@ -43,6 +43,7 @@ const AuthorPage = ({ data }) => {
       {children}
     </Text>
   );
+  
   const Italic = ({ children, ...props }) => (
     <Text
       as={'span'}
