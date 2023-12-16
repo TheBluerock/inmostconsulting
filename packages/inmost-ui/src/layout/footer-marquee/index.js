@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Marquee from "react-fast-marquee";
 import styled from "@emotion/styled";
+import { lessons } from './lessons';
 
 function getDayOfYear() {
   const today = new Date();
@@ -11,18 +12,20 @@ function getDayOfYear() {
 }
 
 const FooterMarquee = () => {
-  const [link, setLink] = useState("");
+  const [dayOfTheYear, setDayOfTheYeat] = useState("");
+  const [lession, setLesson] = useState("");
 
   useEffect(() => {
-    const dayOfTheYear = getDayOfYear();
-    setLink(`https://lezioni.acim.org/it/chapters/lesson-${dayOfTheYear}`);
+    const day = getDayOfYear();
+    setDayOfTheYeat(day);
+    setLesson(lessons[day-1]);
   }, []); // Remove dayOfTheYear from the dependency array
 
   return (
     <Wrapper>
       <Marquee autoFill={true}>
-        <MarqueeText href={link} target="_blank" rel="noopener noreferrer">
-          Ciò che pensi di essere è una credenza da disfare.
+        <MarqueeText href={`https://lezioni.acim.org/it/chapters/lesson-${dayOfTheYear}`} target="_blank" rel="noopener noreferrer">
+          {`Lezione numero ${dayOfTheYear}: ${lession} •`}
         </MarqueeText>
       </Marquee>
     </Wrapper>

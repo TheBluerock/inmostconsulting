@@ -18,6 +18,7 @@ const StyledParagraph = styled.p`
   & > .bold {
     font-family: ${({ theme }) => theme.fonts.slant};
     text-transform: lowercase;
+    display: inline;
     font-size: calc(${({ theme }) => theme.typography.p.desktop} * 1.5);
     letter-spacing: -1%;
     line-height: calc(${({ theme }) => theme.typography.p.desktop} * 1.2);
