@@ -25,7 +25,7 @@ const FooterMarquee = () => {
     <Wrapper>
       <Marquee autoFill={true}>
         <MarqueeText href={`https://lezioni.acim.org/it/chapters/lesson-${dayOfTheYear}`} target="_blank" rel="noopener noreferrer">
-          {`Lezione numero ${dayOfTheYear}: ${lession} •`}
+          {`Lezione ${dayOfTheYear}: ${lession} •`}
         </MarqueeText>
       </Marquee>
     </Wrapper>
