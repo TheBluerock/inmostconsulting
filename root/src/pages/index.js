@@ -150,7 +150,7 @@ export const Head = ({ data }) => {
         '@type': 'ImageObject',
         url: heroImage.url,
         width: 512,
-        height: 512,
+        height: 512
       },
     },
     mainEntityOfPage: {
